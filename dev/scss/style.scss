@@ -1,8 +1,9 @@
 /* ----- Imports ----- */
 
-@import "./utils/vars";
-@import "./utils/typography";
 @import "./utils/reset";
+@import "./utils/vars";
+@import "./utils/grid";
+@import "./utils/typography";
 
 @import "./pages/intro";
 @import "./pages/test";
