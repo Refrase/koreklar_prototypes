@@ -1,0 +1,74 @@
+/* ----- Scale ----- */
+
+$scale: 16px;
+
+$scale-8-1: $scale * 8;
+$scale-7-1: $scale * 7;
+$scale-6-1: $scale * 6;
+$scale-5-1: $scale * 5;
+$scale-4-1: $scale * 4;
+$scale-3-1: $scale * 3;
+$scale-2-1: $scale * 2;
+
+$scale-1-2: $scale / 2;
+$scale-1-3: $scale / 3;
+$scale-1-4: $scale / 4;
+$scale-1-5: $scale / 5;
+$scale-1-6: $scale / 6;
+$scale-1-7: $scale / 7;
+$scale-1-8: $scale / 8;
+
+/* ----- Colors ----- */
+
+// ----- Primary
+$color-primary: #2962FF;
+
+$color-primary-lighter-6: mix(white, $color-primary, 98% );
+$color-primary-lighter-5: mix(white, $color-primary, 88% );
+$color-primary-lighter-4: mix(white, $color-primary, 70% );
+$color-primary-lighter-3: mix(white, $color-primary, 50% );
+$color-primary-lighter-2: mix(white, $color-primary, 30% );
+$color-primary-lighter-1: mix(white, $color-primary, 15% );
+
+$color-primary-darker-1: mix(black, $color-primary, 11% );
+$color-primary-darker-2: mix(black, $color-primary, 28% );
+$color-primary-darker-3: mix(black, $color-primary, 43% );
+$color-primary-darker-4: mix(black, $color-primary, 59% );
+
+// ----- Base
+$color-base: #607d8b;
+
+$color-base-lighter-8: mix(white, $color-base, 98% );
+$color-base-lighter-7: mix(white, $color-base, 94% );
+$color-base-lighter-6: mix(white, $color-base, 88% );
+$color-base-lighter-5: mix(white, $color-base, 80% );
+$color-base-lighter-4: mix(white, $color-base, 70% );
+$color-base-lighter-3: mix(white, $color-base, 50% );
+$color-base-lighter-2: mix(white, $color-base, 30% );
+$color-base-lighter-1: mix(white, $color-base, 15% );
+
+$color-base-darker-1: mix(black, $color-base, 11% );
+$color-base-darker-2: mix(black, $color-base, 28% );
+$color-base-darker-3: mix(black, $color-base, 43% );
+$color-base-darker-4: mix(black, $color-base, 59% );
+
+/* ----- Font-family ----- */
+
+$fontFamily-sans: -apple-system, BlinkMacSystemFont, "Raleway", "Roboto", "Helvetica Neue", sans-serif;
+$fontFamily-system: "Roboto", "Helvetica Neue", sans-serif;
+
+/* ----- Font-size ----- */
+
+$fontSize-display: 140px;
+
+$fontSize-xxxlarge: 36px;
+$fontSize-xxlarge: 24px;
+$fontSize-xlarge: 18px;
+$fontSize-large: 16px;
+$fontSize-base: 14px;
+$fontSize-small: 12px;
+$fontSize-xsmall: 11px;
+$fontSize-xxsmall: 10px;
+
+$fontSize-title: $fontSize-xxxlarge;
+$fontSize-body-copy: $fontSize-large;
