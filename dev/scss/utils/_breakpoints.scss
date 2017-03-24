@@ -1,0 +1,27 @@
+@mixin breakpoint($class, $value: false, $min: false) {
+
+  @if $class == 'mobile' {
+    @media (max-width: 480px) { @content; }
+  } @else if $class == 'tabletOnly' {
+    @media (min-width: 481px) and (max-width: 768px) { @content; }
+  } @else if $class == 'tablet' {
+    @media (max-width: 767px) { @content; }
+  } @else if $class == 'tabletAbove' {
+    @media (min-width: 768px) { @content; }
+  } @else if $class == 'desktop' {
+    @media (max-width: 1024px) { @content; }
+  } @else if $class == 'widescreen' {
+    @media (min-width: 1025px) { @content; }
+  } @else if $class == 'extraWidescreen' {
+    @media (min-width: 1600px) { @content; }
+  } @else if $class == 'custom' {
+    @if $min == true {
+      @media (min-width: $value) { @content; }
+    } @else {
+      @media (max-width: $value) { @content; }
+    }
+  } @else {
+    @error 'That breakpoint isn\'t available...';
+  }
+
+}
