@@ -1,0 +1,66 @@
+$positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clean .padding/.margin (all sides) option
+
+@each $position in $positions {
+	.padding#{$position}-8-1 { padding#{$position}: $scale-8-1 !important; }
+	.padding#{$position}-7-1 { padding#{$position}: $scale-7-1 !important; }
+	.padding#{$position}-6-1 { padding#{$position}: $scale-6-1 !important; }
+	.padding#{$position}-5-1 { padding#{$position}: $scale-5-1 !important; }
+	.padding#{$position}-4-1 { padding#{$position}: $scale-4-1 !important; }
+	.padding#{$position}-3-1 { padding#{$position}: $scale-3-1 !important; }
+	.padding#{$position}-2-1 { padding#{$position}: $scale-2-1 !important; }
+	.padding#{$position} 	   { padding#{$position}: $scale !important; }
+	.padding#{$position}-1-2 { padding#{$position}: $scale-1-2 !important; }
+	.padding#{$position}-1-3 { padding#{$position}: $scale-1-3 !important; }
+	.padding#{$position}-1-4 { padding#{$position}: $scale-1-4 !important; }
+	.padding#{$position}-1-5 { padding#{$position}: $scale-1-5 !important; }
+	.padding#{$position}-1-6 { padding#{$position}: $scale-1-6 !important; }
+	.padding#{$position}-1-7 { padding#{$position}: $scale-1-7 !important; }
+	.padding#{$position}-1-8 { padding#{$position}: $scale-1-8 !important; }}
+
+.padding-none { padding: 0 !important;
+	&-top 	    { padding-top: 0 !important; }
+	&-bottom    { padding-bottom: 0 !important; }}
+
+@each $position in $positions {
+	.margin#{$position}-8-1  { margin#{$position}: $scale-8-1 !important; }
+	.margin#{$position}-7-1  { margin#{$position}: $scale-7-1 !important; }
+	.margin#{$position}-6-1  { margin#{$position}: $scale-6-1 !important; }
+	.margin#{$position}-5-1  { margin#{$position}: $scale-5-1 !important; }
+	.margin#{$position}-4-1  { margin#{$position}: $scale-4-1 !important; }
+	.margin#{$position}-3-1  { margin#{$position}: $scale-3-1 !important; }
+	.margin#{$position}-2-1  { margin#{$position}: $scale-2-1 !important; }
+	.margin#{$position} 		 { margin#{$position}: $scale !important; }
+	.margin#{$position}-1-2  { margin#{$position}: $scale-1-2 !important; }
+	.margin#{$position}-1-3  { margin#{$position}: $scale-1-3 !important; }
+	.margin#{$position}-1-4  { margin#{$position}: $scale-1-4 !important; }
+	.margin#{$position}-1-5  { margin#{$position}: $scale-1-5 !important; }
+	.margin#{$position}-1-6  { margin#{$position}: $scale-1-6 !important; }
+	.margin#{$position}-1-7  { margin#{$position}: $scale-1-7 !important; }
+	.margin#{$position}-1-8  { margin#{$position}: $scale-1-8 !important; }}
+
+.margin-none  { margin: 0 !important;
+	&-top 	    { margin-top: 0 !important; }
+	&-bottom    { margin-bottom: 0 !important; }
+	&-tablet    { @include breakpoint('tablet') { margin: 0 !important; }}}
+
+.color {
+  &-primary {
+    color: $color-primary; }}
+
+.display {
+	&-flex { display: flex; }
+	&-inlineBlock { display: inline-block; }}
+
+.width		{
+	&-full  { width: 100% }}
+
+.background {
+	&-pattern {
+		width: 100vw;
+		height: 100vh;
+		background-image: url('assets/illu_streger.svg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: 0 150px;
+	}
+}

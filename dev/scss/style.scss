@@ -3,8 +3,12 @@
 @import "./utils/reset";
 @import "./utils/vars";
 @import "./utils/breakpoints";
+@import "./utils/helpers";
 @import "./utils/grid";
 @import "./utils/typography";
+
+@import "./components/buttons";
+@import "./components/burger";
 
 @import "./pages/intro";
 @import "./pages/test";

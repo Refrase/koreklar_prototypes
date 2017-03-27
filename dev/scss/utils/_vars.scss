@@ -21,7 +21,7 @@ $scale-1-8: $scale / 8;
 /* ----- Colors ----- */
 
 // ----- Primary
-$color-primary: #2962FF;
+$color-primary: #00c878;
 
 $color-primary-lighter-6: mix(white, $color-primary, 98% );
 $color-primary-lighter-5: mix(white, $color-primary, 88% );
@@ -36,7 +36,7 @@ $color-primary-darker-3: mix(black, $color-primary, 43% );
 $color-primary-darker-4: mix(black, $color-primary, 59% );
 
 // ----- Base
-$color-base: #607d8b;
+$color-base: #454a73;
 
 $color-base-lighter-8: mix(white, $color-base, 98% );
 $color-base-lighter-7: mix(white, $color-base, 94% );
@@ -54,7 +54,7 @@ $color-base-darker-4: mix(black, $color-base, 59% );
 
 /* ----- Font-family ----- */
 
-$fontFamily-sans: -apple-system, BlinkMacSystemFont, "Raleway", "Roboto", "Helvetica Neue", sans-serif;
+$fontFamily-sans: "Raleway", "Roboto", "Helvetica Neue", sans-serif;
 $fontFamily-system: "Roboto", "Helvetica Neue", sans-serif;
 
 /* ----- Font-size ----- */
@@ -71,7 +71,7 @@ $fontSize-xsmall: 11px;
 $fontSize-xxsmall: 10px;
 
 $fontSize-title: $fontSize-xxxlarge;
-$fontSize-body-copy: $fontSize-large;
+$fontSize-copy: $fontSize-base;
 
 /* ----- Layout ----- */
 

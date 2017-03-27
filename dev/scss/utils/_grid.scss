@@ -13,8 +13,8 @@
   & > * { padding: 0 $scale-2-1; }
 
   // Content-widths
-  @include breakpoint( 'tablet' )          { width: $contentWidth-tablet; padding: $scale-2-1; }
   @include breakpoint( 'desktop' )         { width: $contentWidth-desktop; }
+  @include breakpoint( 'tablet' )          { width: $contentWidth-tablet; padding: $scale-2-1; }
   @include breakpoint( 'widescreen' )      { width: $contentWidth-widescreen; }
   @include breakpoint( 'extraWidescreen' ) { width: $contentWidth-extraWidescreen; }
 }
