@@ -1,0 +1,72 @@
+.controlBar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: $color-base-lighter-7;
+  padding: $scale-2-1 0 $scale-2-1;
+  border-top: 1px solid $color-base-lighter-6;
+
+  @include breakpoint( 'tablet' ) { background-color: rgba( $color-base-lighter-7, 0.97 ); }
+
+  &_breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    font-size: $fontSize-small;
+
+    @include breakpoint( 'tablet' ) {
+      margin-bottom: $scale;
+      justify-content: center;
+    }
+
+    li, a {
+      font-family: $fontFamily-system;
+      white-space: nowrap;
+    }
+  }
+
+  &_buttons {
+    display: flex;
+    justify-content: center;
+
+    @include breakpoint( 'tablet' ) { flex-wrap: wrap; }
+  }
+
+  &_time {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    max-width: 40px;
+    position: absolute;
+    right: $scale-2-1;
+    bottom: 0;
+    font-size: $fontSize-small;
+    font-weight: 600;
+    font-family: $fontFamily-system;
+
+    @include breakpoint( 'tablet' ) {
+      height: auto;
+      bottom: $scale;
+      right: $scale;
+    }
+  }
+
+  &_progress {
+    display: flex;
+    list-style: none;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    li {
+      height: 4px;
+      width: calc(100% / 6 - 2px);
+      background-color: $color-base;
+      margin-right: 2px;
+
+      &:first-child { background-color: $color-primary; }
+      &:last-child { width: calc(100% / 6); margin-right: 0; }
+    }
+  }
+}

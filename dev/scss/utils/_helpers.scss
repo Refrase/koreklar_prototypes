@@ -43,18 +43,73 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 	&-bottom    { margin-bottom: 0 !important; }
 	&-tablet    { @include breakpoint('tablet') { margin: 0 !important; }}}
 
+.font {
+	&Size {
+		&-xxxlarge { font-size: $fontSize-xxxlarge; }
+		&-xxlarge { font-size: $fontSize-xxlarge; }
+		&-xlarge { font-size: $fontSize-xlarge; }
+		&-large { font-size: $fontSize-large; }
+		&-base { font-size: $fontSize-base; }
+		&-small { font-size: $fontSize-small; }
+		&-xsmall { font-size: $fontSize-xsmall; }
+		&-xxsmall { font-size: $fontSize-xxsmall; }}
+	&Family {
+		&-system { font-family: $fontFamily-system !important; }}}
+
 .color {
-  &-primary {
-    color: $color-primary; }}
+  &-primary { color: $color-primary; }
+	&-base { color: $color-base;
+		&-lighter {
+		  &-1 { color: $color-base-lighter-1; }
+			&-2 { color: $color-base-lighter-2; }
+			&-3 { color: $color-base-lighter-3; }
+			&-4 { color: $color-base-lighter-4; }}}}
 
 .display {
 	&-flex { display: flex; }
 	&-inlineBlock { display: inline-block; }}
 
+.justifyContent {
+	&-center { justify-content: center; }}
+
+.alignItems {
+	&-center { align-items: center; }}
+
+.flex {
+	&Wrap { flex-wrap: wrap; }
+}
+
 .width		{
-	&-full  { width: 100% }}
+	&-full  { width: 100% }
+	&-fill  { // Counter spacing the grid for covering margins defined by grid. ATT! Depending on grid side paddings as they are
+		&-right	{
+			@include breakpoint( 'desktop' ){
+				width: calc( 100% + #{$scale-2-1} + #{$scale-4-1} );
+			}
+			@include breakpoint( 'tablet' ) {
+				width: calc( 100% + #{$scale-8-1} );
+				margin-left: -$scale-4-1;
+				margin-right: 0;
+			}
+			@include breakpoint( 'widescreen' ){
+				width: calc( 100% + #{$scale-2-1} + #{$scale-8-1} );
+			}
+			@include breakpoint( 'extraWidescreen' ) {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.height {
+	&-full { height: 100%; }}
 
 .background {
+	&Color {
+		&-white { background-color: white; }
+		&-primary { background-color: $color-primary; }
+		&-base { background-color: $color-base;
+			&-lighter { background-color: $color-base-lighter-7; }}}
 	&-pattern {
 		width: 100vw;
 		height: 100vh;
@@ -63,4 +118,23 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 		background-size: cover;
 		background-position: 0 150px;
 	}
+	&-full {
+		&::before {
+			content: '';
+			position: absolute;
+			height: 100%;
+			width: 200vw;
+			background-color: inherit;
+			top: 0;
+			left: -100%;
+			z-index: -1;
+		}
+	}
 }
+
+.list {
+	&-unstyled { list-style: none; }}
+
+.position {
+	&-relative { position: relative; }
+	&-absolute { position: absolute; }}
