@@ -15,6 +15,6 @@ a {
   display: inline-block;
 
   &:hover {
-    color: $color-base;
+    opacity: 0.9;
   }
 }
