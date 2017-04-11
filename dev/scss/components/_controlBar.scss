@@ -6,7 +6,7 @@
   padding: $scale-2-1 0 $scale-2-1;
   border-top: 1px solid $color-base-lighter-6;
 
-  @include breakpoint( 'tablet' ) { background-color: rgba( $color-base-lighter-7, 0.97 ); }
+  @include breakpoint( 'tablet' ) { padding: $scale 0 $scale; }
 
   &_breadcrumb {
     display: flex;
@@ -15,10 +15,7 @@
     list-style: none;
     font-size: $fontSize-small;
 
-    @include breakpoint( 'tablet' ) {
-      margin-bottom: $scale;
-      justify-content: center;
-    }
+    @include breakpoint( 'tablet' ) { display: none; }
 
     li, a {
       font-family: $fontFamily-system;
@@ -31,6 +28,10 @@
     justify-content: center;
 
     @include breakpoint( 'tablet' ) { flex-wrap: wrap; }
+
+    & .btn {
+      margin-bottom: $scale-1-2;
+    }
   }
 
   &_time {
@@ -45,7 +46,7 @@
     font-weight: 600;
     font-family: $fontFamily-system;
 
-    @include breakpoint( 'tablet' ) {
+    @include breakpoint( 'mobile' ) {
       height: auto;
       bottom: $scale;
       right: $scale;

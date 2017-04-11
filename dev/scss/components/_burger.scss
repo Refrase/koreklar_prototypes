@@ -6,16 +6,18 @@
     left: $scale;
     top: $scale;
 
+
   @include breakpoint( 'tablet' ) {
     display: flex;
     justify-content: center;
     padding: 13px 10px;
     transform: rotate(0deg);
-    bottom: $scale;
+    bottom: 28px;
     top: auto;
     z-index: 1001;
     transition: 0.15s ease-out;
   }
+  @include breakpoint( 'mobile' ) { bottom: $scale; }
 
   & span {
     display: block;

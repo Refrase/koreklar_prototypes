@@ -30,6 +30,7 @@ footer, header, hgroup, menu, nav, section {
 html, body {
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
 
 html {
@@ -824,6 +825,10 @@ html {
   background-position: 0 150px;
 }
 
+.background-pattern-white {
+  background-image: url("assets/illu_streger_hvid.svg");
+}
+
 .background-full::before {
   content: '';
   position: absolute;
@@ -845,6 +850,10 @@ html {
 
 .position-absolute {
   position: absolute;
+}
+
+.visibleControlBar {
+  padding-bottom: 124px !important;
 }
 
 .gridBlock {
@@ -4265,10 +4274,12 @@ a {
   color: #00c878;
   text-decoration: none;
   display: inline-block;
+  -webkit-transition: opacity 200ms ease-out;
+          transition: opacity 200ms ease-out;
 }
 
 a:hover {
-  color: #454a73;
+  opacity: 0.9;
 }
 
 .btn {
@@ -4321,7 +4332,7 @@ a:hover {
   min-width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #fbfbfe;
+  background: #fbfbfc;
   background: -webkit-linear-gradient(top, #f4f4f7 0%, #dadbe3 100%);
   background: linear-gradient(to bottom, #f4f4f7 0%, #dadbe3 100%);
   margin-right: 16px;
@@ -4341,7 +4352,7 @@ a:hover {
   height: 38px;
   padding-left: 2px;
   border-radius: inherit;
-  background: #f5f6fb;
+  background: #f4f4f7;
   background: -webkit-linear-gradient(top, #fbfbfc 0%, #e9e9ee 100%);
   background: linear-gradient(to bottom, #fbfbfc 0%, #e9e9ee 100%);
 }
@@ -4371,11 +4382,17 @@ a:hover {
     padding: 13px 10px;
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
-    bottom: 16px;
+    bottom: 28px;
     top: auto;
     z-index: 1001;
     -webkit-transition: 0.15s ease-out;
             transition: 0.15s ease-out;
+  }
+}
+
+@media (max-width: 480px) {
+  .burger {
+    bottom: 16px;
   }
 }
 
@@ -4441,7 +4458,7 @@ a:hover {
 
 @media (max-width: 767px) {
   .controlBar {
-    background-color: rgba(244, 244, 247, 0.97);
+    padding: 16px 0 16px;
   }
 }
 
@@ -4460,10 +4477,7 @@ a:hover {
 
 @media (max-width: 767px) {
   .controlBar_breadcrumb {
-    margin-bottom: 16px;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    display: none;
   }
 }
 
@@ -4488,6 +4502,10 @@ a:hover {
   }
 }
 
+.controlBar_buttons .btn {
+  margin-bottom: 8px;
+}
+
 .controlBar_time {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4505,7 +4523,7 @@ a:hover {
   font-family: "Roboto", "Helvetica Neue", sans-serif;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 480px) {
   .controlBar_time {
     height: auto;
     bottom: 16px;
@@ -4537,4 +4555,118 @@ a:hover {
 .controlBar_progress li:last-child {
   width: calc(100% / 6);
   margin-right: 0;
+}
+
+.statement {
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .statement {
+    min-height: 42px;
+  }
+}
+
+.statement:not(:first-child) {
+  margin-top: 32px;
+}
+
+@media (max-width: 767px) {
+  .statement_text {
+    padding-left: 96px;
+  }
+}
+
+.statement .answers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  position: absolute;
+  right: 100%;
+  margin-top: 2px;
+  margin-right: 32px;
+  list-style: none;
+}
+
+@media (max-width: 767px) {
+  .statement .answers {
+    right: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .statement .answers {
+    margin-right: 16px;
+  }
+}
+
+.statement .answers li {
+  position: relative;
+  min-width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 767px) {
+  .statement .answers li {
+    min-width: 36px;
+    height: 36px;
+  }
+}
+
+.statement .answers li:first-child {
+  margin-right: 8px;
+}
+
+.statement .answers li input[type="radio"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+.statement .answers li input[type="radio"]:checked ~ .check {
+  background: #454a73;
+  -webkit-transition: background 100ms ease-in;
+          transition: background 100ms ease-in;
+}
+
+.statement .answers li input[type="radio"]:checked ~ label {
+  color: white;
+}
+
+.statement .answers li label {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding-top: 8px;
+  color: #e9e9ee;
+  font-size: 8px;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  -webkit-transition: color 200ms ease-out;
+          transition: color 200ms ease-out;
+}
+
+.statement .answers li label:hover {
+  color: #454a73;
+}
+
+@media (max-width: 767px) {
+  .statement .answers li label {
+    padding-top: 12px;
+    font-size: 10px;
+  }
+}
+
+.statement .answers li .check {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #fbfbfc;
 }

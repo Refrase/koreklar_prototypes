@@ -36,7 +36,7 @@
     min-width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(251,251,254,1);
+    background: $color-base-lighter-8;
     background: linear-gradient(to bottom, $color-base-lighter-7 0%, $color-base-lighter-5 100%);
     margin-right: $scale;
 
@@ -48,7 +48,7 @@
       height: 38px;
       padding-left: 2px;
       border-radius: inherit;
-      background: rgba(245,246,251,1);
+      background: $color-base-lighter-7;
       background: linear-gradient(to bottom, $color-base-lighter-8 0%, $color-base-lighter-6 100%);
 
       &:active { background: linear-gradient(to top, $color-base-lighter-8 0%, $color-base-lighter-6 100%); }

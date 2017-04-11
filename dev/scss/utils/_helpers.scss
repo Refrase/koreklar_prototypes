@@ -117,6 +117,8 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: 0 150px;
+
+		&-white { background-image: url('assets/illu_streger_hvid.svg'); }
 	}
 	&-full {
 		&::before {
@@ -138,3 +140,8 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 .position {
 	&-relative { position: relative; }
 	&-absolute { position: absolute; }}
+
+// Triggering scroll on y-axis, when controlBar is visible
+.visibleControlBar {
+	padding-bottom: 124px !important; // 124 = max-height of controlBar at this time
+}

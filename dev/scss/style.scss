@@ -1,5 +1,6 @@
 /* ----- Imports ----- */
 
+// Utils
 @import "./utils/reset";
 @import "./utils/vars";
 @import "./utils/breakpoints";
@@ -7,9 +8,10 @@
 @import "./utils/grid";
 @import "./utils/typography";
 
+// Components
 @import "./components/buttons";
 @import "./components/burger";
 @import "./components/controlBar";
+@import "./components/statements";
 
-@import "./pages/intro";
-@import "./pages/test";
+// Pages
