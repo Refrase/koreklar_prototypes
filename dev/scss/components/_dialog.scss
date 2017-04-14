@@ -1,0 +1,27 @@
+.dialog {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  background: rgba($color-base-lighter-7, 0.98);
+  opacity: 1;
+  transition: opacity 200ms ease-out;
+
+  &-hidden {
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &_inner {
+    width: 100%;
+    margin-top: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &_checkmark { opacity: 0; }
+}

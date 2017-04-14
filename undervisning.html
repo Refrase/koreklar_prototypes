@@ -44,37 +44,37 @@
         <div class="controlBar_buttons span-8">
           <div class="btn btn-control">
             <div class="btn-control_inner">
-              <img src="assets/ic_vh.svg" alt="Icon venstre/højre" height="14" style="margin-right: 3px;">
+              <img src="assets/ic_vh.svg" alt="Ikon venstre/højre" height="14" style="margin-right: 3px;">
             </div>
           </div>
           <div class="btn btn-control">
             <div class="btn-control_inner">
-              <img src="assets/ic_restart.svg" alt="Icon genstart" height="14" style="margin-right: 3px;">
+              <img src="assets/ic_restart.svg" alt="Ikon genstart" height="14" style="margin-right: 3px;">
             </div>
           </div>
           <div class="btn btn-control">
             <div class="btn-control_inner">
-              <img src="assets/ic_sound.svg" alt="Icon lyd" height="14" style="margin-right: 3px;">
+              <img src="assets/ic_sound.svg" alt="Ikon lyd" height="14" style="margin-right: 3px;">
             </div>
           </div>
           <div class="btn btn-control">
             <div class="btn-control_inner">
-              <img src="assets/ic_left.svg" alt="Icon venstre" height="12" style="margin-right: 3px;">
+              <img src="assets/ic_left.svg" alt="Ikon venstre" height="12" style="margin-right: 3px;">
+            </div>
+          </div>
+          <div id="controlBarNext" class="btn btn-control">
+            <div class="btn-control_inner">
+              <img src="assets/ic_right.svg" alt="Ikon højre" height="12" style="margin-left: 1px;">
             </div>
           </div>
           <div class="btn btn-control">
             <div class="btn-control_inner">
-              <img src="assets/ic_right.svg" alt="Icon højre" height="12" style="margin-left: 1px;">
+              <img src="assets/ic_thumbnails.svg" alt="Ikon billedepanel" width="26" style="margin-right: 3px;">
             </div>
           </div>
           <div class="btn btn-control">
             <div class="btn-control_inner">
-              <img src="assets/ic_thumbnails.svg" alt="Icon billedepanel" width="26" style="margin-right: 3px;">
-            </div>
-          </div>
-          <div class="btn btn-control">
-            <div class="btn-control_inner">
-              <img src="assets/ic_pause.svg" alt="Icon pause" height="11" style="margin-right: 1px;">
+              <img src="assets/ic_pause.svg" alt="Ikon pause" height="11" style="margin-right: 1px;">
             </div>
           </div>
         </div>
@@ -92,5 +92,47 @@
       </ul>
     </div>
 
+    <div class="dialog dialog-hidden">
+      <div class="dialog_inner">
+        <img class="dialog_checkmark" src="./assets/illu_checkmark.svg" alt="Flueben" width="100">
+        <h1 class="fontSize-xxlarge margin-top-2-1">Delmål gennemført!</h1>
+        <div class="margin-top-1-2 textAlign-center" style="max-width: 360px;">
+          <p class="margin-top fontSize-large">Vil du fortsætte til næste delmål?</p>
+          <p class="color-base-lighter-4 fontWeight-bold textTransform-uppercase fontSize-xsmall display-block margin-top-1-2">Nærmere orientering om sammenhængen mellem den teoretiske og praktiske uddannelse</p>
+          <ul class="margin-top-2-1">
+            <li style="display: inline-block;">
+              <div class="btn btn-control btn-control-primary">
+                <div class="btn-control_inner btn-control_inner-primary">
+                  <p class="color-base-lighter-7 fontSize-small fontWeight-bold fontFamily-system textTransform-uppercase letterSpacing" style="margin-right: 2px;">Ja</p>
+                </div>
+              </div>
+            </li>
+            <li style="display: inline-block;">
+              <div id="dialogBtnNo" class="btn btn-control btn-control-dismiss">
+                <div class="btn-control_inner btn-control_inner-dismiss">
+                  <p class="color-base-lighter-7 fontSize-small fontWeight-bold fontFamily-system textTransform-uppercase letterSpacing" style="margin-right: 1px;">Nej</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var controlBarNext = document.getElementById( 'controlBarNext' );
+      var dialog = document.getElementsByClassName( 'dialog' );
+      var dialogCheckmark = document.getElementsByClassName( 'dialog_checkmark' );
+      var dialogBtnNo = document.getElementById( 'dialogBtnNo' );
+
+      var toggleDialog = function() {
+        dialog[0].classList.toggle( 'dialog-hidden' );
+        dialogCheckmark[0].classList.toggle( 'slideDown' );
+        dialogCheckmark[0].classList.toggle( 'slideDown-slow' );
+      };
+
+      controlBarNext.addEventListener( 'click', toggleDialog );
+      dialogBtnNo.addEventListener( 'click', toggleDialog );
+    </script>
   </body>
 </html>

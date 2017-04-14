@@ -52,6 +52,23 @@ $color-base-darker-2: mix(black, $color-base, 28% );
 $color-base-darker-3: mix(black, $color-base, 43% );
 $color-base-darker-4: mix(black, $color-base, 59% );
 
+// ----- Dismiss
+$color-dismiss: #ff3c32;
+
+$color-dismiss-lighter-8: mix(white, $color-dismiss, 98% );
+$color-dismiss-lighter-7: mix(white, $color-dismiss, 94% );
+$color-dismiss-lighter-6: mix(white, $color-dismiss, 88% );
+$color-dismiss-lighter-5: mix(white, $color-dismiss, 80% );
+$color-dismiss-lighter-4: mix(white, $color-dismiss, 70% );
+$color-dismiss-lighter-3: mix(white, $color-dismiss, 50% );
+$color-dismiss-lighter-2: mix(white, $color-dismiss, 30% );
+$color-dismiss-lighter-1: mix(white, $color-dismiss, 15% );
+
+$color-dismiss-darker-1: mix(black, $color-dismiss, 11% );
+$color-dismiss-darker-2: mix(black, $color-dismiss, 28% );
+$color-dismiss-darker-3: mix(black, $color-dismiss, 43% );
+$color-dismiss-darker-4: mix(black, $color-dismiss, 59% );
+
 /* ----- Font-family ----- */
 
 $fontFamily-sans: "Raleway", "Roboto", "Helvetica Neue", sans-serif;

@@ -715,6 +715,22 @@ html {
   font-family: "Roboto", "Helvetica Neue", sans-serif !important;
 }
 
+.fontWeight-bold {
+  font-weight: 600 !important;
+}
+
+.textTransform-uppercase {
+  text-transform: uppercase;
+}
+
+.textAlign-center {
+  text-align: center;
+}
+
+.letterSpacing {
+  letter-spacing: 0.4px;
+}
+
 .color-primary {
   color: #00c878;
 }
@@ -739,10 +755,30 @@ html {
   color: #c7c9d5;
 }
 
+.color-base-lighter-5 {
+  color: #dadbe3;
+}
+
+.color-base-lighter-6 {
+  color: #e9e9ee;
+}
+
+.color-base-lighter-7 {
+  color: #f4f4f7;
+}
+
+.display-none {
+  display: none;
+}
+
 .display-flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.display-block {
+  display: block;
 }
 
 .display-inlineBlock {
@@ -850,6 +886,44 @@ html {
 
 .position-absolute {
   position: absolute;
+}
+
+@-webkit-keyframes slideDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -20px, 0);
+            transform: translate3d(0, -20px, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -20px, 0);
+            transform: translate3d(0, -20px, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideDown {
+  -webkit-animation: slideDown cubic-bezier(0.25, 0.75, 0.25, 1) forwards;
+          animation: slideDown cubic-bezier(0.25, 0.75, 0.25, 1) forwards;
+  -webkit-animation-duration: 600ms;
+          animation-duration: 600ms;
+}
+
+.slideDown-slow {
+  -webkit-animation-duration: 1200ms;
+          animation-duration: 1200ms;
 }
 
 .visibleControlBar {
@@ -4338,6 +4412,24 @@ a:hover {
   margin-right: 16px;
 }
 
+.btn-control-dark {
+  background: #454a73;
+  background: -webkit-linear-gradient(top, #7d809d 0%, #454a73 100%);
+  background: linear-gradient(to bottom, #7d809d 0%, #454a73 100%);
+}
+
+.btn-control-primary {
+  background: #00c878;
+  background: -webkit-linear-gradient(top, #4dd9a1 0%, #00c878 100%);
+  background: linear-gradient(to bottom, #4dd9a1 0%, #00c878 100%);
+}
+
+.btn-control-dismiss {
+  background: #ff3c32;
+  background: -webkit-linear-gradient(top, #ff7770 0%, #ff3c32 100%);
+  background: linear-gradient(to bottom, #ff7770 0%, #ff3c32 100%);
+}
+
 .btn-control_inner {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4360,6 +4452,39 @@ a:hover {
 .btn-control_inner:active {
   background: -webkit-linear-gradient(bottom, #fbfbfc 0%, #e9e9ee 100%);
   background: linear-gradient(to top, #fbfbfc 0%, #e9e9ee 100%);
+}
+
+.btn-control_inner-dark {
+  background: #3d4266;
+  background: -webkit-linear-gradient(top, #616588 0%, #3d4266 100%);
+  background: linear-gradient(to bottom, #616588 0%, #3d4266 100%);
+}
+
+.btn-control_inner-dark:active {
+  background: -webkit-linear-gradient(bottom, #616588 0%, #3d4266 100%);
+  background: linear-gradient(to top, #616588 0%, #3d4266 100%);
+}
+
+.btn-control_inner-primary {
+  background: #00b26b;
+  background: -webkit-linear-gradient(top, #26d08c 0%, #00b26b 100%);
+  background: linear-gradient(to bottom, #26d08c 0%, #00b26b 100%);
+}
+
+.btn-control_inner-primary:active {
+  background: -webkit-linear-gradient(bottom, #26d08c 0%, #00b26b 100%);
+  background: linear-gradient(to top, #26d08c 0%, #00b26b 100%);
+}
+
+.btn-control_inner-dismiss {
+  background: #e3352d;
+  background: -webkit-linear-gradient(top, #ff5951 0%, #e3352d 100%);
+  background: linear-gradient(to bottom, #ff5951 0%, #e3352d 100%);
+}
+
+.btn-control_inner-dismiss:active {
+  background: -webkit-linear-gradient(bottom, #ff5951 0%, #e3352d 100%);
+  background: linear-gradient(to top, #ff5951 0%, #e3352d 100%);
 }
 
 .burger {
@@ -4669,4 +4794,44 @@ a:hover {
   height: 100%;
   border-radius: 50%;
   background: #fbfbfc;
+}
+
+.dialog {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  background: rgba(244, 244, 247, 0.98);
+  opacity: 1;
+  -webkit-transition: opacity 200ms ease-out;
+          transition: opacity 200ms ease-out;
+}
+
+.dialog-hidden {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.dialog_inner {
+  width: 100%;
+  margin-top: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.dialog_checkmark {
+  opacity: 0;
 }
