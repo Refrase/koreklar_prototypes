@@ -1,0 +1,47 @@
+.thumbnailPanel {
+  display: flex;
+  position: absolute;
+  top: 0;
+  background: $color-base;
+  width: 100%;
+  height: 120px;
+  transform: translate3d(0,-120px,0); // translate amount is height of this
+  z-index: -2;
+  transition: all 300ms cubic-bezier(0.25, 0.75, 0.25, 1);
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+  &::-webkit-scrollbar { height: 4px; }
+  &::-webkit-scrollbar-track { background: $color-base; }
+  &::-webkit-scrollbar-thumb { background: $color-primary; }
+
+  &-hidden { transform: translate3d(0,0,0); }
+}
+
+.thumbnail {
+  position: relative;
+  height: 100%;
+  width: 141.33333px;
+  padding: $scale-1-2;
+  padding-right: 0;
+
+  &_image {
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 150ms ease-in;
+    &:hover { opacity: 0.03; }
+  }
+
+  &_text {
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: absolute;
+    top: 0;
+    padding: $scale;
+    color: $color-base-lighter-7;
+    font-size: $fontSize-xsmall;
+    z-index: -1;
+  }
+}
