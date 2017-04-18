@@ -37,27 +37,27 @@
       <div class="thumbnailPanelCover backgroundColor-base-lighter" style="position: absolute; width: 100%; height: 100%; top: 0; z-index: -1;"></div>
       <ul class="thumbnailPanel thumbnailPanel-hidden">
         <li class="thumbnail">
-          <img class="thumbnail_image" src="./images/thumbnails/lektion_1_og_2/1.jpg" height="100%" alt="Køreuddannelsens formål og indhold">
+          <img class="thumbnail_image" src="./images/thumbnails/lektion_1_og_2/1.jpg" alt="Køreuddannelsens formål og indhold">
           <p class="thumbnail_text">Køreuddannelsens formål og indhold</p>
         </li>
         <li class="thumbnail">
-          <img class="thumbnail_image" src="./images/thumbnails/lektion_1_og_2/2.jpg" height="100%" alt="Nærmere orientering om sammenhænge mellem den teoretiske og praktiske uddannelse">
+          <img class="thumbnail_image" src="./images/thumbnails/lektion_1_og_2/2.jpg" alt="Nærmere orientering om sammenhænge mellem den teoretiske og praktiske uddannelse">
           <p class="thumbnail_text">Nærmere orientering om sammenhænge mellem den teoretiske og praktiske uddannelse</p>
         </li>
         <li class="thumbnail">
-          <img class="thumbnail_image" src="./images/thumbnails/lektion_1_og_2/3.jpg" height="100%" alt="10.1 Betingelser for at få kørekort">
+          <img class="thumbnail_image" src="./images/thumbnails/lektion_1_og_2/3.jpg" alt="10.1 Betingelser for at få kørekort">
           <p class="thumbnail_text"><span class="fontWeight-bold">10.1</span></br> Betingelser for at få kørekort</p>
         </li>
         <li class="thumbnail">
-          <img class="thumbnail_image" src="./images/thumbnails/lektion_1_og_2/4.jpg" height="100%" alt="10.2 Krav til teoriprøven og den praktiske prøve">
+          <img class="thumbnail_image" src="./images/thumbnails/lektion_1_og_2/4.jpg" alt="10.2 Krav til teoriprøven og den praktiske prøve">
           <p class="thumbnail_text"><span class="fontWeight-bold">10.2</span></br> Krav til teoriprøven og den praktiske prøve</p>
         </li>
         <li class="thumbnail">
-          <img class="thumbnail_image" src="./images/thumbnails/lektion_1_og_2/5.jpg" height="100%" alt="1.1.3 Motor tænding og speeder">
+          <img class="thumbnail_image" src="./images/thumbnails/lektion_1_og_2/5.jpg" alt="1.1.3 Motor tænding og speeder">
           <p class="thumbnail_text"><span class="fontWeight-bold">1.1.3</span></br> Motor tænding og speeder</p>
         </li>
         <li class="thumbnail">
-          <img class="thumbnail_image" src="./images/thumbnails/lektion_1_og_2/6.jpg" height="100%" alt="1.1.4 Kobling">
+          <img class="thumbnail_image" src="./images/thumbnails/lektion_1_og_2/6.jpg" alt="1.1.4 Kobling">
           <p class="thumbnail_text"><span class="fontWeight-bold">1.1.4</span></br> Kobling</p>
         </li>
       </ul>
@@ -110,13 +110,13 @@
 
       <p class="controlBar_time">01.47</p>
 
-      <ul class="controlBar_progress">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+      <ul class="progressBar">
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
       </ul>
     </div>
 
@@ -154,6 +154,8 @@
       var dialogCheckmark = document.getElementsByClassName( 'dialog_checkmark' );
       var dialogBtnNo = document.getElementById( 'dialogBtnNo' );
       var thumbnailPanel = document.getElementsByClassName( 'thumbnailPanel' );
+      var thumbnails = document.getElementsByClassName( 'thumbnail' );
+      var progressBarSteps = document.getElementsByClassName( 'progressBar_step' );
 
       var toggleDialog = function() {
         dialog[0].classList.toggle( 'dialog-hidden' );
@@ -169,6 +171,37 @@
       };
 
       controlBarBtnThumbnails.addEventListener( 'click', toggleThumbnailPanel );
+
+      var buildArray = function(domArray, emptyArray) {
+        for ( var i = 0; i < domArray.length; i++ ) {
+          emptyArray.push(domArray[i]);
+        }
+      };
+
+      // When hovering over a thumbnail the corresponding progressbar step has a class added or removed
+      var thumbnailsArray = [];
+      var progressBarStepsArray = [];
+      buildArray(thumbnails, thumbnailsArray);
+      buildArray(progressBarSteps, progressBarStepsArray);
+
+      var toggleCorrespondingProgressStep = function(e) {
+        for (var i = 0; i < progressBarStepsArray.length; i++) {
+          if (thumbnailsArray.indexOf(e.target) === progressBarStepsArray.indexOf(progressBarStepsArray[i])) {
+            if ( e.type === 'mouseenter' ) {
+              progressBarStepsArray[i].classList.add( 'active' );
+            } else {
+              progressBarStepsArray[i].classList.remove( 'active' );
+            }
+          }
+        }
+      };
+
+      var addEventListernersToThumbnails = function() {
+        for ( var i = 0; i < thumbnailsArray.length; i++ ) {
+          thumbnails[i].addEventListener( 'mouseenter', toggleCorrespondingProgressStep );
+          thumbnails[i].addEventListener( 'mouseleave', toggleCorrespondingProgressStep );
+        }
+      }();
     </script>
   </body>
 </html>

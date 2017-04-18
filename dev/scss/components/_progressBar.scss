@@ -1,0 +1,24 @@
+.progressBar {
+  display: flex;
+  align-items: flex-end;
+  list-style: none;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  $stepHeight: 4px;
+
+  &_step {
+    height: $stepHeight;
+    width: calc(100% / 6 - 2px);
+    background-color: $color-base;
+    margin-right: 2px;
+    transition: transform 300ms ease-out;
+    transform: translate3d(0, 0, 0);
+
+    &:first-child { background-color: $color-primary; }
+    &:last-child { width: calc(100% / 6); margin-right: 0; }
+
+    &.active { transform: translate3d(0, $stepHeight, 0); }
+  }
+}

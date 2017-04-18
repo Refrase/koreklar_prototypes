@@ -52,22 +52,4 @@
       right: $scale;
     }
   }
-
-  &_progress {
-    display: flex;
-    list-style: none;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-
-    li {
-      height: 4px;
-      width: calc(100% / 6 - 2px);
-      background-color: $color-base;
-      margin-right: 2px;
-
-      &:first-child { background-color: $color-primary; }
-      &:last-child { width: calc(100% / 6); margin-right: 0; }
-    }
-  }
 }
