@@ -4389,8 +4389,8 @@ a:hover {
 }
 
 .btn-primary_inner:active {
-  background: -webkit-linear-gradient(bottom, #26d08c 0%, #00c878 100%);
-  background: linear-gradient(to top, #26d08c 0%, #00c878 100%);
+  background: -webkit-linear-gradient(bottom, #4dd9a1 0%, #00c878 100%);
+  background: linear-gradient(to top, #4dd9a1 0%, #00c878 100%);
 }
 
 .btn-control {
@@ -4414,20 +4414,20 @@ a:hover {
 
 .btn-control-dark {
   background: #454a73;
-  background: -webkit-linear-gradient(top, #7d809d 0%, #454a73 100%);
-  background: linear-gradient(to bottom, #7d809d 0%, #454a73 100%);
+  background: -webkit-linear-gradient(top, #616588 0%, #3d4266 100%);
+  background: linear-gradient(to bottom, #616588 0%, #3d4266 100%);
 }
 
 .btn-control-primary {
   background: #00c878;
-  background: -webkit-linear-gradient(top, #4dd9a1 0%, #00c878 100%);
-  background: linear-gradient(to bottom, #4dd9a1 0%, #00c878 100%);
+  background: -webkit-linear-gradient(top, #26d08c 0%, #00b26b 100%);
+  background: linear-gradient(to bottom, #26d08c 0%, #00b26b 100%);
 }
 
 .btn-control-dismiss {
   background: #ff3c32;
-  background: -webkit-linear-gradient(top, #ff7770 0%, #ff3c32 100%);
-  background: linear-gradient(to bottom, #ff7770 0%, #ff3c32 100%);
+  background: -webkit-linear-gradient(top, #ff5951 0%, #e3352d 100%);
+  background: linear-gradient(to bottom, #ff5951 0%, #e3352d 100%);
 }
 
 .btn-control_inner {
@@ -4456,35 +4456,35 @@ a:hover {
 
 .btn-control_inner-dark {
   background: #3d4266;
-  background: -webkit-linear-gradient(top, #616588 0%, #3d4266 100%);
-  background: linear-gradient(to bottom, #616588 0%, #3d4266 100%);
+  background: -webkit-linear-gradient(top, #7d809d 0%, #454a73 100%);
+  background: linear-gradient(to bottom, #7d809d 0%, #454a73 100%);
 }
 
 .btn-control_inner-dark:active {
-  background: -webkit-linear-gradient(bottom, #616588 0%, #3d4266 100%);
-  background: linear-gradient(to top, #616588 0%, #3d4266 100%);
+  background: -webkit-linear-gradient(bottom, #7d809d 0%, #454a73 100%);
+  background: linear-gradient(to top, #7d809d 0%, #454a73 100%);
 }
 
 .btn-control_inner-primary {
   background: #00b26b;
-  background: -webkit-linear-gradient(top, #26d08c 0%, #00b26b 100%);
-  background: linear-gradient(to bottom, #26d08c 0%, #00b26b 100%);
+  background: -webkit-linear-gradient(top, #4dd9a1 0%, #00c878 100%);
+  background: linear-gradient(to bottom, #4dd9a1 0%, #00c878 100%);
 }
 
 .btn-control_inner-primary:active {
-  background: -webkit-linear-gradient(bottom, #26d08c 0%, #00b26b 100%);
-  background: linear-gradient(to top, #26d08c 0%, #00b26b 100%);
+  background: -webkit-linear-gradient(bottom, #4dd9a1 0%, #00c878 100%);
+  background: linear-gradient(to top, #4dd9a1 0%, #00c878 100%);
 }
 
 .btn-control_inner-dismiss {
   background: #e3352d;
-  background: -webkit-linear-gradient(top, #ff5951 0%, #e3352d 100%);
-  background: linear-gradient(to bottom, #ff5951 0%, #e3352d 100%);
+  background: -webkit-linear-gradient(top, #ff7770 0%, #ff3c32 100%);
+  background: linear-gradient(to bottom, #ff7770 0%, #ff3c32 100%);
 }
 
 .btn-control_inner-dismiss:active {
-  background: -webkit-linear-gradient(bottom, #ff5951 0%, #e3352d 100%);
-  background: linear-gradient(to top, #ff5951 0%, #e3352d 100%);
+  background: -webkit-linear-gradient(bottom, #ff7770 0%, #ff3c32 100%);
+  background: linear-gradient(to top, #ff7770 0%, #ff3c32 100%);
 }
 
 .burger {

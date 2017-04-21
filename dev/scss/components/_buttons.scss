@@ -25,7 +25,7 @@
       padding-top: 11px;
       background: linear-gradient(to bottom, $color-primary-lighter-2 0%, $color-primary 100%);
 
-      &:active { background: linear-gradient(to top, $color-primary-lighter-1 0%, $color-primary 100%); }
+      &:active { background: linear-gradient(to top, $color-primary-lighter-2 0%, $color-primary 100%); }
     }
   }
 
@@ -42,17 +42,17 @@
 
     &-dark {
       background: $color-base;
-      background: linear-gradient(to bottom, $color-base-lighter-2 0%, $color-base 100%);
+      background: linear-gradient(to bottom, $color-base-lighter-1 0%, $color-base-darker-1 100%);
     }
 
     &-primary {
       background: $color-primary;
-      background: linear-gradient(to bottom, $color-primary-lighter-2 0%, $color-primary 100%);
+      background: linear-gradient(to bottom, $color-primary-lighter-1 0%, $color-primary-darker-1 100%);
     }
 
     &-dismiss {
       background: $color-dismiss;
-      background: linear-gradient(to bottom, $color-dismiss-lighter-2 0%, $color-dismiss 100%);
+      background: linear-gradient(to bottom, $color-dismiss-lighter-1 0%, $color-dismiss-darker-1 100%);
     }
 
     &_inner {
@@ -70,23 +70,23 @@
 
       &-dark {
         background: $color-base-darker-1;
-        background: linear-gradient(to bottom, $color-base-lighter-1 0%, $color-base-darker-1 100%);
+        background: linear-gradient(to bottom, $color-base-lighter-2 0%, $color-base 100%);
 
-        &:active { background: linear-gradient(to top, $color-base-lighter-1 0%, $color-base-darker-1 100%); }
+        &:active { background: linear-gradient(to top, $color-base-lighter-2 0%, $color-base 100%); }
       }
 
       &-primary {
         background: $color-primary-darker-1;
-        background: linear-gradient(to bottom, $color-primary-lighter-1 0%, $color-primary-darker-1 100%);
+        background: linear-gradient(to bottom, $color-primary-lighter-2 0%, $color-primary 100%);
 
-        &:active { background: linear-gradient(to top, $color-primary-lighter-1 0%, $color-primary-darker-1 100%); }
+        &:active { background: linear-gradient(to top, $color-primary-lighter-2 0%, $color-primary 100%); }
       }
 
       &-dismiss {
         background: $color-dismiss-darker-1;
-        background: linear-gradient(to bottom, $color-dismiss-lighter-1 0%, $color-dismiss-darker-1 100%);
+        background: linear-gradient(to bottom, $color-dismiss-lighter-2 0%, $color-dismiss 100%);
 
-        &:active { background: linear-gradient(to top, $color-dismiss-lighter-1 0%, $color-dismiss-darker-1 100%); }
+        &:active { background: linear-gradient(to top, $color-dismiss-lighter-2 0%, $color-dismiss 100%); }
       }
     }
   }
