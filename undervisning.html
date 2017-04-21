@@ -10,7 +10,7 @@
   </head>
   <body class="backgroundColor-base-lighter visibleControlBar">
 
-    <div class="burger">
+    <div id="burger" class="burger">
       <span></span>
       <span></span>
       <span></span>
@@ -147,15 +147,16 @@
       </div>
     </div>
 
+    <div class="menu menu-hidden">
+
+    </div>
+
     <script>
+      /* ----- Dialog ----- */
       var controlBarBtnNext = document.getElementById( 'controlBarBtnNext' );
-      var controlBarBtnThumbnails = document.getElementById( 'controlBarBtnThumbnails' );
       var dialog = document.getElementsByClassName( 'dialog' );
       var dialogCheckmark = document.getElementsByClassName( 'dialog_checkmark' );
       var dialogBtnNo = document.getElementById( 'dialogBtnNo' );
-      var thumbnailPanel = document.getElementsByClassName( 'thumbnailPanel' );
-      var thumbnails = document.getElementsByClassName( 'thumbnail' );
-      var progressBarSteps = document.getElementsByClassName( 'progressBar_step' );
 
       var toggleDialog = function() {
         dialog[0].classList.toggle( 'dialog-hidden' );
@@ -165,6 +166,11 @@
 
       controlBarBtnNext.addEventListener( 'click', toggleDialog );
       dialogBtnNo.addEventListener( 'click', toggleDialog );
+
+      /* ----- Thumbnails ----- */
+      // Panel
+      var controlBarBtnThumbnails = document.getElementById( 'controlBarBtnThumbnails' );
+      var thumbnailPanel = document.getElementsByClassName( 'thumbnailPanel' );
 
       var toggleThumbnailPanel = function() {
         thumbnailPanel[0].classList.toggle( 'thumbnailPanel-hidden' );
@@ -179,6 +185,8 @@
       };
 
       // When hovering over a thumbnail the corresponding progressbar step has a class added or removed
+      var thumbnails = document.getElementsByClassName( 'thumbnail' );
+      var progressBarSteps = document.getElementsByClassName( 'progressBar_step' );
       var thumbnailsArray = [];
       var progressBarStepsArray = [];
       buildArray(thumbnails, thumbnailsArray);
@@ -202,6 +210,25 @@
           thumbnails[i].addEventListener( 'mouseleave', toggleCorrespondingProgressStep );
         }
       }();
+
+      /* ----- Menu ----- */
+      var menu = document.getElementsByClassName( 'menu' );
+      var burgerIcon = document.getElementById( 'burger' );
+      var htmlTags = document.getElementsByTagName( 'html' )[0];
+
+      var toggleMenu = function() {
+        menu[0].classList.toggle( 'menu-hidden' );
+        burgerIcon.classList.toggle( 'burger-active' );
+        if ( htmlTags.className === 'overflow-hidden' ) { // Check if <html> has already 'overflow-hidden' applied (meaning the menu is visible)
+          setTimeout( function() { // If so then wait for the closing animation of the menu, so that ugly scrollbars don't appear and makes content jump
+            htmlTags.classList.toggle( 'overflow-hidden' );
+          }, 600); // Menu animation duration
+        } else { // Else just apply immediately, so that content doesn't jump on opening animation
+          htmlTags.classList.toggle( 'overflow-hidden' );
+        }
+      };
+
+      burgerIcon.addEventListener( 'click', toggleMenu );
     </script>
   </body>
 </html>

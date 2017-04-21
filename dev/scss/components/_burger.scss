@@ -1,11 +1,11 @@
 .burger {
-    cursor: pointer;
-    position: fixed;
-    height: 22px;
-    width: 28px;
-    left: $scale;
-    top: $scale;
-
+  cursor: pointer;
+  position: fixed;
+  height: 22px;
+  width: 28px;
+  left: $scale;
+  top: $scale;
+  z-index: 1001;
 
   @include breakpoint( 'tablet' ) {
     display: flex;
@@ -14,9 +14,9 @@
     transform: rotate(0deg);
     bottom: 28px;
     top: auto;
-    z-index: 1001;
     transition: 0.15s ease-out;
   }
+
   @include breakpoint( 'mobile' ) { bottom: $scale; }
 
   & span {
@@ -46,7 +46,8 @@
     }
   }
 
-  &:active {
+  &:active,
+  &-active {
 
     & span {
 

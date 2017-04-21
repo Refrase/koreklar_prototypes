@@ -1,0 +1,30 @@
+.menu {
+  position: absolute;
+  width: 4000px;
+  height: 4000px;
+  top: calc( -2000px + 27px ); // Center of burger
+  left: calc( -2000px + 30px ); // Center of burger
+  z-index: 1000;
+  background: rgba($color-base-lighter-7, 0.98);
+  border-radius: 100%;
+  pointer-events: auto;
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform 600ms ease-out;
+
+  @include breakpoint( 'tablet' ) {
+    top: auto;
+    bottom: calc( -2000px + 43px ); // Center of burger
+    left: calc( -2000px + 30px ); // Center of burger
+  }
+
+  @include breakpoint( 'mobile' ) { bottom: calc( -2000px + 32px ); } // Center of burger
+
+  &-hidden {
+    transition: opacity 200ms 600ms ease-out, transform 600ms ease-in;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0);
+  }
+}

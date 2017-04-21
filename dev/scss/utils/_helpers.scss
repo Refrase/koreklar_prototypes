@@ -161,6 +161,10 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 	&-relative { position: relative; }
 	&-absolute { position: absolute; }}
 
+.overflow {
+	&-hidden { overflow: hidden; }
+}
+
 // Animation
 @keyframes slideDown {
 	0%   { opacity: 0; transform: translate3d(0,-20px,0); }
