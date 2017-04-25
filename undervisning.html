@@ -29,7 +29,7 @@
       </div>
 
       <div class="span-8">
-        <img src="images/boger-paa-bord.jpg" alt="Bøger på bord" class="width-fill-right">
+        <img src="./images/boger-paa-bord.jpg" alt="Bøger på bord" class="width-fill-right">
       </div>
     </div>
 
@@ -147,8 +147,97 @@
       </div>
     </div>
 
-    <div class="menu menu-hidden">
-
+    <div class="menuBackground menuBackground-hidden"></div>
+    <div class="menu menu-hidden background-pattern background-pattern-base background-pattern-subtle">
+      <div class="menu_inner gridBlock gridBlock-columns-12 padding-top-4-1">
+        <div class="menu_inner_top span-12">
+          <a href="#" class="avatar">
+            <img class="avatar_background" src="./assets/ic_avatar_background.svg" alt="Bruger initialer" height="100%">
+            <p class="avatar_initials">Ar</p>
+          </a>
+          <img class="menu_inner_top_logo" src="./assets/logo_koreklar.svg" alt="Bruger initialer" height="100%">
+        </div>
+        <ul class="level level-1 span-8 margin-top-3-1">
+          <li>
+            <a href="#" id="menuItem-kurser">Kurser</a>
+            <ul id="menuList-kurser" class="level level-2 level-closed">
+              <li>
+                <a href="#" id="menuItem-kategoriB" >Kategori B</a>
+                <ul id="menuList-kategoriB" class="level level-3 level-closed">
+                  <li>
+                    <a href="#" id="menuItem-lektion1Og2">Lektion 1 og 2</a>
+                    <ul id="menuList-lektion1Og2" class="level level-4 level-closed">
+                      <li>
+                        <a href="./undervisning.html" class="completed">Køreuddannelsens formål og indhold</a>
+                      </li>
+                      <li>
+                        <a href="./undervisning.html" class="active">Nærmere orientering om sammenhængen mellem den teoretiske og praktiske uddannelse</a>
+                      </li>
+                      <li>
+                        <a href="./undervisning.html">10.1 Betingelser for at få kørekort</a>
+                      </li>
+                      <li>
+                        <a href="./undervisning.html" class="completed">10.2 Krav til teoriprøven og den praktiske prøve</a>
+                      </li>
+                      <li>
+                        <a href="./undervisning.html">1.1.3 Motor tænding og speeder</a>
+                      </li>
+                      <li>
+                        <a href="./undervisning.html">1.1.4 Kobling</a>
+                      </li>
+                      <li>
+                        <a href="./undervisning.html">1.1.5 Gear</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#">Lektion 3 og 4</a>
+                    <ul class="level-closed">
+                      <li>
+                        <a href="#">Placeholder</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#">Lektion 9 og 10</a>
+                    <ul class="level-closed">
+                      <li>
+                        <a href="#">Placeholder</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#">Lektion 11 og 12</a>
+                    <ul class="level-closed">
+                      <li>
+                        <a href="#">Placeholder</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Kategori C</a>
+              </li>
+              <li>
+                <a href="#">Evaluerende prøver kategori B1</a>
+              </li>
+              <li>
+                <a href="#">Evaluerende prøver kategori C</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Diverse</a>
+          </li>
+          <li>
+            <a href="#">Support</a>
+          </li>
+          <li>
+            <a href="#" class="color-dismiss">Log ud</a>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <script>
@@ -212,23 +301,40 @@
       }();
 
       /* ----- Menu ----- */
+      // Toggle
       var menu = document.getElementsByClassName( 'menu' );
+      var menuBackground = document.getElementsByClassName( 'menuBackground' );
       var burgerIcon = document.getElementById( 'burger' );
-      var htmlTags = document.getElementsByTagName( 'html' )[0];
+      var htmlTag = document.getElementsByTagName( 'html' )[0];
 
       var toggleMenu = function() {
         menu[0].classList.toggle( 'menu-hidden' );
+        menuBackground[0].classList.toggle( 'menuBackground-hidden' );
         burgerIcon.classList.toggle( 'burger-active' );
-        if ( htmlTags.className === 'overflow-hidden' ) { // Check if <html> has already 'overflow-hidden' applied (meaning the menu is visible)
+        if ( htmlTag.className === 'overflow-hidden' ) { // Check if <html> has already 'overflow-hidden' applied (meaning the menu is visible)
           setTimeout( function() { // If so then wait for the closing animation of the menu, so that ugly scrollbars don't appear and makes content jump
-            htmlTags.classList.toggle( 'overflow-hidden' );
+            htmlTag.classList.toggle( 'overflow-hidden' );
           }, 600); // Menu animation duration
         } else { // Else just apply immediately, so that content doesn't jump on opening animation
-          htmlTags.classList.toggle( 'overflow-hidden' );
+          htmlTag.classList.toggle( 'overflow-hidden' );
         }
       };
 
       burgerIcon.addEventListener( 'click', toggleMenu );
+
+      // Open/close lists
+      var menuItemKurser = document.getElementById( 'menuItem-kurser' );
+      var menuListKurser = document.getElementById( 'menuList-kurser' );
+      var menuItemKategoriB = document.getElementById( 'menuItem-kategoriB' );
+      var menuListKategoriB = document.getElementById( 'menuList-kategoriB' );
+      var menuItemLektion1Og2 = document.getElementById( 'menuItem-lektion1Og2' );
+      var menuListLektion1Og2 = document.getElementById( 'menuList-lektion1Og2' );
+
+      var toggleList = function(list) { list.classList.toggle( 'level-closed' ); };
+
+      menuItemKurser.addEventListener( 'click', function() { toggleList(menuListKurser); });
+      menuItemKategoriB.addEventListener( 'click', function() { toggleList(menuListKategoriB); });
+      menuItemLektion1Og2.addEventListener( 'click', function() { toggleList(menuListLektion1Og2); });
     </script>
   </body>
 </html>

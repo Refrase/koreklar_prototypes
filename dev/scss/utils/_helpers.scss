@@ -72,8 +72,9 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 }
 
 .color {
-  &-primary { color: $color-primary; }
-	&-base { color: $color-base;
+  &-primary { color: $color-primary !important; }
+	&-dismiss { color: $color-dismiss !important; }
+	&-base { color: $color-base !important;
 		&-lighter {
 		  &-1 { color: $color-base-lighter-1; }
 			&-2 { color: $color-base-lighter-2; }
@@ -130,15 +131,32 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 		&-primary { background-color: $color-primary; }
 		&-base { background-color: $color-base;
 			&-lighter { background-color: $color-base-lighter-7; }}}
-	&-pattern {
-		width: 100vw;
-		height: 100vh;
-		background-image: url('assets/illu_streger.svg');
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: 0 150px;
 
-		&-white { background-image: url('assets/illu_streger_hvid.svg'); }
+	&-pattern {
+		&:after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 100vw;
+			height: 100vh;
+			z-index: -1;
+			background-image: url('assets/illu_streger.svg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: 0 150px; }
+
+		&-dimmed {
+			&:after { opacity: 0.5; }}
+
+		&-subtle {
+			&:after { opacity: 0.05; }}
+
+		&-white {
+			&:after { background-image: url('assets/illu_streger_hvid.svg'); }}
+
+		&-base {
+			&:after { background-image: url('assets/illu_streger_base.svg'); }}
 	}
 	&-full {
 		&::before {
@@ -166,6 +184,17 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 }
 
 // Animation
+@keyframes fadeIn {
+	0%   { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+.fadeIn {
+	animation: fadeIn ease-out forwards;
+	animation-duration: 300ms;
+	&-slow { animation-duration: 600ms; }
+}
+
 @keyframes slideDown {
 	0%   { opacity: 0; transform: translate3d(0,-20px,0); }
 	100% { opacity: 1; transform: translate3d(0,0,0); }
@@ -174,6 +203,7 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 .slideDown {
 	animation: slideDown cubic-bezier(0.25, 0.75, 0.25, 1) forwards;
 	animation-duration: 600ms;
+	&-fast { animation-duration: 300ms; }
 	&-slow { animation-duration: 1200ms; }
 }
 
