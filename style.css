@@ -1,4 +1,9 @@
 /* ----- Imports ----- */
+/* ----- Scale ----- */
+/* ----- Colors ----- */
+/* ----- Font-family ----- */
+/* ----- Font-size ----- */
+/* ----- Layout ----- */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -33,6 +38,18 @@ html, body {
   overflow-x: hidden;
 }
 
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  width: 4px;
+}
+
+html::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
+  background: #f4f4f7;
+}
+
+html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+  background: #454a73;
+}
+
 html {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
@@ -44,11 +61,6 @@ html {
   box-sizing: inherit;
 }
 
-/* ----- Scale ----- */
-/* ----- Colors ----- */
-/* ----- Font-family ----- */
-/* ----- Font-size ----- */
-/* ----- Layout ----- */
 .padding-top-8-1 {
   padding-top: 128px !important;
 }
