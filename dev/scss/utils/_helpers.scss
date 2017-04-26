@@ -85,13 +85,14 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 			&-7 { color: $color-base-lighter-7; }}}}
 
 .display {
-	&-none { display: none; }
+	&-none { display: none !important; }
 	&-flex { display: flex; }
 	&-block { display: block; }
 	&-inlineBlock { display: inline-block; }}
 
 .justifyContent {
-	&-center { justify-content: center; }}
+	&-center { justify-content: center; }
+	&-spaceBetween { justify-content: space-between; }}
 
 .alignItems {
 	&-center { align-items: center; }}

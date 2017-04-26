@@ -784,7 +784,7 @@ html {
 }
 
 .display-none {
-  display: none;
+  display: none !important;
 }
 
 .display-flex {
@@ -805,6 +805,12 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.justifyContent-spaceBetween {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .alignItems-center {
@@ -5200,4 +5206,43 @@ a:hover {
 
 .menu_inner .level-4 li a.completed:before {
   background: #00c878;
+}
+
+.leftRightMarkers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  position: relative;
+  top: calc( -25px - 16px);
+}
+
+.leftRightMarkers-imageTop {
+  position: absolute;
+  top: 16px;
+}
+
+.leftRightMarker {
+  padding: 4px 8px;
+  padding-bottom: calc( 4px - 1px);
+  background: rgba(69, 74, 115, 0.8);
+  border: 1px solid #3d4266;
+  color: #f4f4f7;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.leftRightMarker-left {
+  margin-left: 16px;
+}
+
+.leftRightMarker-right {
+  margin-right: 16px;
 }

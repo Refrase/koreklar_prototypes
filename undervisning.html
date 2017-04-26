@@ -29,7 +29,13 @@
       </div>
 
       <div class="span-8">
-        <img src="./images/boger-paa-bord.jpg" alt="Bøger på bord" class="width-fill-right">
+        <div class="width-fill-right position-relative">
+          <img src="./images/boger-paa-bord.jpg" alt="Bøger på bord" class="display-block" width="100%">
+          <div id="leftRightMarkers" class="leftRightMarkers leftRightMarkers-imageTop display-none">
+            <p class="leftRightMarker leftRightMarker-left">Venstre</p>
+            <p class="leftRightMarker leftRightMarker-right">Højre</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -70,7 +76,7 @@
         </ul>
 
         <div class="controlBar_buttons span-8">
-          <div class="btn btn-control">
+          <div id="controlBarBtnLeftRight" class="btn btn-control">
             <div class="btn-control_inner">
               <img src="assets/ic_vh.svg" alt="Ikon venstre/højre" height="14" style="margin-right: 3px;">
             </div>
@@ -335,6 +341,13 @@
       menuItemKurser.addEventListener( 'click', function() { toggleList(menuListKurser); });
       menuItemKategoriB.addEventListener( 'click', function() { toggleList(menuListKategoriB); });
       menuItemLektion1Og2.addEventListener( 'click', function() { toggleList(menuListLektion1Og2); });
+
+      /* ----- Left/right markers ----- */
+      // Toggle
+      var controlBarBtnLeftRight = document.getElementById( 'controlBarBtnLeftRight' );
+      var leftRightMarkers = document.getElementById( 'leftRightMarkers' );
+
+      controlBarBtnLeftRight.addEventListener( 'click', function() { leftRightMarkers.classList.toggle( 'display-none' ); });
     </script>
   </body>
 </html>
