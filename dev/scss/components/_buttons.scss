@@ -1,31 +1,60 @@
+%buttonBase {
+  border-radius: 100px;
+  text-transform: uppercase;
+  font-size: $fontSize-small;
+  letter-spacing: 1px;
+  font-weight: 600;
+  height: 38px;
+  white-space: nowrap;
+}
+
+%buttonInnerBase {
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  margin-top: 1px;
+  margin-left: 1px;
+  border-radius: 100px;
+  padding: 12px $scale-2-1;
+  padding-top: 11px;
+}
+
 .btn {
   cursor: pointer;
   text-decoration: none;
 
+  &-small {
+    height: auto;
+    font-size: $fontSize-xsmall;
+    > * { padding: 6px $scale; }
+  }
+
   &-primary {
+    @extend %buttonBase;
     background-color: $color-primary;
     background: linear-gradient(to bottom, $color-primary-lighter-1 0%, $color-primary-darker-1 100%);
     color: white;
-    border-radius: 100px;
-    text-transform: uppercase;
-    font-size: $fontSize-small;
-    letter-spacing: 1px;
-    font-weight: 600;
-    height: 38px;
-    white-space: nowrap;
 
     &_inner {
+      @extend %buttonInnerBase;
       background: $color-primary;
-      width: calc(100% - 2px);
-      height: calc(100% - 2px);
-      margin-top: 1px;
-      margin-left: 1px;
-      border-radius: 100px;
-      padding: 12px $scale-2-1;
-      padding-top: 11px;
       background: linear-gradient(to bottom, $color-primary-lighter-2 0%, $color-primary 100%);
 
       &:active { background: linear-gradient(to top, $color-primary-lighter-2 0%, $color-primary 100%); }
+    }
+  }
+
+  &-base {
+    @extend %buttonBase;
+    background-color: $color-base;
+    background: linear-gradient(to bottom, $color-base-lighter-1 0%, $color-base-darker-1 100%);
+    color: white;
+
+    &_inner {
+      @extend %buttonInnerBase;
+      background: $color-base;
+      background: linear-gradient(to bottom, $color-base-lighter-2 0%, $color-base 100%);
+
+      &:active { background: linear-gradient(to top, $color-base-lighter-2 0%, $color-base 100%); }
     }
   }
 
