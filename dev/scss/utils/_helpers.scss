@@ -99,6 +99,11 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 
 .flex {
 	&Wrap { flex-wrap: wrap; }
+	&Direction {
+		&-columnReverse { flex-direction: column-reverse;
+			&-tablet { @include breakpoint( 'tablet' ) { flex-direction: column-reverse; }}
+		}
+	}
 }
 
 .width		{
