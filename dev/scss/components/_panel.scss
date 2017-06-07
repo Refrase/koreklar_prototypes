@@ -1,0 +1,72 @@
+.panel {
+  position: relative;
+  margin-top: $scale-2-1;
+  margin-left: -$scale;
+  width: calc( 100% + #{$scale-2-1} );
+
+  &_header {
+    background-color: white;
+    padding: $scale;
+    padding-top: calc( #{$scale-1-2} + 4px );
+    padding-bottom: calc( #{$scale-1-2} + 4px );
+    border-bottom: 1px solid $color-base-lighter-7;
+
+    &_label {
+      font-size: $fontSize-large;
+      font-weight: 700;
+
+      span { color: $color-base-lighter-6; }
+    }
+  }
+
+  &_content {
+    position: relative;
+    width: 100%;
+    padding: $scale;
+    background-color: white;
+
+    ul { list-style: none; }
+  }
+
+  &_list {
+
+    > li {
+      position: relative;
+      margin-bottom: $scale-1-2;
+      &:last-child { margin-bottom: 0; }
+      > .label { left: -32px; }
+    }
+
+    li {
+
+      p {
+        font-family: $fontFamily-system;
+        font-size: $fontSize-small;
+        font-weight: 600;
+        margin-right: $scale-1-2;
+      }
+
+      > * { display: inline-block; }
+    }
+  }
+
+  &_image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    padding: $scale;
+  }
+
+  &-current {
+    border-bottom: 1px solid $color-base;
+    &:before {
+      content: 'Du er her';
+      position: absolute;
+      right: $scale;
+      top: calc( #{$scale-1-2} + 5px );
+      @extend .label;
+      @extend .label-base;
+    }
+  }
+}

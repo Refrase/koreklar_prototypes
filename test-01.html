@@ -86,7 +86,7 @@
           </div>
         </div>
 
-        <a href="#" class="btn btn-small btn-base margin-right-2-1 position-absolute">
+        <a href="#" class="btn btn-small btn-base margin-right-2-1 position-absolute" id="btnShowAnswers">
           <div class="btn-base_inner">
             Vis svar
           </div>
@@ -95,7 +95,7 @@
       </div>
 
       <div class="span-8">
-        <img src="images/rat.jpg" alt="Bøger på bord" class="width-fill-right">
+        <img src="./images/rat.jpg" alt="Bilrat" class="width-fill-right">
       </div>
     </div>
 
@@ -108,32 +108,32 @@
         </ul>
 
         <div class="controlBar_buttons span-8">
-          <div class="btn btn-control">
+          <div class="btn btn-control margin-right-1-2">
             <div class="btn-control_inner">
               <img src="assets/ic_vh.svg" alt="Ikon venstre/højre" height="14" style="margin-right: 3px;">
             </div>
           </div>
-          <div class="btn btn-control">
+          <div class="btn btn-control margin-right-1-2">
             <div class="btn-control_inner">
               <img src="assets/ic_restart.svg" alt="Ikon genstart" height="14" style="margin-right: 3px;">
             </div>
           </div>
-          <div class="btn btn-control">
+          <div class="btn btn-control margin-right-1-2">
             <div class="btn-control_inner">
               <img src="assets/ic_sound.svg" alt="Ikon lyd" height="14" style="margin-right: 3px;">
             </div>
           </div>
-          <div class="btn btn-control">
+          <div class="btn btn-control margin-right-1-2">
             <div class="btn-control_inner">
               <img src="assets/ic_left.svg" alt="Ikon venstre" height="12" style="margin-right: 3px;">
             </div>
           </div>
-          <div class="btn btn-control">
+          <div class="btn btn-control margin-right-1-2">
             <div class="btn-control_inner">
               <img src="assets/ic_right.svg" alt="Ikon højre" height="12" style="margin-left: 1px;">
             </div>
           </div>
-          <div class="btn btn-control">
+          <div class="btn btn-control margin-right-1-2">
             <div class="btn-control_inner">
               <img src="assets/ic_thumbnails.svg" alt="Ikon billedepanel" width="26" style="margin-right: 2px;">
             </div>
@@ -177,5 +177,269 @@
       </ul>
     </div>
 
+    <div class="dialog" id="dialogAnswers"> <!-- PUT 'dialog-hidden' BACK AS CLASS HERE WHEN DONE DEVELOPING -->
+      <a href="#" class="icon icon-cross margin-left margin-top position-absolute" id="dialogAnswersClose">
+        <span></span>
+        <span></span>
+      </a>
+      <div class="dialog_inner">
+
+        <div class="gridBlock gridBlock-columns-12 gridBlock-noPadding">
+
+          <div class="span-12 textAlign-center">
+            <h1 class="headline">Svar</h1>
+            <p class="contextLine">Test 1<p>
+          </div>
+
+        </div>
+
+        <div class="gridBlock gridBlock-columns-12 gridBlock-noPadding" id="answersBlock-01">
+
+          <div class="span-6">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 1<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <div class="label label-dismiss label-icon label-icon-cross">
+                      <svg viewBox="0 0 13.28 13.28">
+                        <polygon points="13.28 1.41 11.87 0 6.64 5.23 1.41 0 0 1.41 5.23 6.64 0 11.87 1.41 13.28 6.64 8.05 11.87 13.28 13.28 11.87 8.05 6.64 13.28 1.41"/>
+                      </svg>
+                    </div>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-lightDarkBorder">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="label label-primary label-icon label-icon-checkmark">
+                      <svg viewBox="0 0 17.79 12.77">
+                        <polygon points="6.43 12.77 0 6.34 1.41 4.92 6.43 9.94 16.37 0 17.79 1.41 6.43 12.77"/>
+                      </svg>
+                    </div>
+                    <p>2</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-lightDarkBorder">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="label label-primary label-icon label-icon-checkmark">
+                      <svg viewBox="0 0 17.79 12.77">
+                        <polygon points="6.43 12.77 0 6.34 1.41 4.92 6.43 9.94 16.37 0 17.79 1.41 6.43 12.77"/>
+                      </svg>
+                    </div>
+                    <p>3</p>
+                    <ul>
+                      <li class="label label-lightDarkBorder">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="label label-dismiss label-icon label-icon-cross">
+                      <svg viewBox="0 0 13.28 13.28">
+                        <polygon points="13.28 1.41 11.87 0 6.64 5.23 1.41 0 0 1.41 5.23 6.64 0 11.87 1.41 13.28 6.64 8.05 11.87 13.28 13.28 11.87 8.05 6.64 13.28 1.41"/>
+                      </svg>
+                    </div>
+                    <p>4</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-lightDarkBorder">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/rat.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-6">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 2<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <div class="label label-primary label-icon label-icon-checkmark">
+                      <svg viewBox="0 0 17.79 12.77">
+                        <polygon points="6.43 12.77 0 6.34 1.41 4.92 6.43 9.94 16.37 0 17.79 1.41 6.43 12.77"/>
+                      </svg>
+                    </div>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-lightDarkBorder">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="label label-dismiss label-icon label-icon-cross">
+                      <svg viewBox="0 0 13.28 13.28">
+                        <polygon points="13.28 1.41 11.87 0 6.64 5.23 1.41 0 0 1.41 5.23 6.64 0 11.87 1.41 13.28 6.64 8.05 11.87 13.28 13.28 11.87 8.05 6.64 13.28 1.41"/>
+                      </svg>
+                    </div>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-lightDarkBorder">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="label label-dismiss label-icon label-icon-cross">
+                      <svg viewBox="0 0 13.28 13.28">
+                        <polygon points="13.28 1.41 11.87 0 6.64 5.23 1.41 0 0 1.41 5.23 6.64 0 11.87 1.41 13.28 6.64 8.05 11.87 13.28 13.28 11.87 8.05 6.64 13.28 1.41"/>
+                      </svg>
+                    </div>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-lightDarkBorder">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="label label-primary label-icon label-icon-checkmark">
+                      <svg viewBox="0 0 17.79 12.77">
+                        <polygon points="6.43 12.77 0 6.34 1.41 4.92 6.43 9.94 16.37 0 17.79 1.41 6.43 12.77"/>
+                      </svg>
+                    </div>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-lightDarkBorder">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-6">
+            <div class="panel panel-current">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 3<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <p>Du har endnu ikke besvaret dette spørgsmål.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="span-6">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 4<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <p>Du har endnu ikke besvaret dette spørgsmål.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="gridBlock gridBlock-columns-12 gridBlock-noPadding display-none" id="answersBlock-02">
+
+          <div class="span-6">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 5<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <p>Du har endnu ikke besvaret dette spørgsmål.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="span-6">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 6<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <p>Du har endnu ikke besvaret dette spørgsmål.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="span-6">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 7<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <p>Du har endnu ikke besvaret dette spørgsmål.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="span-6">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 8<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <p>Du har endnu ikke besvaret dette spørgsmål.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="gridBlock gridBlock-columns-12 gridBlock-noPadding margin-top-3-1">
+          <div class="span-12" style="display: flex; justify-content: center;">
+            <div style="display: flex; width: 88px; justify-content: space-between;">
+              <div class="btn btn-control" id="btnAnswersPrevious">
+                <div class="btn-control_inner">
+                  <img src="assets/ic_left.svg" alt="Ikon venstre" height="12" style="margin-right: 3px;">
+                </div>
+              </div>
+              <div class="btn btn-control" id="btnAnswersNext">
+                <div class="btn-control_inner">
+                  <img src="assets/ic_right.svg" alt="Ikon højre" height="12" style="margin-left: 1px;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script>
+      /* ----- Dialog ----- */
+      var btnShowAnswers = document.getElementById( 'btnShowAnswers' );
+      var dialogAnswers = document.getElementById( 'dialogAnswers' );
+      var dialogAnswersClose = document.getElementById( 'dialogAnswersClose' );
+
+      var toggleDialog = function() {
+        dialogAnswers.classList.toggle( 'dialog-hidden' );
+      };
+
+      btnShowAnswers.addEventListener( 'click', toggleDialog );
+      dialogAnswersClose.addEventListener( 'click', toggleDialog );
+
+      /* ----- Answers pagination ----- */
+      var answersBlock1 = document.getElementById( 'answersBlock-01' );
+      var answersBlock2 = document.getElementById( 'answersBlock-02' );
+      var btnAnswersNext = document.getElementById( 'btnAnswersNext' );
+      var btnAnswersPrevious = document.getElementById( 'btnAnswersPrevious' );
+
+      var nextAnswersBlock = function() {
+        answersBlock1.classList.add( 'display-none' );
+        answersBlock2.classList.remove( 'display-none' );
+      };
+
+      var previousAnswersBlock = function() {
+        answersBlock1.classList.remove( 'display-none' );
+        answersBlock2.classList.add( 'display-none' );
+      };
+
+      btnAnswersNext.addEventListener( 'click', nextAnswersBlock );
+      btnAnswersPrevious.addEventListener( 'click', previousAnswersBlock );
+    </script>
   </body>
 </html>

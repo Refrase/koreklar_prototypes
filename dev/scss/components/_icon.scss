@@ -1,0 +1,23 @@
+.icon {
+  position: relative;
+
+  &-cross {
+    height: 24px;
+    width: 28px;
+
+    & span {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background: $color-base;
+      top: 50%;
+      left: 0;
+
+      &:nth-child(1) { transform: rotate(45deg); }
+      &:nth-child(2) { transform: rotate(-45deg); }
+    }
+
+  }
+
+}

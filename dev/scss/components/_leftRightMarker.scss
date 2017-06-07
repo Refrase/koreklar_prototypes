@@ -5,25 +5,13 @@
   position: relative;
   top: calc( -25px - #{$scale} ); // First number = marker height
 
+  &_marker {
+    &-left { margin-left: $scale; }
+    &-right { margin-right: $scale; }
+  }
+
   &-imageTop {
     position: absolute;
     top: $scale;
   }
-}
-
-.leftRightMarker {
-  padding: $scale-1-4 $scale-1-2;
-  padding-bottom: calc( #{$scale-1-4} - 1px );
-  background: rgba($color-base, 0.8);
-  border: 1px solid $color-base-darker-1;
-  color: $color-base-lighter-7;
-  border-radius: 2px;
-  font-size: $fontSize-xsmall;
-  font-weight: 600;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-  display: inline-block;
-
-  &-left { margin-left: $scale; }
-  &-right { margin-right: $scale; }
 }

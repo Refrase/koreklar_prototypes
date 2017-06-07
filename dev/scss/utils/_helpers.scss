@@ -90,6 +90,10 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 	&-block { display: block; }
 	&-inlineBlock { display: inline-block; }}
 
+.opacity {
+	&-0 { opacity: 0; }
+}
+
 .justifyContent {
 	&-center { justify-content: center; }
 	&-spaceBetween { justify-content: space-between; }}
@@ -182,8 +186,8 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 	&-unstyled { list-style: none; }}
 
 .position {
-	&-relative { position: relative; }
-	&-absolute { position: absolute; }}
+	&-relative { position: relative !important; }
+	&-absolute { position: absolute !important; }}
 
 .overflow {
 	&-hidden { overflow: hidden; }

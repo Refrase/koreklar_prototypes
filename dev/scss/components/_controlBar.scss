@@ -10,18 +10,17 @@
   @include breakpoint( 'tablet' ) { padding: $scale 0 $scale; }
 
   &_breadcrumb {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
     list-style: none;
     font-size: $fontSize-small;
 
     @include breakpoint( 'tablet' ) { display: none; }
 
-    li, a {
-      font-family: $fontFamily-system;
-      white-space: nowrap;
+    li {
+      display: inline-block;
+      margin-bottom: $scale-1-4;
     }
+
+    li, a { font-family: $fontFamily-system; }
   }
 
   &_buttons {

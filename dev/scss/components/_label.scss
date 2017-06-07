@@ -1,0 +1,46 @@
+@mixin labelColoring($backgroundColor, $borderColor, $color) {
+  background: rgba($backgroundColor, 0.8);
+  border: 1px solid $borderColor;
+  color: $color;
+}
+
+.label {
+  padding: $scale-1-4 $scale-1-2;
+  padding-bottom: calc( #{$scale-1-4} - 1px );
+  font-size: $fontSize-xsmall;
+  font-weight: 600;
+  font-family: $fontFamily-sans;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  display: inline-block;
+  z-index: 1;
+
+  &-primary { @include labelColoring($color-primary, $color-primary-darker-1, white); }
+  &-dismiss { @include labelColoring($color-dismiss, $color-dismiss-darker-1, white); }
+  &-base { @include labelColoring($color-base, $color-base-darker-1, $color-base-lighter-7); }
+  &-dismiss, &-primary { svg { path, polygon { fill: white; }} } // SVG icons inside darker labels
+  &-light { @include labelColoring(white, $color-base-lighter-7, $color-base); }
+  &-lightDarkBorder { @include labelColoring(white, $color-base, $color-base); }
+
+  &-icon {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+
+    svg { position: relative; }
+
+    &-cross {
+      svg {
+        width: 9px;
+        margin-left: -2px;
+      }
+    }
+
+    &-checkmark {
+      svg {
+        width: 11px;
+        margin-left: -3px;
+      }
+    }
+  }
+}
