@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700|Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <title>Køreklar | Resultat for Test 1</title>
+  </head>
+  <body class="resultat backgroundColor-base-lighter visibleControlBar">
+
+    <div class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="gridBlock gridBlock-columns-12 gridBlock-noPadding flexDirection-columnReverse-tablet">
+      <div class="span-5 position-relative">
+        <div class="padding-top-2-1 padding-bottom-2-1 position-relative backgroundColor-white background-full">
+          <p class="fontSize-small margin-bottom-1-2 color-base-lighter-4 fontFamily-system">Resultat</p>
+          <h1 class="fontSize-xxxlarge">Desværre</h1>
+        </div>
+
+        <div class="padding-top-2-1 margin-bottom-2-1">
+          <p class="fontWeight-bold margin-bottom display-flex">
+            <span id="rightAnswersPercentHolder" class="fontSize-display fontFamily-system" style="line-height: 0.9;">0</span>
+            <span class="fontSize-xxxlarge fontFamily-system" style="font-weight: 900;">%</span>
+          </p>
+          <div class="bar">
+            <div id="rightAnswersPercentBarFillWrap" class="bar_fillWrap">
+              <div id="rightAnswersPercentBarFill" class="bar_fill"></div>
+            </div>
+            <div class="bar_marker"></div>
+          </div>
+          </br>
+          </br>
+          <p>... rigtige svar er ikke nok til at bestå testen. Mindstekravet til denne test er 80% (20 rigtige).</p>
+          </br>
+          </br>
+          <table>
+            <thead>
+              <tr>
+                <td colspan="2" style="text-align: center;"><b>Svar</b></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Korrekte</td>
+                <td>17</td>
+              </tr>
+              <tr>
+                <td>Forkerte</td>
+                <td>24</td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <a href="#" class="btn btn-small btn-base margin-top-1-2">
+                    <div class="btn-base_inner">Vis svar</div>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </br>
+          </br>
+          <div class="display-flex alignItems-center">
+            <div class="icon-clock">
+              <svg viewBox="0 0 22.89 22.89">
+                <path d="M11.45,22.89A11.45,11.45,0,1,1,22.89,11.45,11.46,11.46,0,0,1,11.45,22.89ZM11.45,2a9.45,9.45,0,1,0,9.45,9.45A9.46,9.46,0,0,0,11.45,2Z"/>
+                <polygon points="14.41 17.7 10.45 11.75 10.45 6.89 12.45 6.89 12.45 11.14 16.07 16.59 14.41 17.7"/>
+              </svg>
+            </div>
+            <p class="color-base-lighter-3 fontFamily-system fontSize-small">28.19</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="span-7">
+        <img src="./images/bil-i-vaeg.png" alt="Bilrat" width="100%">
+      </div>
+    </div>
+
+    <script>
+      // Count up right answers percent
+      var rightAnswersPercentHolder = document.getElementById( 'rightAnswersPercentHolder' );
+      var rightAnswersPercentBarFillWrap = document.getElementById( 'rightAnswersPercentBarFillWrap' );
+      var rightAnswersPercentBarFill = document.getElementById( 'rightAnswersPercentBarFill' );
+
+      var rightAnswersPercent = 68;
+      var counter = 0;
+
+      rightAnswersPercentBarFillWrap.style.width = rightAnswersPercent + '%'; // Set width of the container that the blue bar is to fill out
+
+      var counterIncrease = function() {
+        rightAnswersPercentHolder.innerText = counter;
+        counter++;
+      };
+
+      function setDeceleratingTimeout( callback, factor, times ) {
+        var internalCallback = function( tick, counter ) {
+          return function() {
+            var newTick = --tick;
+            if ( newTick >= 0 ) {
+              window.setTimeout( internalCallback, ++counter * factor );
+              if ( newTick == rightAnswersPercent / 2 ) rightAnswersPercentBarFill.classList.add( 'bar_fill-final' );
+              callback();
+            }
+          }
+        }( times, 0 );
+        window.setTimeout( internalCallback, factor );
+      };
+
+      setDeceleratingTimeout( counterIncrease, 1.02, rightAnswersPercent + 1 );
+
+      // OLD NON-DECELERATING BUT LINEAR SPEED INTERVAL
+      // var countingInterval = setInterval( function() {
+      //   counterIncrease();
+      //   if ( counter > rightAnswersPercent ) {
+      //     rightAnswersPercentBarFill.classList.add( 'bar_fill-final' );
+      //     clearInterval(countingInterval);
+      //   }
+      // }, 4000 );
+    </script>
+  </body>
+</html>

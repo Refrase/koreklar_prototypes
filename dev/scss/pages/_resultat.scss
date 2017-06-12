@@ -1,0 +1,20 @@
+.resultat {
+
+  .icon {
+
+    &-clock {
+      width: 17px;
+      height: 17px;
+      margin-top: -1px;
+      margin-right: $scale-1-2;
+
+      svg {
+        width: 100%;
+        path, polygon { fill: $color-base-lighter-3; }
+      }
+
+    }
+
+  }
+
+}

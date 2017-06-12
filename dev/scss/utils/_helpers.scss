@@ -45,6 +45,7 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 
 .font {
 	&Size {
+		&-display { font-size: $fontSize-display; }
 		&-xxxlarge { font-size: $fontSize-xxxlarge; }
 		&-xxlarge { font-size: $fontSize-xxlarge; }
 		&-xlarge { font-size: $fontSize-xlarge; }
@@ -99,6 +100,7 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 	&-spaceBetween { justify-content: space-between; }}
 
 .alignItems {
+	&-flexEnd { align-items: flex-end; }
 	&-center { align-items: center; }}
 
 .flex {

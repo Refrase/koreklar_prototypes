@@ -1,0 +1,45 @@
+.bar {
+  position: relative;
+  height: $scale;
+  width: 100%;
+  background-color: white;
+
+  &_fill {
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 100%;
+    background-color: $color-base;
+    transition: transform 2400ms ease-out;
+    transform-origin: left;
+
+    &-final { transform: scaleX(1); }
+  }
+
+  &_fillWrap {
+    position: absolute;
+    height: 100%;
+    width: 0; // Width set with JS to put in dynamic value reflecting right answers
+  }
+
+  &_marker {
+    position: absolute;
+    width: 1px;
+    top: -4px;
+    height: calc( 100% + 8px );
+    left: 80%;
+    background-color: $color-base-lighter-5;
+
+    &:after {
+      content: '80%';
+      position: absolute;
+      bottom: -18px;
+      left: -12px;
+      font-family: $fontFamily-sans;
+      font-size: $fontSize-small;
+      margin-left: $scale-1-4;
+      color: $color-base-lighter-3;
+      font-weight: 100;
+    }
+  }
+}
