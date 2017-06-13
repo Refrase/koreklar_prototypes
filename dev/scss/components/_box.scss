@@ -1,6 +1,7 @@
 .box {
-  width: 320px;
+  width: 600px;
   max-width: 100%;
+  margin: 0 $scale;
   padding: $scale-3-4 $scale;
   background: rgba( $color-base, 0.98 );
   border: 1px solid $color-base-darker-1;
