@@ -221,5 +221,5 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 
 // Triggering scroll on y-axis, when controlBar is visible
 .visibleControlBar {
-	padding-bottom: 124px !important; // 124 = max-height of controlBar at this time
+	padding-bottom: 180px !important; // Making sure bottom content is visible on all screensizes
 }

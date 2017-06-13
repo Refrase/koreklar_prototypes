@@ -86,10 +86,8 @@
           </div>
         </div>
 
-        <a href="#" class="btn btn-small btn-base margin-right-2-1 position-absolute" id="btnShowAnswers">
-          <div class="btn-base_inner">
-            Vis svar
-          </div>
+        <a href="#" class="btn btn-small btn-base margin-right margin-bottom" id="btnShowAnswers">
+          <div class="btn-base_inner">Vis svar</div>
         </a>
 
       </div>
@@ -107,42 +105,58 @@
           <li>Test 1</li>
         </ul>
 
+
+
         <div class="controlBar_buttons span-8">
-          <div class="btn btn-control margin-right-1-2">
-            <div class="btn-control_inner">
-              <img src="assets/ic_vh.svg" alt="Ikon venstre/højre" height="14" style="margin-right: 3px;">
+
+          <div
+            class="position-relative display-flex flexDirection-column alignItems-center justifyContent-center"
+            style="width: 100%; margin-top: -46px; margin-bottom: 24px;">
+            <div class="box box-btn display-none" id="boxExplanation">
+              <p>Styreapparatet skal virke let, sikkert og hurtigt. Styreapparatet skal ikke være hurtigt, sikkert og virksom, det er lovkravene til driftsbremsen. Væsentligt slør i styreapparatet som helhed eller i dets enkelte dele er forbudt. Ved lav hastighed skal rattet let kunne drejes fra side til side uden at møde ujævn modstand eller fremkalde mislyde.</p>
+            </div>
+            <div class="btn btn-small btn-base" id="btnShowExplanation">
+              <div class="btn-base_inner">Forklaring</div>
             </div>
           </div>
-          <div class="btn btn-control margin-right-1-2">
-            <div class="btn-control_inner">
-              <img src="assets/ic_restart.svg" alt="Ikon genstart" height="14" style="margin-right: 3px;">
-            </div>
-          </div>
-          <div class="btn btn-control margin-right-1-2">
-            <div class="btn-control_inner">
-              <img src="assets/ic_sound.svg" alt="Ikon lyd" height="14" style="margin-right: 3px;">
-            </div>
-          </div>
-          <div class="btn btn-control margin-right-1-2">
-            <div class="btn-control_inner">
-              <img src="assets/ic_left.svg" alt="Ikon venstre" height="12" style="margin-right: 3px;">
-            </div>
-          </div>
-          <a href="./resultat.html">
+
+          <div class="display-flex justifyContent-center flexWrap">
             <div class="btn btn-control margin-right-1-2">
               <div class="btn-control_inner">
-                <img src="assets/ic_right.svg" alt="Ikon højre" height="12" style="margin-left: 1px;">
+                <img src="assets/ic_vh.svg" alt="Ikon venstre/højre" height="14" style="margin-right: 3px;">
               </div>
             </div>
-          </a>
-          <div class="btn btn-control margin-right-1-2">
-            <div class="btn-control_inner">
-              <img src="assets/ic_thumbnails.svg" alt="Ikon billedepanel" width="26" style="margin-right: 2px;">
+            <div class="btn btn-control margin-right-1-2">
+              <div class="btn-control_inner">
+                <img src="assets/ic_restart.svg" alt="Ikon genstart" height="14" style="margin-right: 3px;">
+              </div>
             </div>
-          </div>
-          <div class="btn btn-control">
-            <div class="btn-control_inner">
-              <img src="assets/ic_pause.svg" alt="Ikon pause" height="11" style="margin-right: 1px;">
+            <div class="btn btn-control margin-right-1-2">
+              <div class="btn-control_inner">
+                <img src="assets/ic_sound.svg" alt="Ikon lyd" height="14" style="margin-right: 3px;">
+              </div>
+            </div>
+            <div class="btn btn-control margin-right-1-2">
+              <div class="btn-control_inner">
+                <img src="assets/ic_left.svg" alt="Ikon venstre" height="12" style="margin-right: 3px;">
+              </div>
+            </div>
+            <a href="./resultat.html">
+              <div class="btn btn-control margin-right-1-2">
+                <div class="btn-control_inner">
+                  <img src="assets/ic_right.svg" alt="Ikon højre" height="12" style="margin-left: 1px;">
+                </div>
+              </div>
+            </a>
+            <div class="btn btn-control margin-right-1-2">
+              <div class="btn-control_inner">
+                <img src="assets/ic_thumbnails.svg" alt="Ikon billedepanel" width="26" style="margin-right: 2px;">
+              </div>
+            </div>
+            <div class="btn btn-control">
+              <div class="btn-control_inner">
+                <img src="assets/ic_pause.svg" alt="Ikon pause" height="11" style="margin-right: 1px;">
+              </div>
             </div>
           </div>
         </div>
@@ -527,6 +541,14 @@
 
       btnAnswersNext.addEventListener( 'click', nextAnswersBlock );
       btnAnswersPrevious.addEventListener( 'click', previousAnswersBlock );
+
+      /* ----- Explanation box ----- */
+      var btnShowExplanation = document.getElementById( 'btnShowExplanation' );
+      var boxExplanation = document.getElementById( 'boxExplanation' );
+
+      var showBoxExplanation = function() { boxExplanation.classList.toggle( 'display-none' ); };
+
+      btnShowExplanation.addEventListener( 'click', showBoxExplanation );
     </script>
   </body>
 </html>

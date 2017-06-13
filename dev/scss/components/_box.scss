@@ -1,0 +1,15 @@
+.box {
+  width: 320px;
+  max-width: 100%;
+  padding: $scale-3-4 $scale;
+  background: rgba( $color-base, 0.98 );
+  border: 1px solid $color-base-darker-1;
+  z-index: -1;
+
+  p { color: white; }
+
+  &-btn {
+    position: absolute;
+    bottom: $scale-2-1;
+  }
+}

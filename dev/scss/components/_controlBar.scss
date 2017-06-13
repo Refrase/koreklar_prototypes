@@ -3,11 +3,11 @@
   bottom: 0;
   width: 100%;
   background-color: $color-base-lighter-7;
-  padding: $scale 0 $scale;
+  padding: $scale-2-1 0 $scale-2-1;
   border-top: 1px solid $color-base-lighter-6;
   z-index: $zindex-controlBar;
 
-  @include breakpoint( 'tablet' ) { padding: $scale 0 $scale; }
+  @include breakpoint( 'tablet' ) { padding: $scale-2-1 0 $scale-2-1; }
 
   &_breadcrumb {
     list-style: none;
@@ -25,13 +25,11 @@
 
   &_buttons {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 
-    @include breakpoint( 'tablet' ) { flex-wrap: wrap; }
-
-    & .btn {
-      margin-bottom: $scale-1-2;
-    }
+    & .btn-control { margin-bottom: $scale-1-2; }
   }
 
   &_time {

@@ -10,12 +10,7 @@ p, td {
 }
 
 a {
-  color: $color-primary;
+  font-weight: 600;
   text-decoration: none;
   display: inline-block;
-  transition: opacity 200ms ease-out;
-
-  &:hover {
-    opacity: 0.9;
-  }
 }
