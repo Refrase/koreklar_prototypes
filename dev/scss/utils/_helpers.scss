@@ -117,18 +117,18 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 	&-fill  { // Counter spacing the grid for covering margins defined by grid. ATT! Depending on grid side paddings as they are
 		&-right	{
 			@include breakpoint( 'desktop' ){
-				width: calc( 100% + #{$scale-2-1} + #{$scale-4-1} );
+				width: calc( 100% + #{$scale-2-1} + #{$scale-4-1} ) !important;
 			}
 			@include breakpoint( 'tablet' ) {
-				width: calc( 100% + #{$scale-8-1} );
-				margin-left: -$scale-4-1;
-				margin-right: 0;
+				width: calc( 100% + #{$scale-8-1} ) !important;
+				margin-left: -$scale-4-1 !important;
+				margin-right: 0 !important;
 			}
 			@include breakpoint( 'widescreen' ){
-				width: calc( 100% + #{$scale-2-1} + #{$scale-8-1} );
+				width: calc( 100% + #{$scale-2-1} + #{$scale-8-1} ) !important;
 			}
 			@include breakpoint( 'extraWidescreen' ) {
-				width: 100%;
+				width: 100% !important;
 			}
 		}
 	}

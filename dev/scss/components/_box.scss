@@ -1,8 +1,7 @@
 .box {
-  width: 600px;
-  max-width: 100%;
-  margin: 0 $scale;
+  width: 100%;
   padding: $scale-3-4 $scale;
+  padding-bottom: $scale-2-1;
   background: rgba( $color-base, 0.98 );
   border: 1px solid $color-base-darker-1;
   z-index: -1;
@@ -11,6 +10,7 @@
 
   &-btn {
     position: absolute;
-    bottom: $scale-2-1;
+    left: 0;
+    bottom: 12px; // Half button
   }
 }

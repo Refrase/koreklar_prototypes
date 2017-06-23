@@ -1,0 +1,11 @@
+textarea {
+  width: 100%;
+  padding-top: $scale-2-1 / 4 * 3;
+  padding-bottom: $scale-2-1 / 4 * 3;
+  padding-left: $scale-2-1;
+  padding-right: $scale-2-1;
+  color: $color-base;
+  font-family: $fontFamily-sans;
+
+  &:focus { outline: none; }
+}
