@@ -1,0 +1,13 @@
+.test01Svgknapper {
+
+  #btnShowAnswers {
+    background-image: url( './../../../assets/btn_showanswers_blue_up_small.svg' );
+    background-repeat: no-repeat;
+	  min-width: 100px;
+	  height: 26px;
+    outline: none;
+
+    &:active { background-image: url( './../../../assets/btn_showanswers_blue_down_small.svg' ); }
+  }
+
+}
