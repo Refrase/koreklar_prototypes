@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700|Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <title>Køreklar | Test 1</title>
+  </head>
+  <body class="backgroundColor-base-lighter visibleControlBar">
+
+    <div class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="gridBlock gridBlock-columns-12 gridBlock-noPadding flexDirection-columnReverse-tablet">
+      <div class="span-4 position-relative">
+        <div class="padding-top-2-1 padding-bottom-2-1 position-relative backgroundColor-white background-full">
+          <p class="fontSize-small margin-bottom-1-2 color-base-lighter-4 fontFamily-system">Spørgsmål 1 af 25</p>
+          <h1 class="fontSize-xlarge">Hvilke bestemmelser gælder for bilens styreapparat?</h1>
+        </div>
+
+        <div class="statements padding-top-2-1 margin-bottom-2-1">
+          <div class="statement">
+            <ul class="answers">
+              <li>
+                <input type="radio" name="statement1-answer" id="statement1-ja" value="Ja">
+                <label for="statement1-ja">Ja</label>
+                <div class="check"></div>
+              </li>
+              <li>
+                <input type="radio" name="statement1-answer" id="statement1-nej" value="Nej">
+                <label for="statement1-nej">Nej</label>
+                <div class="check"></div>
+              </li>
+            </ul>
+            <p class="statement_text">Styreapparatet skal være indrettet sådan, at bilen kan styres let, sikkert og hurtigt.</p>
+          </div>
+          <div class="statement">
+            <ul class="answers">
+              <li>
+                <input type="radio" name="statement2-answer" id="statement2-ja" value="Ja">
+                <label for="statement2-ja">Ja</label>
+                <div class="check"></div>
+              </li>
+              <li>
+                <input type="radio" name="statement2-answer" id="statement2-nej" value="Nej">
+                <label for="statement2-nej">Nej</label>
+                <div class="check"></div>
+              </li>
+            </ul>
+            <p class="statement_text">Styreapparatet skal være hurtigt, sikkert og virksomt.</p>
+          </div>
+          <div class="statement">
+            <ul class="answers">
+              <li>
+                <input type="radio" name="statement3-answer" id="statement3-ja" value="Ja">
+                <label for="statement3-ja">Ja</label>
+                <div class="check"></div>
+              </li>
+              <li>
+                <input type="radio" name="statement3-answer" id="statement3-nej" value="Nej">
+                <label for="statement3-nej">Nej</label>
+                <div class="check"></div>
+              </li>
+            </ul>
+            <p class="statement_text">Væsentligt slør i styreapparatet som helhed eller i dets enkelte dele er forbudt.</p>
+          </div>
+          <div class="statement">
+            <ul class="answers">
+              <li>
+                <input type="radio" name="statement4-answer" id="statement4-ja" value="Ja">
+                <label for="statement4-ja">Ja</label>
+                <div class="check"></div>
+              </li>
+              <li>
+                <input type="radio" name="statement4-answer" id="statement4-nej" value="Nej">
+                <label for="statement4-nej">Nej</label>
+                <div class="check"></div>
+              </li>
+            </ul>
+            <p class="statement_text">Ved lav hastighed skal rattet let kunne drejes fra side til side uden at møde ujævn modstand eller fremkalde mislyde.</p>
+          </div>
+        </div>
+
+        <a href="#" class="btn btn-small btn-base margin-right margin-bottom" id="btnShowAnswers">
+          <div class="btn_inner">Vis svar</div>
+        </a>
+
+      </div>
+
+      <div class="span-8">
+        <img src="./images/rat.jpg" alt="Bilrat" class="width-fill-right">
+      </div>
+    </div>
+
+    <div class="controlBar">
+      <div class="gridBlock gridBlock-columns-12 gridBlock-noPadding">
+        <ul class="controlBar_breadcrumb span-4">
+          <li><a href="#">Evaluerende prøver kategori B1</a> >&nbsp;</li>
+          <li><a href="#">Øvelse til teoriprøve</a> >&nbsp;</li>
+          <li>Test 1</li>
+        </ul>
+
+        <div class="controlBar_buttons span-8">
+
+          <div
+            class="position-relative display-flex flexDirection-column alignItems-center justifyContent-center"
+            style="width: 100%; margin-top: -46px; margin-bottom: 24px;">
+            <div class="box box-btn display-none width-fill-right" id="boxExplanation">
+              <p>Styreapparatet skal virke let, sikkert og hurtigt. Styreapparatet skal ikke være hurtigt, sikkert og virksom, det er lovkravene til driftsbremsen. Væsentligt slør i styreapparatet som helhed eller i dets enkelte dele er forbudt. Ved lav hastighed skal rattet let kunne drejes fra side til side uden at møde ujævn modstand eller fremkalde mislyde.</p>
+            </div>
+            <div class="btn btn-small btn-base" id="btnShowExplanation">
+              <div class="btn_inner">Forklaring</div>
+            </div>
+          </div>
+
+          <div class="display-flex justifyContent-center flexWrap">
+            <div class="btn btn-control margin-right-1-2">
+              <div class="btn-control_inner">
+                <img src="assets/ic_vh.svg" alt="Ikon venstre/højre" height="14" style="margin-right: 3px;">
+              </div>
+            </div>
+            <div class="btn btn-control margin-right-1-2">
+              <div class="btn-control_inner">
+                <img src="assets/ic_restart.svg" alt="Ikon genstart" height="14" style="margin-right: 3px;">
+              </div>
+            </div>
+            <div class="btn btn-control margin-right-1-2">
+              <div class="btn-control_inner">
+                <img src="assets/ic_sound.svg" alt="Ikon lyd" height="14" style="margin-right: 3px;">
+              </div>
+            </div>
+            <div class="btn btn-control margin-right-1-2">
+              <div class="btn-control_inner">
+                <img src="assets/ic_left.svg" alt="Ikon venstre" height="12" style="margin-right: 3px;">
+              </div>
+            </div>
+            <a href="./resultat.html">
+              <div class="btn btn-control margin-right-1-2">
+                <div class="btn-control_inner">
+                  <img src="assets/ic_right.svg" alt="Ikon højre" height="12" style="margin-left: 1px;">
+                </div>
+              </div>
+            </a>
+            <div class="btn btn-control margin-right-1-2">
+              <div class="btn-control_inner">
+                <img src="assets/ic_thumbnails.svg" alt="Ikon billedepanel" width="26" style="margin-right: 2px;">
+              </div>
+            </div>
+            <div class="btn btn-control">
+              <div class="btn-control_inner">
+                <img src="assets/ic_pause.svg" alt="Ikon pause" height="11" style="margin-right: 1px;">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <p class="controlBar_time">01.47</p>
+
+      <ul class="progressBar">
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+        <li class="progressBar_step"></li>
+      </ul>
+    </div>
+
+    <div class="dialog" id="dialogAnswers">
+      <a href="#" class="icon icon-cross margin-left margin-top position-absolute" id="dialogAnswersClose">
+        <span></span>
+        <span></span>
+      </a>
+      <div class="dialog_inner margin-none padding-bottom-6-1">
+
+        <div class="gridBlock gridBlock-columns-12 gridBlock-noPadding gridBlock-colPaddingSmall" id="answersBlock-01">
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 1<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/rat.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 2<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 3<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 4<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 5<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 6<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 7<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 8<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 9<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 10<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 11<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 12<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 13<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 14<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 15<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 16<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 17<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 18<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 19<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 20<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 21<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 22<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 23<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 24<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+          <div class="span-4">
+            <div class="panel">
+              <div class="panel_header">
+                <p class="panel_header_label">Spørgsmål 25<span> / 25</span></p>
+              </div>
+              <div class="panel_content">
+                <ul class="panel_list">
+                  <li>
+                    <p>1</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>2</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>3</p>
+                    <ul>
+                      <li class="label">Ja</li>
+                      <li class="label label-primary">Nej</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p>4</p>
+                    <ul>
+                      <li class="label label-primary">Ja</li>
+                      <li class="label">Nej</li>
+                    </ul>
+                  </li>
+                </ul>
+                <img src="./images/mand-cykel-sne.jpg" alt="Bilrat" class="panel_image">
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="dialog dialog-hidden" id="dialogBugReport">
+      <a href="#" class="icon icon-cross margin-left margin-top position-absolute" id="dialogBugReportClose">
+        <span></span>
+        <span></span>
+      </a>
+      <div class="dialog_inner padding-bottom-6-1">
+
+        <div class="gridBlock gridBlock-columns-12 gridBlock-noPadding">
+          <div class="span-12 textAlign-center display-flex justifyContent-center alignItems-center">
+
+            <div class="margin-left-2-1 margin-right-2-1">
+              <h1 class="headline">Fejlmelding</h1>
+              <p class="contextLine">Test 1 &ndash; Spørgsmål 1 af 25<p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script>
+      /* ----- Dialogs ----- */
+      var toggleDialog = function( dialog ) { dialog.classList.toggle( 'dialog-hidden' ); };
+
+      // Answers
+      var btnShowAnswers = document.getElementById( 'btnShowAnswers' );
+      var dialogAnswers = document.getElementById( 'dialogAnswers' );
+      var dialogAnswersClose = document.getElementById( 'dialogAnswersClose' );
+
+      btnShowAnswers.addEventListener( 'click', function() { toggleDialog(dialogAnswers) } );
+      dialogAnswersClose.addEventListener( 'click', function() { toggleDialog(dialogAnswers) } );
+
+      /* ----- Answers pagination ----- */
+      var answersBlock1 = document.getElementById( 'answersBlock-01' );
+      var answersBlock2 = document.getElementById( 'answersBlock-02' );
+      var btnAnswersNext = document.getElementById( 'btnAnswersNext' );
+      var btnAnswersPrevious = document.getElementById( 'btnAnswersPrevious' );
+
+      var nextAnswersBlock = function() {
+        answersBlock1.classList.add( 'display-none' );
+        answersBlock2.classList.remove( 'display-none' );
+      };
+
+      var previousAnswersBlock = function() {
+        answersBlock1.classList.remove( 'display-none' );
+        answersBlock2.classList.add( 'display-none' );
+      };
+
+      btnAnswersNext.addEventListener( 'click', nextAnswersBlock );
+      btnAnswersPrevious.addEventListener( 'click', previousAnswersBlock );
+
+      /* ----- Explanation box ----- */
+      var btnShowExplanation = document.getElementById( 'btnShowExplanation' );
+      var boxExplanation = document.getElementById( 'boxExplanation' );
+
+      var showBoxExplanation = function() { boxExplanation.classList.toggle( 'display-none' ); };
+
+      btnShowExplanation.addEventListener( 'click', showBoxExplanation );
+    </script>
+  </body>
+</html>

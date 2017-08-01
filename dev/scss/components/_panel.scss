@@ -1,8 +1,13 @@
 .panel {
   position: relative;
-  margin-top: $scale-2-1;
-  margin-left: -$scale;
-  width: calc( 100% + #{$scale-2-1} );
+  margin-top: $scale;
+  width: 100%;
+
+  &-overflow {
+    margin-top: $scale-2-1;
+    margin-left: -$scale;
+    width: calc( 100% + #{$scale-2-1} );
+  }
 
   &_header {
     background-color: white;
@@ -29,6 +34,8 @@
   }
 
   &_list {
+    position: relative;
+    z-index: 1;
 
     > li {
       position: relative;

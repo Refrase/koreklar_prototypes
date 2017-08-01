@@ -1068,6 +1068,10 @@ html {
   padding: 0 32px;
 }
 
+.gridBlock-colPaddingSmall > * {
+  padding: 0 8px;
+}
+
 @media (max-width: 1024px) {
   .gridBlock {
     width: 100%;
@@ -5567,6 +5571,11 @@ textarea:focus {
 
 .panel {
   position: relative;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.panel-overflow {
   margin-top: 32px;
   margin-left: -16px;
   width: calc( 100% + 32px);
@@ -5598,6 +5607,11 @@ textarea:focus {
 
 .panel_content ul {
   list-style: none;
+}
+
+.panel_list {
+  position: relative;
+  z-index: 1;
 }
 
 .panel_list > li {
