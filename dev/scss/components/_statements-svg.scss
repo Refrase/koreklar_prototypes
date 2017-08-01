@@ -1,6 +1,6 @@
 .statements {}
 
-.statement {
+.test01Svgknapper .statement {
   position: relative;
 
   @include breakpoint( 'tablet' ) { min-height: 42px; }
