@@ -32,6 +32,24 @@
     > * { padding: 6px $scale; }
   }
 
+  &-svg {
+    height: 38px;
+    position: relative;
+    display: inline-block;
+
+    img {
+      height: 100%;
+      &:not(:first-child) {
+        position: absolute;
+        left: 0;
+        top: 0;
+        &:active { display: none; }
+      }
+    }
+
+    &-small { height: 26px; }
+  }
+
   &-primary {
     background-color: $color-primary;
     background: linear-gradient(to bottom, $color-primary-lighter-1 0%, $color-primary-darker-1 100%);
@@ -139,5 +157,12 @@
         &:active { background: linear-gradient(to top, $color-dismiss-lighter-2 0%, $color-dismiss 100%); }
       }
     }
+  }
+
+  &Group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-vertical { flex-direction: column; }
   }
 }

@@ -3,5 +3,7 @@
   font-size: $fontSize-xxxlarge;
   margin-bottom: $scale-1-2;
 
+  &-small { font-size: $fontSize-xxlarge; }
+
   span { font-weight: 100; } // Secondary info in a headline
 }

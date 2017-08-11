@@ -87,7 +87,11 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 
 .display {
 	&-none { display: none !important; }
-	&-flex { display: flex; }
+	&-flex { display: flex;
+		&-aboveMobile {
+			@include breakpoint( 'mobileAbove' ) { display: flex; }
+		}
+	}
 	&-block { display: block; }
 	&-inlineBlock { display: inline-block; }}
 
@@ -97,7 +101,8 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 
 .justifyContent {
 	&-center { justify-content: center; }
-	&-spaceBetween { justify-content: space-between; }}
+	&-spaceBetween { justify-content: space-between; }
+	&-spaceAround { justify-content: space-around; }}
 
 .alignItems {
 	&-flexEnd { align-items: flex-end; }
@@ -187,9 +192,26 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 .list {
 	&-unstyled { list-style: none; }}
 
+.border {
+	&-top {
+		&-base {
+			&-lighter {
+				&-tablet { @include breakpoint('tablet') { border-top: 1px solid $color-base-lighter-6; } }
+			}
+		}
+	}
+}
+
 .position {
 	&-relative { position: relative !important; }
-	&-absolute { position: absolute !important; }}
+	&-absolute { position: absolute !important; }
+	&-fixed { position: fixed !important;
+		&-bottom { bottom: 0;
+			&-mobile { @include breakpoint( 'mobile' ) { position: fixed; } }
+			&-tablet { @include breakpoint( 'tablet' ) { position: fixed; } }
+		}
+	}
+}
 
 .overflow {
 	&-hidden { overflow: hidden; }

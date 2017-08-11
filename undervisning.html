@@ -140,9 +140,9 @@
       </ul>
     </div>
 
-    <div class="dialog dialog-hidden">
+    <div class="dialog dialog-hidden" id="dialogMilestoneCompleted">
       <div class="dialog_inner">
-        <img class="dialog_checkmark opacity-0" src="./assets/illu_checkmark.svg" alt="Flueben" width="100">
+        <img class="dialog_checkmark opacity-0" id="dialogMilestoneCompletedCheckmark" src="./assets/illu_checkmark.svg" alt="Flueben" width="100">
         <h1 class="headline margin-top-2-1">Delmål gennemført!</h1>
         <div class="margin-top-1-2 textAlign-center" style="max-width: 360px;">
           <p class="margin-top fontSize-large">Vil du fortsætte til næste delmål?</p>
@@ -156,7 +156,7 @@
               </div>
             </li>
             <li style="display: inline-block;">
-              <div id="dialogBtnNo" class="btn btn-control btn-control-dismiss">
+              <div id="dialogMilestoneCompletedBtnNo" class="btn btn-control btn-control-dismiss">
                 <div class="btn-control_inner btn-control_inner-dismiss">
                   <p class="color-base-lighter-7 fontSize-small fontWeight-bold fontFamily-system textTransform-uppercase letterSpacing" style="margin-right: 1px;">Nej</p>
                 </div>
@@ -164,6 +164,120 @@
             </li>
           </ul>
         </div>
+      </div>
+    </div>
+
+    <div class="dialog dialog-hidden" id="dialogPersonalInfo">
+      <a href="#" class="icon icon-cross margin-left margin-top position-absolute" id="dialogPersonalInfoClose">
+        <span></span>
+        <span></span>
+      </a>
+
+      <div class="dialog_inner padding-bottom-6-1 margin-top-3-1">
+
+        <div class="gridBlock gridBlock-columns-12 gridBlock-noPadding">
+          <h1 class="headline headline-small span-12 textAlign-center margin-bottom-2-1">Opret/redigér bruger</h1>
+        </div>
+
+        <div class="gridBlock gridBlock-columns-12 gridBlock-noPadding justifyContent-center">
+          <div class="span-6 span-12-tablet">
+
+            <div class="inputWrap">
+              <label for="username">Brugernavn</label>
+              <input type="text" name="" id="username" class="input" value="" />
+            </div>
+
+            <div class="inputWrap">
+              <label for="name">Navn*</label>
+              <input type="text" name="" id="name" class="input" value="Andreas Rasmussen" />
+            </div>
+
+            <div class="inputWrap">
+              <label for="address">Adresse*</label>
+              <input type="text" name="" id="address" class="input" value="" />
+            </div>
+
+            <div class="inputWrap">
+              <label for="postalCode">Post nr.*</label>
+              <input type="text" name="" id="postalCode" class="input" value="" />
+            </div>
+
+            <div class="inputWrap">
+              <label for="city">By*</label>
+              <input type="text" name="" id="city" class="input" value="" />
+            </div>
+
+          </div>
+
+          <div class="span-6 span-12-tablet">
+
+            <div class="inputWrap">
+              <label for="email">E-mail*</label>
+              <input type="email" name="" id="email" class="input" value="" />
+            </div>
+
+            <div class="inputWrap">
+              <label for="userID">Bruger ID</label>
+              <input type="text" name="" id="userID" class="input" value="" />
+            </div>
+
+            <div class="inputWrap">
+              <label for="cpr">Cpr-nummer</label>
+              <input type="text" name="" id="cpr" class="input" value="" />
+            </div>
+
+            <div class="inputWrap">
+              <label for="phone">Telefon</label>
+              <input type="tel" name="" id="phone" class="input" value="" />
+            </div>
+
+            <div class="inputWrap">
+              <label for="cellphone">Mobil</label>
+              <input type="tel" name="" id="cellphone" class="input" value="" />
+            </div>
+
+          </div>
+
+          <div style="z-index: 1;" class="span-12 display-flex justifyContent-center position position-fixed-bottom position-fixed-bottom-tablet border-top-base-lighter-tablet backgroundColor-base-lighter padding">
+
+            <div class="btnGroup btnGroup-vertical width-full">
+              <div class="position-relative width-full display-flex justifyContent-center">
+                <div class="box box-light box-backdrop box-btn box-paddingLarge display-none alignItems-flexStart" id="boxChangePassword" style="bottom: 28px;">
+                  <h2 class="margin-bottom">Redigér adgangskode</h2>
+                  <div class="inputWrap longLabel">
+                    <label for="oldPassword">Gammel adgangskode*</label>
+                    <input type="password" name="" id="oldPassword" class="input" value="" />
+                  </div>
+                  <div class="inputWrap longLabel">
+                    <label for="newPassword">Ny adgangskode*</label>
+                    <input type="password" name="" id="newPassword" class="input" value="" />
+                  </div>
+                  <div class="inputWrap longLabel">
+                    <label for="newPasswordAgain">Ny adgangskode igen*</label>
+                    <input type="password" name="" id="newPasswordAgain" class="input" value="" />
+                  </div>
+                </div>
+                <a href="#" class="btn-svg btn-svg-small margin-bottom" id="btnShowChangePassword">
+                  <img src="./assets/btn_changepassword_blue_down_small.svg" alt="">
+                  <img src="./assets/btn_changepassword_blue_up_small.svg" alt="">
+                </a>
+              </div>
+              <div class="display-flex justifyContent-center">
+                <a href="#" class="btn-svg btn-svg-small margin-right">
+                  <img src="./assets/btn_ok_light_down_small.svg" alt="">
+                  <img src="./assets/btn_ok_light_up_small.svg" alt="">
+                </a>
+                <a href="#" class="btn-svg btn-svg-small">
+                  <img src="./assets/btn_annuller_light_down_small.svg" alt="">
+                  <img src="./assets/btn_annuller_light_up_small.svg" alt="">
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
     </div>
 
@@ -248,7 +362,12 @@
             </ul>
           </li>
           <li>
-            <a href="#">Diverse</a>
+            <a href="#" id="menuItem-diverse">Diverse</a>
+            <ul id="menuList-diverse" class="level level-2 level-closed">
+              <li>
+                <a href="#" id="menuItem-personalInfo">Personlige oplysninger</a>
+              </li>
+            </ul>
           </li>
           <li>
             <a href="#">Support</a>
@@ -261,20 +380,38 @@
     </div>
 
     <script>
-      /* ----- Dialog ----- */
-      var controlBarBtnNext = document.getElementById( 'controlBarBtnNext' );
-      var dialog = document.getElementsByClassName( 'dialog' );
-      var dialogCheckmark = document.getElementsByClassName( 'dialog_checkmark' );
-      var dialogBtnNo = document.getElementById( 'dialogBtnNo' );
+      var toggle = function( elementToggled ) { elementToggled.classList.toggle( 'display-none' ); }
 
-      var toggleDialog = function() {
-        dialog[0].classList.toggle( 'dialog-hidden' );
-        dialogCheckmark[0].classList.toggle( 'slideDown' );
-        dialogCheckmark[0].classList.toggle( 'slideDown-slow' );
+      /* ----- Dialogs ----- */
+      // Personal info
+      var dialogPersonalInfo = document.getElementById( 'dialogPersonalInfo' );
+      var btnShowPersonalInfo = document.getElementById( 'menuItem-personalInfo' );
+      var dialogPersonalInfoClose = document.getElementById( 'dialogPersonalInfoClose' );
+      var dialogIsOpen = false;
+
+      var togglePersonalInfoDialog = function( dialog ) {
+        dialogIsOpen ? null : toggleMenu();
+        dialog.classList.toggle( 'dialog-hidden' );
+        dialogIsOpen = !dialogIsOpen;
       };
 
-      controlBarBtnNext.addEventListener( 'click', toggleDialog );
-      dialogBtnNo.addEventListener( 'click', toggleDialog );
+      btnShowPersonalInfo.addEventListener( 'click', function() { togglePersonalInfoDialog(dialogPersonalInfo) } );
+      dialogPersonalInfoClose.addEventListener( 'click', function() { togglePersonalInfoDialog(dialogPersonalInfo) } );
+
+      // Milestone completed
+      var controlBarBtnNext = document.getElementById( 'controlBarBtnNext' );
+      var dialogMilestoneCompleted = document.getElementById( 'dialogMilestoneCompleted' );
+      var dialogMilestoneCompletedCheckmark = document.getElementById( 'dialogMilestoneCompletedCheckmark' );
+      var dialogMilestoneCompletedBtnNo = document.getElementById( 'dialogMilestoneCompletedBtnNo' );
+
+      var toggleMilestoneCompletedDialog = function() {
+        dialogMilestoneCompleted.classList.toggle( 'dialog-hidden' );
+        dialogMilestoneCompletedCheckmark.classList.toggle( 'slideDown' );
+        dialogMilestoneCompletedCheckmark.classList.toggle( 'slideDown-slow' );
+      };
+
+      controlBarBtnNext.addEventListener( 'click', toggleMilestoneCompletedDialog );
+      dialogMilestoneCompletedBtnNo.addEventListener( 'click', toggleMilestoneCompletedDialog );
 
       /* ----- Thumbnails ----- */
       // Panel
@@ -349,12 +486,15 @@
       var menuListKategoriB = document.getElementById( 'menuList-kategoriB' );
       var menuItemLektion1Og2 = document.getElementById( 'menuItem-lektion1Og2' );
       var menuListLektion1Og2 = document.getElementById( 'menuList-lektion1Og2' );
+      var menuItemDiverse = document.getElementById( 'menuItem-diverse' );
+      var menuListDiverse = document.getElementById( 'menuList-diverse' );
 
       var toggleList = function(list) { list.classList.toggle( 'level-closed' ); };
 
       menuItemKurser.addEventListener( 'click', function() { toggleList(menuListKurser); });
       menuItemKategoriB.addEventListener( 'click', function() { toggleList(menuListKategoriB); });
       menuItemLektion1Og2.addEventListener( 'click', function() { toggleList(menuListLektion1Og2); });
+      menuItemDiverse.addEventListener( 'click', function() { toggleList(menuListDiverse); });
 
       /* ----- Left/right markers ----- */
       // Toggle
@@ -366,10 +506,12 @@
       /* ----- Explanation box ----- */
       var btnShowExplanation = document.getElementById( 'btnShowExplanation' );
       var boxExplanation = document.getElementById( 'boxExplanation' );
+      btnShowExplanation.addEventListener( 'click', function() { toggle( boxExplanation ); } );
 
-      var showBoxExplanation = function() { boxExplanation.classList.toggle( 'display-none' ); };
-
-      btnShowExplanation.addEventListener( 'click', showBoxExplanation );
+      /* ----- Change password box ----- */
+      var btnShowChangePassword = document.getElementById( 'btnShowChangePassword' );
+      var boxChangePassword = document.getElementById( 'boxChangePassword' );
+      btnShowChangePassword.addEventListener( 'click', function() { toggle( boxChangePassword ); } );
     </script>
   </body>
 </html>
