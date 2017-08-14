@@ -5631,7 +5631,7 @@ textarea:focus {
 .headline {
   font-weight: 700;
   font-size: 36px;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 
 .headline-small {
@@ -5715,21 +5715,21 @@ textarea:focus {
 }
 
 .panel-overflow {
-  margin-top: 32px;
-  margin-left: -16px;
-  width: calc( 100% + 32px);
+  margin-top: 16px;
+  margin-left: -24px;
+  width: calc( 100% + 48px);
 }
 
 .panel_header {
   background-color: white;
   padding: 16px;
-  padding-top: calc( 8px + 4px);
-  padding-bottom: calc( 8px + 4px);
+  padding-top: calc( 4px + 2px);
+  padding-bottom: calc( 4px + 2px);
   border-bottom: 1px solid #f4f4f7;
 }
 
 .panel_header_label {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 700;
 }
 
@@ -5740,12 +5740,16 @@ textarea:focus {
 .panel_content {
   position: relative;
   width: 100%;
-  padding: 16px;
+  padding: 8px 16px;
   background-color: white;
 }
 
 .panel_content ul {
   list-style: none;
+}
+
+.panel_content > p {
+  font-size: 12px;
 }
 
 .panel_list {
@@ -5755,7 +5759,7 @@ textarea:focus {
 
 .panel_list > li {
   position: relative;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 
 .panel_list > li:last-child {
@@ -5766,11 +5770,16 @@ textarea:focus {
   left: -32px;
 }
 
+.panel_list li {
+  font-size: 10px;
+}
+
 .panel_list li p {
   font-family: "Roboto", "Helvetica Neue", sans-serif;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 600;
-  margin-right: 8px;
+  line-height: 1.1;
+  margin-right: 4px;
 }
 
 .panel_list li > * {
@@ -5779,21 +5788,23 @@ textarea:focus {
 
 .panel_image {
   position: absolute;
-  bottom: 0;
+  top: -31px;
   right: 0;
-  height: 100%;
-  padding: 16px;
+  height: calc( 100% + 31px);
+  padding: 8px;
+  background-color: white;
 }
 
 .panel-current {
-  border-bottom: 1px solid #454a73;
+  border: 1px solid #454a73;
 }
 
 .panel-current:before {
   content: 'Du er her';
+  line-height: 1.1;
   position: absolute;
-  right: 16px;
-  top: calc( 8px + 5px);
+  right: -1px;
+  top: -1px;
 }
 
 .contextLine {

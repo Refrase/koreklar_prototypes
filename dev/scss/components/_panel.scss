@@ -4,20 +4,20 @@
   width: 100%;
 
   &-overflow {
-    margin-top: $scale-2-1;
-    margin-left: -$scale;
-    width: calc( 100% + #{$scale-2-1} );
+    margin-top: $scale;
+    margin-left: -$scale - $scale-1-2;
+    width: calc( 100% + #{$scale-3-1} );
   }
 
   &_header {
     background-color: white;
     padding: $scale;
-    padding-top: calc( #{$scale-1-2} + 4px );
-    padding-bottom: calc( #{$scale-1-2} + 4px );
+    padding-top: calc( #{$scale-1-4} + 2px );
+    padding-bottom: calc( #{$scale-1-4} + 2px );
     border-bottom: 1px solid $color-base-lighter-7;
 
     &_label {
-      font-size: $fontSize-large;
+      font-size: $fontSize-small;
       font-weight: 700;
 
       span { color: $color-base-lighter-6; }
@@ -27,10 +27,11 @@
   &_content {
     position: relative;
     width: 100%;
-    padding: $scale;
+    padding: $scale-1-2 $scale;
     background-color: white;
 
     ul { list-style: none; }
+    > p { font-size: $fontSize-small; }
   }
 
   &_list {
@@ -39,18 +40,20 @@
 
     > li {
       position: relative;
-      margin-bottom: $scale-1-2;
+      margin-bottom: $scale-1-8;
       &:last-child { margin-bottom: 0; }
       > .label { left: -32px; }
     }
 
     li {
+      font-size: $fontSize-xxsmall;
 
       p {
         font-family: $fontFamily-system;
-        font-size: $fontSize-small;
+        font-size: $fontSize-xxsmall;
         font-weight: 600;
-        margin-right: $scale-1-2;
+        line-height: 1.1;
+        margin-right: 4px;
       }
 
       > * { display: inline-block; }
@@ -59,19 +62,21 @@
 
   &_image {
     position: absolute;
-    bottom: 0;
+    top: -31px; // Height of header
     right: 0;
-    height: 100%;
-    padding: $scale;
+    height: calc( 100% + 31px );
+    padding: $scale-1-2;
+    background-color: white;
   }
 
   &-current {
-    border-bottom: 1px solid $color-base;
+    border: 1px solid $color-base;
     &:before {
       content: 'Du er her';
+      line-height: 1.1;
       position: absolute;
-      right: $scale;
-      top: calc( #{$scale-1-2} + 5px );
+      right: -1px;
+      top: -1px;
       @extend .label;
       @extend .label-base;
     }
