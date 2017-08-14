@@ -8,25 +8,55 @@
   transform: translate3d(0,-120px,0); // translate amount is height of this
   z-index: -2;
   transition: all 300ms cubic-bezier(0.25, 0.75, 0.25, 1);
-  overflow-x: scroll;
-  overflow-y: hidden;
 
-  &::-webkit-scrollbar { height: 4px; }
-  &::-webkit-scrollbar-track { background: $color-base; }
-  &::-webkit-scrollbar-thumb { background: $color-primary; }
+  &_inner {
+    width: 100%;
+    height: 100%;
+    padding: 0 24px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar { height: 4px; }
+    &::-webkit-scrollbar-track { background: $color-base; }
+    &::-webkit-scrollbar-thumb { background: $color-primary; }
+  }
 
   &-hidden { transform: translate3d(0,0,0); }
+
+  &_left,
+  &_right {
+    position: fixed;
+    height: 32px;
+    width: 32px;
+    background-color: rgba($color-base, 0.8);
+    border: 1px solid $color-base;
+    border-radius: 50%;
+    padding: 4px;
+    top: calc( 50% - 16px );
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    img { height: 12px; }
+  }
+
+  &_left {
+    left: $scale-1-2;
+    img { margin-left: 7px; }
+  }
+  &_right {
+    right: $scale-1-2;
+    img { margin-left: 9px; }
+  }
 }
 
 .thumbnail {
   display: inline-block;
   white-space: normal;
   position: relative;
-  // height: 100%;
   width: 138px;
   margin: $scale-1-2 0 $scale-1-2 4px;
-
-  &:first-child { margin-left: $scale-1-2; }
 
   &_image {
     cursor: pointer;
