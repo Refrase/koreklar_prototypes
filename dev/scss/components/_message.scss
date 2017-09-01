@@ -7,9 +7,13 @@
   text-transform: none;
   font-size: $fontSize-base;
   font-weight: 400;
+  text-align: center;
+  width: 100%;
   padding: $scale-3-4 $scale-2-1;
   transform: translate3d( -50%, -100px, 0 );
   transition: transform 600ms ease-out;
+
+  @include breakpoint( 'tablet' ) { width: 100%; }
 
   &-success { @extend .label-primary; }
 
