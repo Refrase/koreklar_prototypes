@@ -1,0 +1,17 @@
+.message {
+  @extend .label;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  z-index: $zindex-message;
+  text-transform: none;
+  font-size: $fontSize-base;
+  font-weight: 400;
+  padding: $scale-3-4 $scale-2-1;
+  transform: translate3d( -50%, -100px, 0 );
+  transition: transform 600ms ease-out;
+
+  &-success { @extend .label-primary; }
+
+  &-showing { transform: translate3d( -50%, -1px, 0 ); }
+}

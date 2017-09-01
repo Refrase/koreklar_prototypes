@@ -192,7 +192,9 @@
       </div>
     </div>
 
-    <div class="dialog dialog-hidden" id="dialogPersonalInfo">
+    <div class="message message-success" id="messageSuccess">Personlige oplysninger gemt</div>
+
+    <div class="dialog" id="dialogPersonalInfo"> <!-- ADD dialog-hidden CLASS HERE AGAIN -->
       <a href="#" class="icon icon-cross margin-left margin-top position-absolute" id="dialogPersonalInfoClose">
         <span></span>
         <span></span>
@@ -288,9 +290,9 @@
                 </a>
               </div>
               <div class="display-flex justifyContent-center">
-                <a href="#" class="btn-svg btn-svg-small margin-right">
-                  <img src="./assets/btn_ok_light_down_small.svg" alt="">
-                  <img src="./assets/btn_ok_light_up_small.svg" alt="">
+                <a href="#" class="btn-svg btn-svg-small margin-right" id="btnSavePersonalInfo">
+                  <img src="./assets/btn_save_light_down_small.svg" alt="">
+                  <img src="./assets/btn_save_light_up_small.svg" alt="">
                 </a>
                 <a href="#" class="btn-svg btn-svg-small">
                   <img src="./assets/btn_annuller_light_down_small.svg" alt="">
@@ -533,7 +535,17 @@
       var boxExplanation = document.getElementById( 'boxExplanation' );
       btnShowExplanation.addEventListener( 'click', function() { toggle( boxExplanation ); } );
 
-      /* ----- Change password box ----- */
+      /* ----- Personal info dialog ----- */
+      var btnSavePersonalInfo = document.getElementById( 'btnSavePersonalInfo' );
+      var messageSuccess = document.getElementById( 'messageSuccess' );
+      btnSavePersonalInfo.addEventListener( 'click', function() {
+        messageSuccess.classList.add( 'message-showing' );
+        window.setTimeout( function() {
+          messageSuccess.classList.remove( 'message-showing' );
+        }, 5000);
+      } );
+
+      // Change password box
       var btnShowChangePassword = document.getElementById( 'btnShowChangePassword' );
       var boxChangePassword = document.getElementById( 'boxChangePassword' );
       btnShowChangePassword.addEventListener( 'click', function() { toggle( boxChangePassword ); } );

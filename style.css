@@ -5642,7 +5642,7 @@ textarea:focus {
   font-weight: 100;
 }
 
-.label, .panel-current:before {
+.label, .panel-current:before, .message {
   padding: 4px 8px;
   padding-bottom: calc( 4px - 1px);
   font-size: 11px;
@@ -5654,7 +5654,7 @@ textarea:focus {
   z-index: 1;
 }
 
-.label-primary {
+.label-primary, .message-success {
   background: rgba(0, 200, 120, 0.8);
   border: 1px solid #00b26b;
   color: white;
@@ -5672,7 +5672,7 @@ textarea:focus {
   color: #f4f4f7;
 }
 
-.label-dismiss svg path, .label-dismiss svg polygon, .label-primary svg path, .label-primary svg polygon {
+.label-dismiss svg path, .label-dismiss svg polygon, .label-primary svg path, .message-success svg path, .label-primary svg polygon, .message-success svg polygon {
   fill: white;
 }
 
@@ -5766,7 +5766,7 @@ textarea:focus {
   margin-bottom: 0;
 }
 
-.panel_list > li > .label, .panel_list > li > .panel-current:before {
+.panel_list > li > .label, .panel_list > li > .panel-current:before, .panel_list > li > .message {
   left: -32px;
 }
 
@@ -5898,7 +5898,7 @@ table td {
 }
 
 .box-backdrop {
-  box-shadow: 0px 0px 0px 10000px rgba(69, 74, 115, 0.9);
+  box-shadow: 0px 0px 0px 10000px rgba(69, 74, 115, 0.98);
 }
 
 .box p {
@@ -5999,6 +5999,26 @@ input:focus {
   .inputWrap input {
     width: 100%;
   }
+}
+
+.message {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  z-index: 1010;
+  text-transform: none;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 12px 32px;
+  -webkit-transform: translate3d(-50%, -100px, 0);
+          transform: translate3d(-50%, -100px, 0);
+  -webkit-transition: -webkit-transform 600ms ease-out;
+          transition: transform 600ms ease-out;
+}
+
+.message-showing {
+  -webkit-transform: translate3d(-50%, -1px, 0);
+          transform: translate3d(-50%, -1px, 0);
 }
 
 .resultat .icon-clock {
