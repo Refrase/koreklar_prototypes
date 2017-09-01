@@ -16,6 +16,7 @@ input {
 }
 
 .inputWrap {
+  position: relative;
   margin-bottom: $scale;
   display: flex;
   align-items: center;

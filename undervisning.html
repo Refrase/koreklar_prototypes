@@ -192,6 +192,7 @@
       </div>
     </div>
 
+    <div class="message message-base" id="messageInputInfo">Information om input her...</div>
     <div class="message message-success" id="messageSuccess">Personlige oplysninger gemt</div>
 
     <div class="dialog dialog-hidden" id="dialogPersonalInfo">
@@ -211,27 +212,32 @@
 
             <div class="inputWrap">
               <label for="username">Brugernavn</label>
-              <input type="text" name="" id="username" class="input" value="" />
+              <input type="text" name="" id="username" class="input input-personalInfo" value="" />
+              <div class="label label-lightInvert label-info" style="position: absolute; right: 8px; bottom: 8px;">i</div>
             </div>
 
             <div class="inputWrap">
               <label for="name">Navn*</label>
-              <input type="text" name="" id="name" class="input" value="Andreas Rasmussen" />
+              <input type="text" name="" id="name" class="input input-personalInfo" value="Andreas Rasmussen" />
+              <div class="label label-lightInvert label-info" style="position: absolute; right: 8px; bottom: 8px;">i</div>
             </div>
 
             <div class="inputWrap">
               <label for="address">Adresse*</label>
-              <input type="text" name="" id="address" class="input" value="" />
+              <input type="text" name="" id="address" class="input input-personalInfo" value="" />
+              <div class="label label-lightInvert label-info" style="position: absolute; right: 8px; bottom: 8px;">i</div>
             </div>
 
             <div class="inputWrap">
               <label for="postalCode">Post nr.*</label>
-              <input type="text" name="" id="postalCode" class="input" value="" />
+              <input type="text" name="" id="postalCode" class="input input-personalInfo" value="" />
+              <div class="label label-lightInvert label-info" style="position: absolute; right: 8px; bottom: 8px;">i</div>
             </div>
 
             <div class="inputWrap">
               <label for="city">By*</label>
-              <input type="text" name="" id="city" class="input" value="" />
+              <input type="text" name="" id="city" class="input input-personalInfo" value="" />
+              <div class="label label-lightInvert label-info" style="position: absolute; right: 8px; bottom: 8px;">i</div>
             </div>
 
           </div>
@@ -240,32 +246,37 @@
 
             <div class="inputWrap">
               <label for="email">E-mail*</label>
-              <input type="email" name="" id="email" class="input" value="" />
+              <input type="email" name="" id="email" class="input input-personalInfo" value="" />
+              <div class="label label-lightInvert label-info" style="position: absolute; right: 8px; bottom: 8px;">i</div>
             </div>
 
             <div class="inputWrap">
               <label for="userID">Bruger ID</label>
-              <input type="text" name="" id="userID" class="input" value="" />
+              <input type="text" name="" id="userID" class="input input-personalInfo" value="" />
+              <div class="label label-lightInvert label-info" style="position: absolute; right: 8px; bottom: 8px;">i</div>
             </div>
 
             <div class="inputWrap">
               <label for="cpr">Cpr-nummer</label>
-              <input type="text" name="" id="cpr" class="input" value="" />
+              <input type="text" name="" id="cpr" class="input input-personalInfo" value="" />
+              <div class="label label-lightInvert label-info" style="position: absolute; right: 8px; bottom: 8px;">i</div>
             </div>
 
             <div class="inputWrap">
               <label for="phone">Telefon</label>
-              <input type="tel" name="" id="phone" class="input" value="" />
+              <input type="tel" name="" id="phone" class="input input-personalInfo" value="" />
+              <div class="label label-lightInvert label-info" style="position: absolute; right: 8px; bottom: 8px;">i</div>
             </div>
 
             <div class="inputWrap">
               <label for="cellphone">Mobil</label>
-              <input type="tel" name="" id="cellphone" class="input" value="" />
+              <input type="tel" name="" id="cellphone" class="input input-personalInfo" value="" />
+              <div class="label label-lightInvert label-info" style="position: absolute; right: 8px; bottom: 8px;">i</div>
             </div>
 
           </div>
 
-          <div style="z-index: 1;" class="span-12 display-flex justifyContent-center position position-fixed-bottom position-fixed-bottom-tablet border-top-base-lighter-tablet backgroundColor-base-lighter padding">
+          <div style="z-index: 1;" class="span-12 display-flex justifyContent-center position position-fixed-bottom position-fixed-bottom-tablet border-top-base-lighter-tablet backgroundColor-base-lighter padding margin">
 
             <div class="btnGroup btnGroup-vertical width-full">
               <div class="position-relative width-full display-flex justifyContent-center">
@@ -536,6 +547,42 @@
       btnShowExplanation.addEventListener( 'click', function() { toggle( boxExplanation ); } );
 
       /* ----- Personal info dialog ----- */
+      // Message: Input-info
+      var inputInfoLabels = document.getElementsByClassName( 'label-info' );
+      var messageInputInfo = document.getElementById( 'messageInputInfo' );
+
+      var inputInfoTexts = {};
+
+      var personalInfoInputs = document.getElementsByClassName( 'input-personalInfo' );
+      for ( var i = 0; i < personalInfoInputs.length; i++ ) {
+        var inputId = personalInfoInputs[i].id;
+        inputInfoTexts[inputId] = 'Ingen ekstra information';
+      }
+
+      inputInfoTexts.username = 'Dit brugernavn';
+      inputInfoTexts.name = 'Dit navn';
+      inputInfoTexts.address = 'Din adresse';
+      inputInfoTexts.postalCode = 'Dit postnummer';
+      inputInfoTexts.city = 'Din by';
+      inputInfoTexts.email = 'Din email';
+      inputInfoTexts.userID = 'Dit bruger ID';
+      inputInfoTexts.cpr = 'Dit CPR nummer';
+      inputInfoTexts.phone = 'Din telefon';
+      inputInfoTexts.cellphone = 'Din mobiltelefon';
+
+      var showMessageTimeout;
+      for ( var i = 0; i < inputInfoLabels.length; i++ ) {
+        inputInfoLabels[i].addEventListener( 'click', function(e) {
+          clearTimeout(showMessageTimeout);
+          messageInputInfo.innerText = inputInfoTexts[e.target.previousElementSibling.id];
+          messageInputInfo.classList.add( 'message-showing' );
+          showMessageTimeout = window.setTimeout( function() {
+            messageInputInfo.classList.remove( 'message-showing' );
+          }, 10000);
+        });
+      }
+
+      // Message: Saved personal info successfully
       var btnSavePersonalInfo = document.getElementById( 'btnSavePersonalInfo' );
       var messageSuccess = document.getElementById( 'messageSuccess' );
       btnSavePersonalInfo.addEventListener( 'click', function() {

@@ -15,6 +15,7 @@
 
   @include breakpoint( 'tablet' ) { width: 100%; }
 
+  &-base { @extend .label-base; }
   &-success { @extend .label-primary; }
 
   &-showing { transform: translate3d( -50%, -1px, 0 ); }

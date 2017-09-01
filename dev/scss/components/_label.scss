@@ -20,7 +20,19 @@
   &-base { @include labelColoring($color-base, $color-base-darker-1, $color-base-lighter-7); }
   &-dismiss, &-primary { svg { path, polygon { fill: white; }} } // SVG icons inside darker labels
   &-light { @include labelColoring(white, $color-base-lighter-7, $color-base); }
+  &-lightInvert { @include labelColoring($color-base-lighter-7, white, $color-base); }
   &-lightDarkBorder { @include labelColoring(white, $color-base, $color-base); }
+
+  &-info {
+    min-width: 24px;
+    min-height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-transform: none;
+    cursor: pointer;
+  }
 
   &-icon {
     position: absolute;
