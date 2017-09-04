@@ -17,6 +17,7 @@
 
   &-base { @extend .label-base; }
   &-success { @extend .label-primary; }
+  &-error { @extend .label-dismiss; }
 
   &-showing { transform: translate3d( -50%, -1px, 0 ); }
 }

@@ -194,6 +194,7 @@
 
     <div class="message message-base" id="messageInputInfo">Information om input her...</div>
     <div class="message message-success" id="messageSuccess">Personlige oplysninger gemt</div>
+    <div class="message message-error" id="messageError">Fejl i de fremhævede felter</div>
 
     <div class="dialog" id="dialogPersonalInfo"> <!-- PUT BACK dialog-hidden -->
       <a href="#" class="icon icon-cross margin-left margin-top position-absolute" id="dialogPersonalInfoClose">
@@ -547,6 +548,26 @@
       btnShowExplanation.addEventListener( 'click', function() { toggle( boxExplanation ); } );
 
       /* ----- Personal info dialog ----- */
+      // Messages: Show message temporarily function
+      var showMessageTimeout;
+      function showMessageTemporarily( messageElement, showtime ) {
+        clearTimeout(showMessageTimeout);
+        messageElement.classList.add( 'message-showing' );
+        showMessageTimeout = window.setTimeout( function() {
+          messageElement.classList.remove( 'message-showing' );
+        }, showtime);
+      }
+
+      // Message: Clear other messages than the current
+      var messageElements = document.getElementsByClassName( 'message' );
+      function clearAllMessagesWithoutThisId( messageToShowId ) {
+        for ( var i = 0; i < messageElements.length; i++ ) {
+          if ( messageElements[i].id != messageToShowId ) {
+            messageElements[i].classList.remove( 'message-showing' );
+          }
+        }
+      }
+
       // Message: Input-info
       var inputInfoLabels = document.getElementsByClassName( 'label-info' );
       var messageInputInfo = document.getElementById( 'messageInputInfo' );
@@ -570,27 +591,37 @@
       inputInfoTexts.phone = 'Din telefon';
       inputInfoTexts.cellphone = 'Din mobiltelefon';
 
-      var showMessageTimeout;
       for ( var i = 0; i < inputInfoLabels.length; i++ ) {
         inputInfoLabels[i].addEventListener( 'click', function(e) {
-          clearTimeout(showMessageTimeout);
+          clearAllMessagesWithoutThisId(messageInputInfo);
           messageInputInfo.innerText = inputInfoTexts[e.target.previousElementSibling.id];
-          messageInputInfo.classList.add( 'message-showing' );
-          showMessageTimeout = window.setTimeout( function() {
-            messageInputInfo.classList.remove( 'message-showing' );
-          }, 10000);
+          showMessageTemporarily(messageInputInfo, 5000);
         });
       }
 
-      // Message: Saved personal info successfully
+      // Message: Saved personal info successfully OR error message when e-mail is not sufficiently provided
       var btnSavePersonalInfo = document.getElementById( 'btnSavePersonalInfo' );
       var messageSuccess = document.getElementById( 'messageSuccess' );
+      var inputEmail = document.getElementById( 'email' );
+      var emailRegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+      function emailValidator(string) {
+        return emailRegExp.exec(string);
+      }
+
       btnSavePersonalInfo.addEventListener( 'click', function() {
-        messageSuccess.classList.add( 'message-showing' );
-        window.setTimeout( function() {
-          messageSuccess.classList.remove( 'message-showing' );
-        }, 5000);
-      } );
+        if ( !emailValidator(inputEmail.value) ) {
+          clearAllMessagesWithoutThisId(messageError);
+          inputEmail.classList.add( 'input-error' );
+          showMessageTemporarily( messageError, 5000 );
+        } else {
+          clearAllMessagesWithoutThisId(messageSuccess);
+          for ( var i = 0; i < personalInfoInputs.length; i++ ) {
+            personalInfoInputs[i].classList.remove( 'input-error' );
+          }
+          showMessageTemporarily( messageSuccess, 5000 );
+        }
+      });
 
       // Change password box
       var btnShowChangePassword = document.getElementById( 'btnShowChangePassword' );
