@@ -195,7 +195,7 @@
     <div class="message message-base" id="messageInputInfo">Information om input her...</div>
     <div class="message message-success" id="messageSuccess">Personlige oplysninger gemt</div>
 
-    <div class="dialog dialog-hidden" id="dialogPersonalInfo">
+    <div class="dialog" id="dialogPersonalInfo"> <!-- PUT BACK dialog-hidden -->
       <a href="#" class="icon icon-cross margin-left margin-top position-absolute" id="dialogPersonalInfoClose">
         <span></span>
         <span></span>
@@ -207,7 +207,7 @@
           <h1 class="headline headline-small span-12 textAlign-center margin-bottom-2-1">Opret/redigér bruger</h1>
         </div>
 
-        <div class="gridBlock gridBlock-columns-12 gridBlock-noPadding justifyContent-center">
+        <div class="gridBlock gridBlock-columns-12 gridBlock-colPaddingSmall gridBlock-noPadding justifyContent-center">
           <div class="span-6 span-12-tablet">
 
             <div class="inputWrap">
@@ -276,12 +276,12 @@
 
           </div>
 
-          <div style="z-index: 1;" class="span-12 display-flex justifyContent-center position position-fixed-bottom position-fixed-bottom-tablet border-top-base-lighter-tablet backgroundColor-base-lighter padding margin">
+          <div style="z-index: 1;" class="span-12 display-flex justifyContent-center position position-fixed-bottom position-fixed-bottom-tablet border-top-base-lighter-tablet backgroundColor-base-lighter padding">
 
             <div class="btnGroup btnGroup-vertical width-full">
               <div class="position-relative width-full display-flex justifyContent-center">
-                <div class="box box-light box-backdrop box-btn box-paddingLarge display-none alignItems-flexStart" id="boxChangePassword" style="bottom: 28px;">
-                  <h2 class="margin-bottom">Redigér adgangskode</h2>
+                <div class="box box-light box-backdrop box-btn box-paddingLarge display-none" id="boxChangePassword" style="bottom: 28px;">
+                  <h2 class="margin-bottom-2-1 textAlign-center fontSize-xlarge">Redigér adgangskode</h2>
                   <div class="inputWrap longLabel">
                     <label for="oldPassword">Gammel adgangskode*</label>
                     <input type="password" name="" id="oldPassword" class="input" value="" />
