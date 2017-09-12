@@ -2,22 +2,20 @@
   @extend .label;
   position: absolute;
   top: 0px;
-  left: 50%;
+  left: -1px;
   z-index: $zindex-message;
   text-transform: none;
   font-size: $fontSize-base;
   font-weight: 400;
   text-align: center;
-  width: 100%;
-  padding: $scale-3-4 $scale-2-1;
-  transform: translate3d( -50%, -100px, 0 );
+  width: calc( 100vw + 2px );
+  padding: 22px $scale-2-1; // Adjusted to have same amount of space above and below icon-cross in dialog
+  transform: translate3d( 0, -100px, 0 );
   transition: transform 600ms ease-out;
-
-  @include breakpoint( 'tablet' ) { width: 100%; }
 
   &-base { @extend .label-base; }
   &-success { @extend .label-primary; }
   &-error { @extend .label-dismiss; }
 
-  &-showing { transform: translate3d( -50%, -1px, 0 ); }
+  &-showing { transform: translate3d( 0, -1px, 0 ); }
 }

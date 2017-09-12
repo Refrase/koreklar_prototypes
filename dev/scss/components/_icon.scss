@@ -4,6 +4,7 @@
   &-cross {
     height: 24px;
     width: 28px;
+    z-index: $zindex-cross;
 
     & span {
       display: block;
