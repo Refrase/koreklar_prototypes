@@ -284,8 +284,33 @@
           <div style="z-index: 1;" class="span-12 display-flex justifyContent-center position position-fixed-bottom position-fixed-bottom-tablet border-top-base-lighter-tablet backgroundColor-base-lighter padding">
 
             <div class="btnGroup btnGroup-vertical width-full">
+              <a href="#" class="btn-svg btn-svg-small margin-bottom" id="btnShowChangePassword">
+                <img src="./assets/btn_changepassword_blue_down_small.svg" alt="">
+                <img src="./assets/btn_changepassword_blue_up_small.svg" alt="">
+              </a>
+              <div class="display-flex justifyContent-center">
+                <a href="#" class="btn-svg btn-svg-small margin-right" id="btnSavePersonalInfo">
+                  <img src="./assets/btn_save_light_down_small.svg" alt="">
+                  <img src="./assets/btn_save_light_up_small.svg" alt="">
+                </a>
+                <a href="#" class="btn-svg btn-svg-small" id="btnCancelPersonalInfo">
+                  <img src="./assets/btn_annuller_light_down_small.svg" alt="">
+                  <img src="./assets/btn_annuller_light_up_small.svg" alt="">
+                </a>
+                <a href="#" class="btn-svg btn-svg-small display-none" id="btnClosePersonalInfo">
+                  <img src="./assets/btn_close_light_down_small.svg" alt="">
+                  <img src="./assets/btn_close_light_up_small.svg" alt="">
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <div style="z-index: 1;" class="span-12 display-flex justifyContent-center position position-fixed-bottom position-fixed-bottom-tablet border-top-base-lighter-tablet backgroundColor-base-lighter padding display-none" id="boxChangePassword">
+
+            <div class="btnGroup btnGroup-vertical width-full">
               <div class="position-relative width-full display-flex justifyContent-center">
-                <div class="box box-light box-backdrop box-btn box-paddingLarge display-none" id="boxChangePassword" style="bottom: 28px;">
+                <div class="box box-light box-backdrop box-btn box-paddingLarge" style="bottom: 28px;">
                   <h2 class="margin-bottom-2-1 textAlign-center fontSize-xlarge">Redigér adgangskode</h2>
                   <div class="inputWrap longLabel">
                     <label for="oldPassword">Gammel adgangskode*</label>
@@ -300,21 +325,17 @@
                     <input type="password" name="" id="newPasswordAgain" class="input" value="" />
                   </div>
                 </div>
-                <a href="#" class="btn-svg btn-svg-small margin-bottom" id="btnShowChangePassword">
-                  <img src="./assets/btn_changepassword_blue_down_small.svg" alt="">
-                  <img src="./assets/btn_changepassword_blue_up_small.svg" alt="">
-                </a>
               </div>
               <div class="display-flex justifyContent-center">
-                <a href="#" class="btn-svg btn-svg-small margin-right" id="btnSavePersonalInfo">
+                <a href="#" class="btn-svg btn-svg-small margin-right" id="btnSavePassword">
                   <img src="./assets/btn_save_light_down_small.svg" alt="">
                   <img src="./assets/btn_save_light_up_small.svg" alt="">
                 </a>
-                <a href="#" class="btn-svg btn-svg-small" id="btnCancelPersonalInfo">
+                <a href="#" class="btn-svg btn-svg-small" id="btnCancelPassword">
                   <img src="./assets/btn_annuller_light_down_small.svg" alt="">
                   <img src="./assets/btn_annuller_light_up_small.svg" alt="">
                 </a>
-                <a href="#" class="btn-svg btn-svg-small display-none" id="btnClosePersonalInfo">
+                <a href="#" class="btn-svg btn-svg-small display-none" id="btnClosePassword">
                   <img src="./assets/btn_close_light_down_small.svg" alt="">
                   <img src="./assets/btn_close_light_up_small.svg" alt="">
                 </a>
@@ -444,7 +465,10 @@
       // Personal info
       var dialogPersonalInfo = document.getElementById( 'dialogPersonalInfo' );
       var btnShowPersonalInfo = document.getElementById( 'menuItem-personalInfo' );
-      var dialogPersonalInfoClose = document.getElementById( 'dialogPersonalInfoClose' );
+      var dialogPersonalInfoClose = document.getElementById( 'dialogPersonalInfoClose' ); // Cross-icon in upper left corner
+      var btnSavePersonalInfo = document.getElementById( 'btnSavePersonalInfo' );
+      var btnCancelPersonalInfo = document.getElementById( 'btnCancelPersonalInfo' );
+      var btnClosePersonalInfo = document.getElementById( 'btnClosePersonalInfo' );
 
       var dialogIsOpen = false;
 
@@ -456,6 +480,8 @@
 
       btnShowPersonalInfo.addEventListener( 'click', function() { togglePersonalInfoDialog(dialogPersonalInfo) } );
       dialogPersonalInfoClose.addEventListener( 'click', function() { togglePersonalInfoDialog(dialogPersonalInfo) } );
+      btnCancelPersonalInfo.addEventListener( 'click', function() { togglePersonalInfoDialog(dialogPersonalInfo) } );
+      btnClosePersonalInfo.addEventListener( 'click', function() { togglePersonalInfoDialog(dialogPersonalInfo) } );
 
       // Milestone completed
       var controlBarBtnNext = document.getElementById( 'controlBarBtnNext' );
@@ -576,9 +602,6 @@
       btnShowExplanation.addEventListener( 'click', function() { toggle( boxExplanation ); } );
 
       /* ----- Personal info dialog ----- */
-      var btnSavePersonalInfo = document.getElementById( 'btnSavePersonalInfo' );
-      var btnCancelPersonalInfo = document.getElementById( 'btnCancelPersonalInfo' );
-      var btnClosePersonalInfo = document.getElementById( 'btnClosePersonalInfo' );
 
       // Change "Annuller" to "Luk when "Gem" is clicked
       btnSavePersonalInfo.addEventListener( 'click', function() {
@@ -655,7 +678,28 @@
       // Change password box
       var btnShowChangePassword = document.getElementById( 'btnShowChangePassword' );
       var boxChangePassword = document.getElementById( 'boxChangePassword' );
-      btnShowChangePassword.addEventListener( 'click', function() { toggle( boxChangePassword ); } );
+      var btnSavePassword = document.getElementById( 'btnSavePassword' );
+      var btnCancelPassword = document.getElementById( 'btnCancelPassword' );
+      var btnClosePassword = document.getElementById( 'btnClosePassword' );
+
+      btnShowChangePassword.addEventListener( 'click', function() {
+        if ( !btnClosePassword.classList.contains('display-none') ) { // Make sure "Annuller" is shown on every visit
+          toggle(btnCancelPassword);
+          toggle(btnClosePassword);
+        }
+        toggle( boxChangePassword );
+      } );
+
+      btnCancelPassword.addEventListener( 'click', function() { toggle( boxChangePassword ); } );
+      btnClosePassword.addEventListener( 'click', function() { toggle( boxChangePassword ); } );
+
+      btnSavePassword.addEventListener( 'click', function() {
+        if ( btnClosePassword.classList.contains('display-none') ) {
+          toggle(btnCancelPassword);
+          toggle(btnClosePassword);
+        }
+      });
+
     </script>
   </body>
 </html>
