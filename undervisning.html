@@ -196,7 +196,7 @@
       <img src="./assets/loading-spinner-koreklar-white.gif" alt="Loading..." style="margin-bottom: 100px;" width="24" height="24">
     </div>
 
-    <div class="dialog" id="dialogPersonalInfo"> <!-- PUT BACK dialog-hidden -->
+    <div class="dialog dialog-hidden" id="dialogPersonalInfo">
       <div class="message message-base" id="messageInputInfo">Information om input her...</div>
       <div class="message message-success" id="messageSuccess">Personlige oplysninger gemt</div>
       <div class="message message-error" id="messageError">Fejl i de fremhævede felter</div>
@@ -462,7 +462,7 @@
       function toggle( elementToggled ) { elementToggled.classList.toggle( 'display-none' ); }
 
       /* ----- Dialogs ----- */
-      // Personal info
+      // ----- Personal info
       var dialogPersonalInfo = document.getElementById( 'dialogPersonalInfo' );
       var btnShowPersonalInfo = document.getElementById( 'menuItem-personalInfo' );
       var dialogPersonalInfoClose = document.getElementById( 'dialogPersonalInfoClose' ); // Cross-icon in upper left corner
@@ -482,6 +482,103 @@
       dialogPersonalInfoClose.addEventListener( 'click', function() { togglePersonalInfoDialog(dialogPersonalInfo) } );
       btnCancelPersonalInfo.addEventListener( 'click', function() { togglePersonalInfoDialog(dialogPersonalInfo) } );
       btnClosePersonalInfo.addEventListener( 'click', function() { togglePersonalInfoDialog(dialogPersonalInfo) } );
+
+      // Change "Annuller" to "Luk when "Gem" is clicked
+      btnSavePersonalInfo.addEventListener( 'click', function() {
+        if ( btnClosePersonalInfo.classList.contains('display-none') ) {
+          toggle(btnCancelPersonalInfo);
+          toggle(btnClosePersonalInfo);
+        }
+      });
+
+      // Message: Clear other messages than the current
+      var messageElements = document.getElementsByClassName( 'message' );
+      function clearAllMessagesWithoutThisId( messageToShowId ) {
+        for ( var i = 0; i < messageElements.length; i++ ) {
+          if ( messageElements[i].id != messageToShowId ) {
+            messageElements[i].classList.remove( 'message-showing' );
+          }
+        }
+      }
+
+      // Message: Input-info
+      var inputInfoLabels = document.getElementsByClassName( 'label-info' );
+      var messageInputInfo = document.getElementById( 'messageInputInfo' );
+
+      var inputInfoTexts = {};
+
+      var personalInfoInputs = document.getElementsByClassName( 'input-personalInfo' );
+      for ( var i = 0; i < personalInfoInputs.length; i++ ) {
+        var inputId = personalInfoInputs[i].id;
+        inputInfoTexts[inputId] = 'Ingen ekstra information';
+      }
+
+      inputInfoTexts.username = 'Dit brugernavn';
+      inputInfoTexts.name = 'Dit navn';
+      inputInfoTexts.address = 'Din adresse';
+      inputInfoTexts.postalCode = 'Dit postnummer';
+      inputInfoTexts.city = 'Din by';
+      inputInfoTexts.email = 'Din email';
+      inputInfoTexts.userID = 'Dit bruger ID';
+      inputInfoTexts.cpr = 'Dit CPR nummer';
+      inputInfoTexts.phone = 'Din telefon';
+      inputInfoTexts.cellphone = 'Din mobiltelefon';
+
+      for ( var i = 0; i < inputInfoLabels.length; i++ ) {
+        inputInfoLabels[i].addEventListener( 'click', function(e) {
+          clearAllMessagesWithoutThisId(messageInputInfo);
+          messageInputInfo.innerText = inputInfoTexts[e.target.previousElementSibling.id];
+          toggleClassTemporarily( messageInputInfo, 'message-showing', 5000, null );
+        });
+      }
+
+      // Message: Saved personal info successfully OR error message when e-mail is not sufficiently provided
+      var messageSuccess = document.getElementById( 'messageSuccess' );
+      var inputEmail = document.getElementById( 'email' );
+      var emailRegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+      function emailValidator(string) {
+        return emailRegExp.exec(string);
+      }
+
+      btnSavePersonalInfo.addEventListener( 'click', function() {
+        if ( !emailValidator(inputEmail.value) ) {
+          clearAllMessagesWithoutThisId(messageError);
+          inputEmail.classList.add( 'input-error' );
+          toggleClassTemporarily( messageError, 'message-showing', 5000, null );
+        } else {
+          clearAllMessagesWithoutThisId(messageSuccess);
+          for ( var i = 0; i < personalInfoInputs.length; i++ ) {
+            personalInfoInputs[i].classList.remove( 'input-error' );
+          }
+          toggleClassTemporarily( messageSuccess, 'message-showing', 5000, null );
+        }
+      });
+
+      // Change password box
+      var btnShowChangePassword = document.getElementById( 'btnShowChangePassword' );
+      var boxChangePassword = document.getElementById( 'boxChangePassword' );
+      var btnSavePassword = document.getElementById( 'btnSavePassword' );
+      var btnCancelPassword = document.getElementById( 'btnCancelPassword' );
+      var btnClosePassword = document.getElementById( 'btnClosePassword' );
+
+      btnShowChangePassword.addEventListener( 'click', function() {
+        if ( !btnClosePassword.classList.contains('display-none') ) { // Make sure "Annuller" is shown on every visit
+          toggle(btnCancelPassword);
+          toggle(btnClosePassword);
+        }
+        toggle( boxChangePassword );
+      } );
+
+      btnCancelPassword.addEventListener( 'click', function() { toggle( boxChangePassword ); } );
+      btnClosePassword.addEventListener( 'click', function() { toggle( boxChangePassword ); } );
+
+      btnSavePassword.addEventListener( 'click', function() {
+        if ( btnClosePassword.classList.contains('display-none') ) {
+          toggle(btnCancelPassword);
+          toggle(btnClosePassword);
+        }
+      });
 
       // Milestone completed
       var controlBarBtnNext = document.getElementById( 'controlBarBtnNext' );
@@ -600,105 +697,6 @@
       var btnShowExplanation = document.getElementById( 'btnShowExplanation' );
       var boxExplanation = document.getElementById( 'boxExplanation' );
       btnShowExplanation.addEventListener( 'click', function() { toggle( boxExplanation ); } );
-
-      /* ----- Personal info dialog ----- */
-
-      // Change "Annuller" to "Luk when "Gem" is clicked
-      btnSavePersonalInfo.addEventListener( 'click', function() {
-        if ( btnClosePersonalInfo.classList.contains('display-none') ) {
-          toggle(btnCancelPersonalInfo);
-          toggle(btnClosePersonalInfo);
-        }
-      });
-
-      // Message: Clear other messages than the current
-      var messageElements = document.getElementsByClassName( 'message' );
-      function clearAllMessagesWithoutThisId( messageToShowId ) {
-        for ( var i = 0; i < messageElements.length; i++ ) {
-          if ( messageElements[i].id != messageToShowId ) {
-            messageElements[i].classList.remove( 'message-showing' );
-          }
-        }
-      }
-
-      // Message: Input-info
-      var inputInfoLabels = document.getElementsByClassName( 'label-info' );
-      var messageInputInfo = document.getElementById( 'messageInputInfo' );
-
-      var inputInfoTexts = {};
-
-      var personalInfoInputs = document.getElementsByClassName( 'input-personalInfo' );
-      for ( var i = 0; i < personalInfoInputs.length; i++ ) {
-        var inputId = personalInfoInputs[i].id;
-        inputInfoTexts[inputId] = 'Ingen ekstra information';
-      }
-
-      inputInfoTexts.username = 'Dit brugernavn';
-      inputInfoTexts.name = 'Dit navn';
-      inputInfoTexts.address = 'Din adresse';
-      inputInfoTexts.postalCode = 'Dit postnummer';
-      inputInfoTexts.city = 'Din by';
-      inputInfoTexts.email = 'Din email';
-      inputInfoTexts.userID = 'Dit bruger ID';
-      inputInfoTexts.cpr = 'Dit CPR nummer';
-      inputInfoTexts.phone = 'Din telefon';
-      inputInfoTexts.cellphone = 'Din mobiltelefon';
-
-      for ( var i = 0; i < inputInfoLabels.length; i++ ) {
-        inputInfoLabels[i].addEventListener( 'click', function(e) {
-          clearAllMessagesWithoutThisId(messageInputInfo);
-          messageInputInfo.innerText = inputInfoTexts[e.target.previousElementSibling.id];
-          toggleClassTemporarily( messageInputInfo, 'message-showing', 5000, null );
-        });
-      }
-
-      // Message: Saved personal info successfully OR error message when e-mail is not sufficiently provided
-      var messageSuccess = document.getElementById( 'messageSuccess' );
-      var inputEmail = document.getElementById( 'email' );
-      var emailRegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-      function emailValidator(string) {
-        return emailRegExp.exec(string);
-      }
-
-      btnSavePersonalInfo.addEventListener( 'click', function() {
-        if ( !emailValidator(inputEmail.value) ) {
-          clearAllMessagesWithoutThisId(messageError);
-          inputEmail.classList.add( 'input-error' );
-          toggleClassTemporarily( messageError, 'message-showing', 5000, null );
-        } else {
-          clearAllMessagesWithoutThisId(messageSuccess);
-          for ( var i = 0; i < personalInfoInputs.length; i++ ) {
-            personalInfoInputs[i].classList.remove( 'input-error' );
-          }
-          toggleClassTemporarily( messageSuccess, 'message-showing', 5000, null );
-        }
-      });
-
-      // Change password box
-      var btnShowChangePassword = document.getElementById( 'btnShowChangePassword' );
-      var boxChangePassword = document.getElementById( 'boxChangePassword' );
-      var btnSavePassword = document.getElementById( 'btnSavePassword' );
-      var btnCancelPassword = document.getElementById( 'btnCancelPassword' );
-      var btnClosePassword = document.getElementById( 'btnClosePassword' );
-
-      btnShowChangePassword.addEventListener( 'click', function() {
-        if ( !btnClosePassword.classList.contains('display-none') ) { // Make sure "Annuller" is shown on every visit
-          toggle(btnCancelPassword);
-          toggle(btnClosePassword);
-        }
-        toggle( boxChangePassword );
-      } );
-
-      btnCancelPassword.addEventListener( 'click', function() { toggle( boxChangePassword ); } );
-      btnClosePassword.addEventListener( 'click', function() { toggle( boxChangePassword ); } );
-
-      btnSavePassword.addEventListener( 'click', function() {
-        if ( btnClosePassword.classList.contains('display-none') ) {
-          toggle(btnCancelPassword);
-          toggle(btnClosePassword);
-        }
-      });
 
     </script>
   </body>
