@@ -448,14 +448,24 @@
     </div>
 
     <script>
+      // Message: Clear other messages than the current
+      function removeClassFromAllSimilarElementsApartFromThis( elementToShowId, className, similarElementsIds ) {
+        for ( var i = 0; i < similarElementsIds.length; i++ ) {
+          if ( similarElementsIds[i].id != elementToShowId ) {
+            similarElementsIds[i].classList.remove( className );
+          }
+        }
+      }
+
       var toggleClassTimeout;
-      function toggleClassTemporarily( element, className, showtime, remove ) {
+      function toggleClassTemporarily( elementNamedSameAsElementId, className, showtime, remove, similarElementsToToggleOff ) {
+        removeClassFromAllSimilarElementsApartFromThis( elementNamedSameAsElementId, className, similarElementsToToggleOff );
         clearTimeout(toggleClassTimeout);
-        if ( remove ) element.classList.remove( className );
-        else element.classList.add( className );
+        if ( remove ) elementNamedSameAsElementId.classList.remove( className );
+        else elementNamedSameAsElementId.classList.add( className );
         toggleClassTimeout = window.setTimeout( function() {
-          if ( remove ) element.classList.add( className );
-          else element.classList.remove( className );
+          if ( remove ) elementNamedSameAsElementId.classList.add( className );
+          else elementNamedSameAsElementId.classList.remove( className );
         }, showtime);
       }
 
@@ -469,6 +479,7 @@
       var btnSavePersonalInfo = document.getElementById( 'btnSavePersonalInfo' );
       var btnCancelPersonalInfo = document.getElementById( 'btnCancelPersonalInfo' );
       var btnClosePersonalInfo = document.getElementById( 'btnClosePersonalInfo' );
+      var messageElements = document.getElementsByClassName( 'message' );
 
       var dialogIsOpen = false;
 
@@ -490,16 +501,6 @@
           toggle(btnClosePersonalInfo);
         }
       });
-
-      // Message: Clear other messages than the current
-      var messageElements = document.getElementsByClassName( 'message' );
-      function clearAllMessagesWithoutThisId( messageToShowId ) {
-        for ( var i = 0; i < messageElements.length; i++ ) {
-          if ( messageElements[i].id != messageToShowId ) {
-            messageElements[i].classList.remove( 'message-showing' );
-          }
-        }
-      }
 
       // Message: Input-info
       var inputInfoLabels = document.getElementsByClassName( 'label-info' );
@@ -526,9 +527,8 @@
 
       for ( var i = 0; i < inputInfoLabels.length; i++ ) {
         inputInfoLabels[i].addEventListener( 'click', function(e) {
-          clearAllMessagesWithoutThisId(messageInputInfo);
           messageInputInfo.innerText = inputInfoTexts[e.target.previousElementSibling.id];
-          toggleClassTemporarily( messageInputInfo, 'message-showing', 5000, null );
+          toggleClassTemporarily( messageInputInfo, 'message-showing', 5000, null, messageElements );
         });
       }
 
@@ -543,15 +543,13 @@
 
       btnSavePersonalInfo.addEventListener( 'click', function() {
         if ( !emailValidator(inputEmail.value) ) {
-          clearAllMessagesWithoutThisId(messageError);
           inputEmail.classList.add( 'input-error' );
-          toggleClassTemporarily( messageError, 'message-showing', 5000, null );
+          toggleClassTemporarily( messageError, 'message-showing', 5000, null, messageElements );
         } else {
-          clearAllMessagesWithoutThisId(messageSuccess);
           for ( var i = 0; i < personalInfoInputs.length; i++ ) {
             personalInfoInputs[i].classList.remove( 'input-error' );
           }
-          toggleClassTemporarily( messageSuccess, 'message-showing', 5000, null );
+          toggleClassTemporarily( messageSuccess, 'message-showing', 5000, null, messageElements );
         }
       });
 
@@ -578,6 +576,7 @@
           toggle(btnCancelPassword);
           toggle(btnClosePassword);
         }
+        toggleClassTemporarily( messageSuccess, 'message-showing', 5000, null, messageElements );
       });
 
       // Milestone completed
@@ -600,7 +599,7 @@
       var dialogLoadingSpinner = document.getElementById( 'dialogLoadingSpinner' );
 
       controlBarBtnRestart.addEventListener( 'click', function() {
-        toggleClassTemporarily( dialogLoadingSpinner, 'dialog-hidden', 4000, true );
+        toggleClassTemporarily( dialogLoadingSpinner, 'dialog-hidden', 4000, true, messageElements );
       });
 
       /* ----- Thumbnails ----- */
