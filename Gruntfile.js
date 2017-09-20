@@ -5,6 +5,19 @@ module.exports = function(grunt) {
 
     pkg: grunt.file.readJSON( 'package.json' ),
 
+    browserify: {
+      dist: {
+        options: {
+          transform: [[ 'babelify', {
+            presets: ['env'] 
+          }]]
+        },
+        files: {
+          'bundle.js': 'dev/js/**/*.js'
+        }
+      }
+    },
+
     // Compile .scss-files in 'dev' folder into 1 style.css file that WP can read
 		sass: {
 			dev: {
@@ -36,6 +49,10 @@ module.exports = function(grunt) {
     // Initialize 'grunt watch'-task with livereload (also install livereload plugin in browser to make it work)
 		watch: {
       options: { livereload: true },
+      js: {
+        files: [ 'dev/js/**/*.js' ],
+        tasks: [ 'browserify' ] // Concatenate scripts on change, but don't minify while developing (see options under 'uglify' ^)
+      },
 			css: {
         files: [ 'dev/scss/**/*.scss' ],
 				tasks: [ 'sass:dev', 'autoprefixer' ] // Concatenate styles on change, but don't minify while developing (see options under 'sass' ^)
@@ -44,6 +61,7 @@ module.exports = function(grunt) {
         files: [ '*.html', 'images/**/*.{png,jpg,jpeg,gif,webp,svg}' ]
       }
 		},
+
     express:{
       all:{
         options:{
@@ -58,13 +76,14 @@ module.exports = function(grunt) {
   });
 
   // 2. Load plugins
+  grunt.loadNpmTasks( 'grunt-browserify' );
   grunt.loadNpmTasks( 'grunt-express' );
   grunt.loadNpmTasks( 'grunt-sass' );
   grunt.loadNpmTasks( 'grunt-contrib-watch' ); // Runs on command 'grunt watch'
   grunt.loadNpmTasks( 'grunt-autoprefixer' );
 
   // 3. Register task(s)
-  grunt.registerTask( 'serve', [ 'express', 'watch' ]); // Runs on command 'grunt serve'
+  grunt.registerTask( 'serve', [ 'express', 'watch' ]); // Runs on command 'grunt' as it is set to default
   grunt.registerTask( 'uglify', [ 'sass:dev', 'autoprefixer' ]); // Runs on command 'grunt uglify'
-  grunt.registerTask( 'build', [ 'sass:build', 'autoprefixer' ]); // Runs on command 'grunt build'
+  grunt.registerTask( 'build', [ 'sass:build', 'autoprefixer', 'browserify' ]); // Runs on command 'grunt build'
 };

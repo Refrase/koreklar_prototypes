@@ -545,44 +545,6 @@
       </div>
     </div>
 
-    <script>
-      /* ----- Dialogs ----- */
-      var toggleDialog = function( dialog ) { dialog.classList.toggle( 'dialog-hidden' ); };
-
-      // Answers
-      var btnShowAnswers = document.getElementById( 'btnShowAnswers' );
-      var dialogAnswers = document.getElementById( 'dialogAnswers' );
-      var dialogAnswersClose = document.getElementById( 'dialogAnswersClose' );
-
-      btnShowAnswers.addEventListener( 'click', function() { toggleDialog(dialogAnswers) } );
-      dialogAnswersClose.addEventListener( 'click', function() { toggleDialog(dialogAnswers) } );
-
-      // Bug report
-      var btnShowBugReport = document.getElementById( 'btnShowBugReport' );
-      var dialogBugReport = document.getElementById( 'dialogBugReport' );
-      var dialogBugReportClose = document.getElementById( 'dialogBugReportClose' );
-
-      btnShowBugReport.addEventListener( 'click', function() { toggleDialog(dialogBugReport) } );
-      dialogBugReportClose.addEventListener( 'click', function() { toggleDialog(dialogBugReport) } );
-
-      /* ----- Answers pagination ----- */
-      var answersBlock1 = document.getElementById( 'answersBlock-01' );
-      var answersBlock2 = document.getElementById( 'answersBlock-02' );
-      var btnAnswersNext = document.getElementById( 'btnAnswersNext' );
-      var btnAnswersPrevious = document.getElementById( 'btnAnswersPrevious' );
-
-      var nextAnswersBlock = function() {
-        answersBlock1.classList.add( 'display-none' );
-        answersBlock2.classList.remove( 'display-none' );
-      };
-
-      var previousAnswersBlock = function() {
-        answersBlock1.classList.remove( 'display-none' );
-        answersBlock2.classList.add( 'display-none' );
-      };
-
-      btnAnswersNext.addEventListener( 'click', nextAnswersBlock );
-      btnAnswersPrevious.addEventListener( 'click', previousAnswersBlock );
-    </script>
+    <script src="./bundle.js"></script>
   </body>
 </html>

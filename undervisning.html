@@ -145,7 +145,7 @@
               </div>
             </div>
             <div class="btn btn-control">
-              <div class="btn-control_inner">
+              <div class="btn-control_inner active">
                 <img src="assets/ic_pause.svg" alt="Ikon pause" height="11" style="margin-right: 1px;">
               </div>
             </div>
@@ -284,23 +284,19 @@
           <div style="z-index: 1;" class="span-12 display-flex justifyContent-center position position-fixed-bottom position-fixed-bottom-tablet border-top-base-lighter-tablet backgroundColor-base-lighter padding">
 
             <div class="btnGroup btnGroup-vertical width-full">
-              <a href="#" class="btn-svg btn-svg-small margin-bottom" id="btnShowChangePassword">
-                <img src="./assets/btn_changepassword_blue_down_small.svg" alt="">
-                <img src="./assets/btn_changepassword_blue_up_small.svg" alt="">
-              </a>
+              <div class="btn btn-small btn-base margin-bottom" id="btnShowChangePassword">
+                <div class="btn_inner">Skift adgangskode</div>
+              </div>
               <div class="display-flex justifyContent-center">
-                <a href="#" class="btn-svg btn-svg-small margin-right" id="btnSavePersonalInfo">
-                  <img src="./assets/btn_save_light_down_small.svg" alt="">
-                  <img src="./assets/btn_save_light_up_small.svg" alt="">
-                </a>
-                <a href="#" class="btn-svg btn-svg-small" id="btnCancelPersonalInfo">
-                  <img src="./assets/btn_annuller_light_down_small.svg" alt="">
-                  <img src="./assets/btn_annuller_light_up_small.svg" alt="">
-                </a>
-                <a href="#" class="btn-svg btn-svg-small display-none" id="btnClosePersonalInfo">
-                  <img src="./assets/btn_close_light_down_small.svg" alt="">
-                  <img src="./assets/btn_close_light_up_small.svg" alt="">
-                </a>
+                <div class="btn btn-small btn-light margin-right" id="btnSavePersonalInfo">
+                  <div class="btn_inner">Gem</div>
+                </div>
+                <div class="btn btn-small btn-light" id="btnCancelPersonalInfo">
+                  <div class="btn_inner">Annuller</div>
+                </div>
+                <div class="btn btn-small btn-light display-none" id="btnClosePersonalInfo">
+                  <div class="btn_inner">Luk</div>
+                </div>
               </div>
             </div>
 
@@ -327,18 +323,15 @@
                 </div>
               </div>
               <div class="display-flex justifyContent-center">
-                <a href="#" class="btn-svg btn-svg-small margin-right" id="btnSavePassword">
-                  <img src="./assets/btn_save_light_down_small.svg" alt="">
-                  <img src="./assets/btn_save_light_up_small.svg" alt="">
-                </a>
-                <a href="#" class="btn-svg btn-svg-small" id="btnCancelPassword">
-                  <img src="./assets/btn_annuller_light_down_small.svg" alt="">
-                  <img src="./assets/btn_annuller_light_up_small.svg" alt="">
-                </a>
-                <a href="#" class="btn-svg btn-svg-small display-none" id="btnClosePassword">
-                  <img src="./assets/btn_close_light_down_small.svg" alt="">
-                  <img src="./assets/btn_close_light_up_small.svg" alt="">
-                </a>
+                <div class="btn btn-small btn-light margin-right" id="btnSavePassword">
+                  <div class="btn_inner">Gem</div>
+                </div>
+                <div class="btn btn-small btn-light" id="btnCancelPassword">
+                  <div class="btn_inner">Annuller</div>
+                </div>
+                <div class="btn btn-small btn-light display-none" id="btnClosePassword">
+                  <div class="btn_inner">Luk</div>
+                </div>
               </div>
             </div>
 
@@ -447,256 +440,6 @@
       </div>
     </div>
 
-    <script>
-      // Message: Clear other messages than the current
-      function removeClassFromAllSimilarElementsApartFromThis( elementToShowId, className, similarElementsIds ) {
-        for ( var i = 0; i < similarElementsIds.length; i++ ) {
-          if ( similarElementsIds[i].id != elementToShowId ) {
-            similarElementsIds[i].classList.remove( className );
-          }
-        }
-      }
-
-      var toggleClassTimeout;
-      function toggleClassTemporarily( elementNamedSameAsElementId, className, showtime, remove, similarElementsToToggleOff ) {
-        removeClassFromAllSimilarElementsApartFromThis( elementNamedSameAsElementId, className, similarElementsToToggleOff );
-        clearTimeout(toggleClassTimeout);
-        if ( remove ) elementNamedSameAsElementId.classList.remove( className );
-        else elementNamedSameAsElementId.classList.add( className );
-        toggleClassTimeout = window.setTimeout( function() {
-          if ( remove ) elementNamedSameAsElementId.classList.add( className );
-          else elementNamedSameAsElementId.classList.remove( className );
-        }, showtime);
-      }
-
-      function toggle( elementToggled ) { elementToggled.classList.toggle( 'display-none' ); }
-
-      /* ----- Dialogs ----- */
-      // ----- Personal info
-      var dialogPersonalInfo = document.getElementById( 'dialogPersonalInfo' );
-      var btnShowPersonalInfo = document.getElementById( 'menuItem-personalInfo' );
-      var dialogPersonalInfoClose = document.getElementById( 'dialogPersonalInfoClose' ); // Cross-icon in upper left corner
-      var btnSavePersonalInfo = document.getElementById( 'btnSavePersonalInfo' );
-      var btnCancelPersonalInfo = document.getElementById( 'btnCancelPersonalInfo' );
-      var btnClosePersonalInfo = document.getElementById( 'btnClosePersonalInfo' );
-      var messageElements = document.getElementsByClassName( 'message' );
-
-      var dialogIsOpen = false;
-
-      var togglePersonalInfoDialog = function( dialog ) {
-        dialogIsOpen ? null : toggleMenu();
-        dialog.classList.toggle( 'dialog-hidden' );
-        dialogIsOpen = !dialogIsOpen;
-      };
-
-      btnShowPersonalInfo.addEventListener( 'click', function() { togglePersonalInfoDialog(dialogPersonalInfo) } );
-      dialogPersonalInfoClose.addEventListener( 'click', function() { togglePersonalInfoDialog(dialogPersonalInfo) } );
-      btnCancelPersonalInfo.addEventListener( 'click', function() { togglePersonalInfoDialog(dialogPersonalInfo) } );
-      btnClosePersonalInfo.addEventListener( 'click', function() { togglePersonalInfoDialog(dialogPersonalInfo) } );
-
-      // Change "Annuller" to "Luk when "Gem" is clicked
-      btnSavePersonalInfo.addEventListener( 'click', function() {
-        if ( btnClosePersonalInfo.classList.contains('display-none') ) {
-          toggle(btnCancelPersonalInfo);
-          toggle(btnClosePersonalInfo);
-        }
-      });
-
-      // Message: Input-info
-      var inputInfoLabels = document.getElementsByClassName( 'label-info' );
-      var messageInputInfo = document.getElementById( 'messageInputInfo' );
-
-      var inputInfoTexts = {};
-
-      var personalInfoInputs = document.getElementsByClassName( 'input-personalInfo' );
-      for ( var i = 0; i < personalInfoInputs.length; i++ ) {
-        var inputId = personalInfoInputs[i].id;
-        inputInfoTexts[inputId] = 'Ingen ekstra information';
-      }
-
-      inputInfoTexts.username = 'Dit brugernavn';
-      inputInfoTexts.name = 'Dit navn';
-      inputInfoTexts.address = 'Din adresse';
-      inputInfoTexts.postalCode = 'Dit postnummer';
-      inputInfoTexts.city = 'Din by';
-      inputInfoTexts.email = 'Din email';
-      inputInfoTexts.userID = 'Dit bruger ID';
-      inputInfoTexts.cpr = 'Dit CPR nummer';
-      inputInfoTexts.phone = 'Din telefon';
-      inputInfoTexts.cellphone = 'Din mobiltelefon';
-
-      for ( var i = 0; i < inputInfoLabels.length; i++ ) {
-        inputInfoLabels[i].addEventListener( 'click', function(e) {
-          messageInputInfo.innerText = inputInfoTexts[e.target.previousElementSibling.id];
-          toggleClassTemporarily( messageInputInfo, 'message-showing', 5000, null, messageElements );
-        });
-      }
-
-      // Message: Saved personal info successfully OR error message when e-mail is not sufficiently provided
-      var messageSuccess = document.getElementById( 'messageSuccess' );
-      var inputEmail = document.getElementById( 'email' );
-      var emailRegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-      function emailValidator(string) {
-        return emailRegExp.exec(string);
-      }
-
-      btnSavePersonalInfo.addEventListener( 'click', function() {
-        if ( !emailValidator(inputEmail.value) ) {
-          inputEmail.classList.add( 'input-error' );
-          toggleClassTemporarily( messageError, 'message-showing', 5000, null, messageElements );
-        } else {
-          for ( var i = 0; i < personalInfoInputs.length; i++ ) {
-            personalInfoInputs[i].classList.remove( 'input-error' );
-          }
-          toggleClassTemporarily( messageSuccess, 'message-showing', 5000, null, messageElements );
-        }
-      });
-
-      // Change password box
-      var btnShowChangePassword = document.getElementById( 'btnShowChangePassword' );
-      var boxChangePassword = document.getElementById( 'boxChangePassword' );
-      var btnSavePassword = document.getElementById( 'btnSavePassword' );
-      var btnCancelPassword = document.getElementById( 'btnCancelPassword' );
-      var btnClosePassword = document.getElementById( 'btnClosePassword' );
-
-      btnShowChangePassword.addEventListener( 'click', function() {
-        if ( !btnClosePassword.classList.contains('display-none') ) { // Make sure "Annuller" is shown on every visit
-          toggle(btnCancelPassword);
-          toggle(btnClosePassword);
-        }
-        toggle( boxChangePassword );
-      } );
-
-      btnCancelPassword.addEventListener( 'click', function() { toggle( boxChangePassword ); } );
-      btnClosePassword.addEventListener( 'click', function() { toggle( boxChangePassword ); } );
-
-      btnSavePassword.addEventListener( 'click', function() {
-        if ( btnClosePassword.classList.contains('display-none') ) {
-          toggle(btnCancelPassword);
-          toggle(btnClosePassword);
-        }
-        toggleClassTemporarily( messageSuccess, 'message-showing', 5000, null, messageElements );
-      });
-
-      // Milestone completed
-      var controlBarBtnNext = document.getElementById( 'controlBarBtnNext' );
-      var dialogMilestoneCompleted = document.getElementById( 'dialogMilestoneCompleted' );
-      var dialogMilestoneCompletedCheckmark = document.getElementById( 'dialogMilestoneCompletedCheckmark' );
-      var dialogMilestoneCompletedBtnNo = document.getElementById( 'dialogMilestoneCompletedBtnNo' );
-
-      var toggleMilestoneCompletedDialog = function() {
-        dialogMilestoneCompleted.classList.toggle( 'dialog-hidden' );
-        dialogMilestoneCompletedCheckmark.classList.toggle( 'slideDown' );
-        dialogMilestoneCompletedCheckmark.classList.toggle( 'slideDown-slow' );
-      };
-
-      controlBarBtnNext.addEventListener( 'click', toggleMilestoneCompletedDialog );
-      dialogMilestoneCompletedBtnNo.addEventListener( 'click', toggleMilestoneCompletedDialog );
-
-      // Loading spinner disc
-      var controlBarBtnRestart = document.getElementById( 'controlBarBtnRestart' );
-      var dialogLoadingSpinner = document.getElementById( 'dialogLoadingSpinner' );
-
-      controlBarBtnRestart.addEventListener( 'click', function() {
-        toggleClassTemporarily( dialogLoadingSpinner, 'dialog-hidden', 4000, true, messageElements );
-      });
-
-      /* ----- Thumbnails ----- */
-      // Panel
-      var controlBarBtnThumbnails = document.getElementById( 'controlBarBtnThumbnails' );
-      var thumbnailPanel = document.getElementsByClassName( 'thumbnailPanel' );
-
-      var toggleThumbnailPanel = function() {
-        thumbnailPanel[0].classList.toggle( 'thumbnailPanel-hidden' );
-      };
-
-      controlBarBtnThumbnails.addEventListener( 'click', toggleThumbnailPanel );
-
-      var buildArray = function(domArray, emptyArray) {
-        for ( var i = 0; i < domArray.length; i++ ) {
-          emptyArray.push(domArray[i]);
-        }
-      };
-
-      // When hovering over a thumbnail the corresponding progressbar step has a class added or removed
-      var thumbnails = document.getElementsByClassName( 'thumbnail' );
-      var progressBarSteps = document.getElementsByClassName( 'progressBar_step' );
-      var thumbnailsArray = [];
-      var progressBarStepsArray = [];
-      buildArray(thumbnails, thumbnailsArray);
-      buildArray(progressBarSteps, progressBarStepsArray);
-
-      var toggleCorrespondingProgressStep = function(e) {
-        for (var i = 0; i < progressBarStepsArray.length; i++) {
-          if (thumbnailsArray.indexOf(e.target) === progressBarStepsArray.indexOf(progressBarStepsArray[i])) {
-            if ( e.type === 'mouseenter' ) {
-              progressBarStepsArray[i].classList.add( 'active' );
-            } else {
-              progressBarStepsArray[i].classList.remove( 'active' );
-            }
-          }
-        }
-      };
-
-      var addEventListernersToThumbnails = function() {
-        for ( var i = 0; i < thumbnailsArray.length; i++ ) {
-          thumbnails[i].addEventListener( 'mouseenter', toggleCorrespondingProgressStep );
-          thumbnails[i].addEventListener( 'mouseleave', toggleCorrespondingProgressStep );
-        }
-      }();
-
-      /* ----- Menu ----- */
-      // Toggle
-      var menu = document.getElementsByClassName( 'menu' );
-      var menuBackground = document.getElementsByClassName( 'menuBackground' );
-      var burgerIcon = document.getElementById( 'burger' );
-      var htmlTag = document.getElementsByTagName( 'html' )[0];
-
-      var toggleMenu = function() {
-        menu[0].classList.toggle( 'menu-hidden' );
-        menuBackground[0].classList.toggle( 'menuBackground-hidden' );
-        burgerIcon.classList.toggle( 'burger-active' );
-        if ( htmlTag.className === 'overflow-hidden' ) { // Check if <html> has already 'overflow-hidden' applied (meaning the menu is visible)
-          setTimeout( function() { // If so then wait for the closing animation of the menu, so that ugly scrollbars don't appear and makes content jump
-            htmlTag.classList.toggle( 'overflow-hidden' );
-          }, 600); // Menu animation duration
-        } else { // Else just apply immediately, so that content doesn't jump on opening animation
-          htmlTag.classList.toggle( 'overflow-hidden' );
-        }
-      };
-
-      burgerIcon.addEventListener( 'click', toggleMenu );
-
-      // Open/close lists
-      var menuItemKurser = document.getElementById( 'menuItem-kurser' );
-      var menuListKurser = document.getElementById( 'menuList-kurser' );
-      var menuItemKategoriB = document.getElementById( 'menuItem-kategoriB' );
-      var menuListKategoriB = document.getElementById( 'menuList-kategoriB' );
-      var menuItemLektion1Og2 = document.getElementById( 'menuItem-lektion1Og2' );
-      var menuListLektion1Og2 = document.getElementById( 'menuList-lektion1Og2' );
-      var menuItemDiverse = document.getElementById( 'menuItem-diverse' );
-      var menuListDiverse = document.getElementById( 'menuList-diverse' );
-
-      var toggleList = function(list) { list.classList.toggle( 'level-closed' ); };
-
-      menuItemKurser.addEventListener( 'click', function() { toggleList(menuListKurser); });
-      menuItemKategoriB.addEventListener( 'click', function() { toggleList(menuListKategoriB); });
-      menuItemLektion1Og2.addEventListener( 'click', function() { toggleList(menuListLektion1Og2); });
-      menuItemDiverse.addEventListener( 'click', function() { toggleList(menuListDiverse); });
-
-      /* ----- Left/right markers ----- */
-      // Toggle
-      var controlBarBtnLeftRight = document.getElementById( 'controlBarBtnLeftRight' );
-      var leftRightMarkers = document.getElementById( 'leftRightMarkers' );
-
-      controlBarBtnLeftRight.addEventListener( 'click', function() { leftRightMarkers.classList.toggle( 'display-none' ); });
-
-      /* ----- Explanation box ----- */
-      var btnShowExplanation = document.getElementById( 'btnShowExplanation' );
-      var boxExplanation = document.getElementById( 'boxExplanation' );
-      btnShowExplanation.addEventListener( 'click', function() { toggle( boxExplanation ); } );
-
-    </script>
+    <script src="./bundle.js"></script>
   </body>
 </html>
