@@ -1,0 +1,7 @@
+.image {
+  &-coursesAndTests {
+    @extend .width-fill-right;
+    position: absolute;
+    @include breakpoint('tablet') { position: relative; }
+  }
+}

@@ -133,7 +133,7 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 				width: calc( 100% + #{$scale-2-1} + #{$scale-8-1} ) !important;
 			}
 			@include breakpoint( 'extraWidescreen' ) {
-				width: 100% !important;
+				width: auto !important;
 			}
 		}
 	}
