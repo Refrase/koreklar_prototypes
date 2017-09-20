@@ -1,6 +1,14 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
+// ########## STATE ##########
+
+var state = {
+  thumbnailsVisible: null,
+  explanationVisible: null,
+  personalInfoDialogVisible: null
+};
+
 // ########## GENERIC ##########
 
 // Message: Clear other messages than the current
@@ -23,10 +31,8 @@ function toggleClassTemporarily(elementNamedSameAsElementId, className, showtime
 }
 
 function toggle(elementToggled) {
-  elementToggled.classList.toggle('display-none');
-}
-function toggleDialog(dialog) {
-  dialog.classList.toggle('dialog-hidden');
+  var className = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'display-none';
+  elementToggled.classList.toggle(className);
 }
 
 // ########## UNDERVISNING ##########
@@ -44,9 +50,9 @@ var messageElements = document.getElementsByClassName('message');
 var dialogIsOpen = false;
 
 var togglePersonalInfoDialog = function togglePersonalInfoDialog(dialog) {
-  dialogIsOpen ? null : toggleMenu();
-  dialog.classList.toggle('dialog-hidden');
-  dialogIsOpen = !dialogIsOpen;
+  state.personalInfoDialogVisible ? null : toggleMenu();
+  toggle(dialog, 'dialog-hidden');
+  state.personalInfoDialogVisible = !state.personalInfoDialogVisible;
 };
 
 btnShowPersonalInfo ? btnShowPersonalInfo.addEventListener('click', function () {
@@ -131,7 +137,6 @@ var btnCancelPassword = document.getElementById('btnCancelPassword');
 var btnClosePassword = document.getElementById('btnClosePassword');
 
 btnShowChangePassword ? btnShowChangePassword.addEventListener('click', function () {
-  console.log('test');
   if (!btnClosePassword.classList.contains('display-none')) {
     // Make sure "Annuller" is shown on every visit
     toggle(btnCancelPassword);
@@ -178,16 +183,34 @@ controlBarBtnRestart ? controlBarBtnRestart.addEventListener('click', function (
   toggleClassTemporarily(dialogLoadingSpinner, 'dialog-hidden', 4000, true, messageElements);
 }) : null;
 
-/* ----- Thumbnails ----- */
+/* ----- Thumbnails AND Explanation Box ----- */
 // Panel
 var controlBarBtnThumbnails = document.getElementById('controlBarBtnThumbnails');
 var thumbnailPanel = document.getElementsByClassName('thumbnailPanel');
+var btnShowExplanation = document.getElementById('btnShowExplanation');
+var boxExplanation = document.getElementById('boxExplanation');
 
 var toggleThumbnailPanel = function toggleThumbnailPanel() {
   thumbnailPanel[0].classList.toggle('thumbnailPanel-hidden');
 };
 
-controlBarBtnThumbnails ? controlBarBtnThumbnails.addEventListener('click', toggleThumbnailPanel) : null;
+controlBarBtnThumbnails ? controlBarBtnThumbnails.addEventListener('click', function () {
+  if (state.explanationVisible) {
+    toggle(boxExplanation);
+    state.explanationVisible = null;
+  }
+  toggleThumbnailPanel();
+  state.thumbnailsVisible = !state.thumbnailsVisible;
+}) : null;
+
+btnShowExplanation ? btnShowExplanation.addEventListener('click', function () {
+  if (state.thumbnailsVisible) {
+    toggleThumbnailPanel();
+    state.thumbnailsVisible = null;
+  }
+  toggle(boxExplanation);
+  state.explanationVisible = !state.explanationVisible;
+}) : null;
 
 var buildArray = function buildArray(domArray, emptyArray) {
   for (var i = 0; i < domArray.length; i++) {
@@ -283,14 +306,6 @@ controlBarBtnLeftRight ? controlBarBtnLeftRight.addEventListener('click', functi
   leftRightMarkers.classList.toggle('display-none');
 }) : null;
 
-/* ----- Explanation box ----- */
-var btnShowExplanation = document.getElementById('btnShowExplanation');
-var boxExplanation = document.getElementById('boxExplanation');
-
-btnShowExplanation ? btnShowExplanation.addEventListener('click', function () {
-  toggle(boxExplanation);
-}) : null;
-
 // ########## TEST-01 ##########
 
 /* ----- Dialogs ----- */
@@ -300,10 +315,10 @@ var dialogAnswers = document.getElementById('dialogAnswers');
 var dialogAnswersClose = document.getElementById('dialogAnswersClose');
 
 btnShowAnswers ? btnShowAnswers.addEventListener('click', function () {
-  toggleDialog(dialogAnswers);
+  toggle(dialogAnswers, 'dialog-hidden');
 }) : null;
 dialogAnswersClose ? dialogAnswersClose.addEventListener('click', function () {
-  toggleDialog(dialogAnswers);
+  toggle(dialogAnswers, 'dialog-hidden');
 }) : null;
 
 /* ----- Answers pagination ----- */
@@ -334,10 +349,10 @@ var dialogBugReport = document.getElementById('dialogBugReport');
 var dialogBugReportClose = document.getElementById('dialogBugReportClose');
 
 btnShowBugReport ? btnShowBugReport.addEventListener('click', function () {
-  toggleDialog(dialogBugReport);
+  toggle(dialogBugReport, 'dialog-hidden');
 }) : null;
 dialogBugReportClose ? dialogBugReportClose.addEventListener('click', function () {
-  toggleDialog(dialogBugReport);
+  toggle(dialogBugReport, 'dialog-hidden');
 }) : null;
 
 },{}]},{},[1]);

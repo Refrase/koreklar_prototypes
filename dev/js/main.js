@@ -1,3 +1,11 @@
+// ########## STATE ##########
+
+const state = {
+  thumbnailsVisible: null,
+  explanationVisible: null,
+  personalInfoDialogVisible: null
+};
+
 // ########## GENERIC ##########
 
 // Message: Clear other messages than the current
@@ -21,8 +29,7 @@ function toggleClassTemporarily( elementNamedSameAsElementId, className, showtim
   }, showtime);
 }
 
-function toggle( elementToggled ) { elementToggled.classList.toggle( 'display-none' ); }
-function toggleDialog( dialog ) { dialog.classList.toggle( 'dialog-hidden' ); }
+function toggle( elementToggled, className = 'display-none' ) { elementToggled.classList.toggle( className ); }
 
 // ########## UNDERVISNING ##########
 
@@ -39,9 +46,9 @@ var messageElements = document.getElementsByClassName( 'message' );
 var dialogIsOpen = false;
 
 var togglePersonalInfoDialog = function( dialog ) {
-  dialogIsOpen ? null : toggleMenu();
-  dialog.classList.toggle( 'dialog-hidden' );
-  dialogIsOpen = !dialogIsOpen;
+  state.personalInfoDialogVisible ? null : toggleMenu();
+  toggle( dialog, 'dialog-hidden' );
+  state.personalInfoDialogVisible = !state.personalInfoDialogVisible;
 };
 
 btnShowPersonalInfo ? btnShowPersonalInfo.addEventListener( 'click', function() { togglePersonalInfoDialog(dialogPersonalInfo) } ) : null;
@@ -118,10 +125,9 @@ var btnCancelPassword = document.getElementById( 'btnCancelPassword' );
 var btnClosePassword = document.getElementById( 'btnClosePassword' );
 
 btnShowChangePassword ? btnShowChangePassword.addEventListener( 'click', function() {
-  console.log('test');
   if ( !btnClosePassword.classList.contains('display-none') ) { // Make sure "Annuller" is shown on every visit
-    toggle(btnCancelPassword);
-    toggle(btnClosePassword);
+    toggle( btnCancelPassword );
+    toggle( btnClosePassword );
   }
   toggle( boxChangePassword );
 } ) : null;
@@ -160,16 +166,32 @@ controlBarBtnRestart ? controlBarBtnRestart.addEventListener( 'click', function(
   toggleClassTemporarily( dialogLoadingSpinner, 'dialog-hidden', 4000, true, messageElements );
 }) : null;
 
-/* ----- Thumbnails ----- */
+/* ----- Thumbnails AND Explanation Box ----- */
 // Panel
 var controlBarBtnThumbnails = document.getElementById( 'controlBarBtnThumbnails' );
 var thumbnailPanel = document.getElementsByClassName( 'thumbnailPanel' );
+var btnShowExplanation = document.getElementById( 'btnShowExplanation' );
+var boxExplanation = document.getElementById( 'boxExplanation' );
 
-var toggleThumbnailPanel = function() {
-  thumbnailPanel[0].classList.toggle( 'thumbnailPanel-hidden' );
-};
+const toggleThumbnailPanel = () => { thumbnailPanel[0].classList.toggle( 'thumbnailPanel-hidden' ); };
 
-controlBarBtnThumbnails ? controlBarBtnThumbnails.addEventListener( 'click', toggleThumbnailPanel ) : null;
+controlBarBtnThumbnails ? controlBarBtnThumbnails.addEventListener( 'click', function() {
+  if ( state.explanationVisible ) {
+    toggle( boxExplanation );
+    state.explanationVisible = null;
+  }
+  toggleThumbnailPanel();
+  state.thumbnailsVisible = !state.thumbnailsVisible;
+}) : null;
+
+btnShowExplanation ? btnShowExplanation.addEventListener( 'click', function() {
+  if ( state.thumbnailsVisible ) {
+    toggleThumbnailPanel();
+    state.thumbnailsVisible = null;
+  }
+  toggle( boxExplanation );
+  state.explanationVisible = !state.explanationVisible;
+}) : null;
 
 var buildArray = function(domArray, emptyArray) {
   for ( var i = 0; i < domArray.length; i++ ) {
@@ -250,12 +272,6 @@ var leftRightMarkers = document.getElementById( 'leftRightMarkers' );
 
 controlBarBtnLeftRight ? controlBarBtnLeftRight.addEventListener( 'click', function() { leftRightMarkers.classList.toggle( 'display-none' ); }) : null;
 
-/* ----- Explanation box ----- */
-var btnShowExplanation = document.getElementById( 'btnShowExplanation' );
-var boxExplanation = document.getElementById( 'boxExplanation' );
-
-btnShowExplanation ? btnShowExplanation.addEventListener( 'click', function() { toggle( boxExplanation ); } ) : null;
-
 
 // ########## TEST-01 ##########
 
@@ -265,8 +281,8 @@ var btnShowAnswers = document.getElementById( 'btnShowAnswers' );
 var dialogAnswers = document.getElementById( 'dialogAnswers' );
 var dialogAnswersClose = document.getElementById( 'dialogAnswersClose' );
 
-btnShowAnswers ? btnShowAnswers.addEventListener( 'click', function() { toggleDialog(dialogAnswers) } ) : null;
-dialogAnswersClose ? dialogAnswersClose.addEventListener( 'click', function() { toggleDialog(dialogAnswers) } ) : null;
+btnShowAnswers ? btnShowAnswers.addEventListener( 'click', function() { toggle(dialogAnswers, 'dialog-hidden') } ) : null;
+dialogAnswersClose ? dialogAnswersClose.addEventListener( 'click', function() { toggle(dialogAnswers, 'dialog-hidden') } ) : null;
 
 /* ----- Answers pagination ----- */
 var answersBlock1 = document.getElementById( 'answersBlock-01' );
@@ -296,5 +312,5 @@ var btnShowBugReport = document.getElementById( 'btnShowBugReport' );
 var dialogBugReport = document.getElementById( 'dialogBugReport' );
 var dialogBugReportClose = document.getElementById( 'dialogBugReportClose' );
 
-btnShowBugReport ? btnShowBugReport.addEventListener( 'click', function() { toggleDialog(dialogBugReport) } ) : null;
-dialogBugReportClose ? dialogBugReportClose.addEventListener( 'click', function() { toggleDialog(dialogBugReport) } ) : null;
+btnShowBugReport ? btnShowBugReport.addEventListener( 'click', function() { toggle(dialogBugReport, 'dialog-hidden') } ) : null;
+dialogBugReportClose ? dialogBugReportClose.addEventListener( 'click', function() { toggle(dialogBugReport, 'dialog-hidden') } ) : null;
