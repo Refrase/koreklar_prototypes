@@ -22,4 +22,11 @@
     left: 0;
     bottom: 12px; // Half button
   }
+
+  &-coursesAndTests {
+    @extend .width-fill-right;
+    @include breakpoint( 'desktop' ) { width: calc( 100% + #{$scale-6-1} ) !important; }
+    @include breakpoint( 'tablet' ) { width: calc( 100% + #{$scale-8-1} ) !important; }
+    @include breakpoint( 'widescreen' ) { width: calc( 100% + #{$scale-10-1} ) !important; }
+  }
 }

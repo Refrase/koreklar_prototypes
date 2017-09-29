@@ -2,6 +2,8 @@
   &-coursesAndTests {
     @extend .width-fill-right;
     position: absolute;
-    @include breakpoint('tablet') { position: relative; }
+    @include breakpoint( 'desktop' ) { width: calc( 100% + #{$scale-2-1} ) !important; }
+    @include breakpoint( 'tablet' ) { width: calc( 100% + #{$scale-8-1} ) !important; position: relative; }
+    @include breakpoint( 'widescreen' ) { width: calc( 100% + #{$scale-6-1} ) !important; }
   }
 }
