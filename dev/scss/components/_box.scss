@@ -1,10 +1,23 @@
 .box {
   width: 100%;
-  padding: $scale-3-4 $scale;
-  padding-bottom: $scale-2-1;
+  padding: $scale-2-1;
+  padding-top: $scale + $scale-1-2;
   background-color: rgba( $color-base, 0.98 );
   border: 1px solid $color-base-darker-1;
   z-index: -1;
+  opacity: 0;
+  animation: fadeIn 0.25s ease-out forwards;
+
+  &_close {
+    cursor: pointer;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 12px;
+    height: 12px;
+
+    polygon { fill: $color-base-darker-4; }
+  }
 
   &-light {
     background-color: rgba( $color-base-lighter-7, 0.98 );
@@ -24,6 +37,7 @@
   }
 
   &-coursesAndTests {
+    bottom: 0;
     @extend .width-fill-right;
     @include breakpoint( 'desktop' ) { width: calc( 100% + #{$scale-6-1} ) !important; }
     @include breakpoint( 'tablet' ) { width: calc( 100% + #{$scale-8-1} ) !important; }

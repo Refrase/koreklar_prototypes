@@ -189,6 +189,7 @@ var controlBarBtnThumbnails = document.getElementById('controlBarBtnThumbnails')
 var thumbnailPanel = document.getElementsByClassName('thumbnailPanel');
 var btnShowExplanation = document.getElementById('btnShowExplanation');
 var boxExplanation = document.getElementById('boxExplanation');
+var boxExplanationClose = document.getElementById('boxExplanationClose');
 
 var toggleThumbnailPanel = function toggleThumbnailPanel() {
   thumbnailPanel[0].classList.toggle('thumbnailPanel-hidden');
@@ -210,6 +211,11 @@ btnShowExplanation ? btnShowExplanation.addEventListener('click', function () {
   }
   toggle(boxExplanation);
   state.explanationVisible = !state.explanationVisible;
+}) : null;
+
+boxExplanationClose ? boxExplanationClose.addEventListener('click', function () {
+  toggle(boxExplanation);
+  state.explanationVisible = null;
 }) : null;
 
 var buildArray = function buildArray(domArray, emptyArray) {
