@@ -35,6 +35,17 @@
     }
   }
 
+  &-fejlmeld {
+    position: absolute;
+    left: $scale-2-1;
+    bottom: 68px;
+    display: inline-block;
+    @include breakpoint( 'tablet' ) {
+      left: 0;
+      bottom: 19px;
+    }
+  }
+
   &-svg {
     height: 38px;
     position: relative;
