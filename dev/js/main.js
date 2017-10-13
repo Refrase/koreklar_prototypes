@@ -207,10 +207,13 @@ var buildArray = function(domArray, emptyArray) {
 
 // When hovering over a thumbnail the corresponding progressbar step has a class added or removed
 var thumbnails = document.getElementsByClassName( 'thumbnail' );
+var thumbnailsWithText = document.getElementsByClassName( 'thumbnail-withText' );
 var progressBarSteps = document.getElementsByClassName( 'progressBar_step' );
 var thumbnailsArray = [];
+var thumbnailsWithTextArray = [];
 var progressBarStepsArray = [];
 buildArray(thumbnails, thumbnailsArray);
+buildArray(thumbnailsWithText, thumbnailsWithTextArray);
 buildArray(progressBarSteps, progressBarStepsArray);
 
 var toggleCorrespondingProgressStep = function(e) {
@@ -225,10 +228,29 @@ var toggleCorrespondingProgressStep = function(e) {
   }
 };
 
-var addEventListernersToThumbnails = function() {
+var addEventListenersToThumbnails = function() {
   for ( var i = 0; i < thumbnailsArray.length; i++ ) {
-    thumbnails[i].addEventListener( 'mouseenter', toggleCorrespondingProgressStep );
-    thumbnails[i].addEventListener( 'mouseleave', toggleCorrespondingProgressStep );
+    thumbnailsArray[i].addEventListener( 'mouseenter', toggleCorrespondingProgressStep );
+    thumbnailsArray[i].addEventListener( 'mouseleave', toggleCorrespondingProgressStep );
+  }
+}();
+
+var toggleCorrespondingThumbnail = function(e) {
+  for (var i = 0; i < thumbnailsWithTextArray.length; i++) {
+    if (progressBarStepsArray.indexOf(e.target) === thumbnailsWithTextArray.indexOf(thumbnailsWithTextArray[i])) {
+      if ( e.type === 'mouseenter' ) {
+        thumbnailsWithTextArray[i].classList.add( 'active' );
+      } else {
+        thumbnailsWithTextArray[i].classList.remove( 'active' );
+      }
+    }
+  }
+};
+
+var addEventListenersToProgressSteps = function() {
+  for ( var i = 0; i < progressBarStepsArray.length; i++ ) {
+    progressBarSteps[i].addEventListener( 'mouseenter', toggleCorrespondingThumbnail );
+    progressBarSteps[i].addEventListener( 'mouseleave', toggleCorrespondingThumbnail );
   }
 }();
 

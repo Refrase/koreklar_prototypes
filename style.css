@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ----- Imports ----- */
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -5409,7 +5410,8 @@ textarea:focus {
 }
 
 .progressBar_step {
-  height: 4px;
+  height: 6px;
+  position: relative;
   width: calc(100% / 6 - 2px);
   background-color: #454a73;
   margin-right: 2px;
@@ -5419,18 +5421,75 @@ textarea:focus {
           transform: translate3d(0, 0, 0);
 }
 
-.progressBar_step:first-child {
-  background-color: #00c878;
-}
-
 .progressBar_step:last-child {
   width: calc(100% / 6);
   margin-right: 0;
 }
 
+.progressBar_step.done {
+  background-color: #00c878;
+}
+
+.progressBar_step.done .thumbnail-withText:after {
+  background-color: rgba(0, 200, 120, 0.8);
+}
+
 .progressBar_step.active {
-  -webkit-transform: translate3d(0, 4px, 0);
-          transform: translate3d(0, 4px, 0);
+  -webkit-transform: translate3d(0, 6px, 0);
+          transform: translate3d(0, 6px, 0);
+}
+
+.progressBar_step .thumbnail-withText {
+  position: absolute;
+  top: -227px;
+}
+
+@-webkit-keyframes shrinkStep {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    box-shadow: 0px 0px 0px 10000px rgba(244, 244, 247, 0.98);
+  }
+  to {
+    -webkit-transform: translate3d(0, 54px, 0);
+            transform: translate3d(0, 54px, 0);
+    box-shadow: none;
+  }
+}
+
+@keyframes shrinkStep {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    box-shadow: 0px 0px 0px 10000px rgba(244, 244, 247, 0.98);
+  }
+  to {
+    -webkit-transform: translate3d(0, 54px, 0);
+            transform: translate3d(0, 54px, 0);
+    box-shadow: none;
+  }
+}
+
+.progressBar.firstVisit .progressBar_step:first-child {
+  height: 60px;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  box-shadow: 0px 0px 0px 10000px rgba(244, 244, 247, 0.98);
+  -webkit-animation: shrinkStep 0.25s 5s ease-out forwards;
+          animation: shrinkStep 0.25s 5s ease-out forwards;
+}
+
+.progressBar.firstVisit .progressBar_step:first-child:after {
+  content: 'Følg din fremgang på disse trin';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 12px;
+  color: white;
+  background-color: inherit;
+  white-space: nowrap;
+  padding: 18px;
+  padding-top: 29px;
 }
 
 .thumbnailPanel {
@@ -5519,6 +5578,7 @@ textarea:focus {
 }
 
 .thumbnail_image {
+  display: block;
   cursor: pointer;
   opacity: 1;
   width: 100%;
@@ -5540,6 +5600,36 @@ textarea:focus {
   color: #f4f4f7;
   font-size: 11px;
   z-index: -1;
+}
+
+.thumbnail-withText {
+  display: none;
+  width: 300px;
+  margin: 0;
+  opacity: 0;
+  -webkit-animation: fadeIn 0.15s ease-out forwards;
+          animation: fadeIn 0.15s ease-out forwards;
+}
+
+.thumbnail-withText:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  background-color: rgba(69, 74, 115, 0.8);
+}
+
+.thumbnail-withText .thumbnail_text {
+  font-size: 16px;
+  padding: 16px;
+  z-index: 1;
+}
+
+.thumbnail-withText.active {
+  display: inline-block;
 }
 
 .statement {

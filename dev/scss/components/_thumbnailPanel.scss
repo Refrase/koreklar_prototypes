@@ -59,6 +59,7 @@
   margin: $scale-1-2 0 $scale-1-2 4px;
 
   &_image {
+    display: block;
     cursor: pointer;
     opacity: 1;
     width: 100%;
@@ -77,5 +78,33 @@
     color: $color-base-lighter-7;
     font-size: $fontSize-xsmall;
     z-index: -1;
+  }
+
+  &-withText {
+    display: none;
+    width: 300px;
+    margin: 0;
+
+    opacity: 0;
+    animation: fadeIn 0.15s ease-out forwards;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: 0;
+      background-color: rgba($color-base, 0.8);
+    }
+
+    & .thumbnail_text {
+      font-size: $fontSize-large;
+      padding: $scale;
+      z-index: 1;
+    }
+
+    &.active { display: inline-block; }
   }
 }

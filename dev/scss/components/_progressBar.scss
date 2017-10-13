@@ -8,19 +8,65 @@
 
   &-done { .progressBar_step { background-color: $color-primary; } }
 
-  $stepHeight: 4px;
+  $stepHeight: 6px;
 
   &_step {
     height: $stepHeight;
+    position: relative;
     width: calc(100% / 6 - 2px);
     background-color: $color-base;
     margin-right: 2px;
     transition: transform 300ms ease-out;
     transform: translate3d(0, 0, 0);
 
-    &:first-child { background-color: $color-primary; }
     &:last-child { width: calc(100% / 6); margin-right: 0; }
 
+    &.done {
+      background-color: $color-primary;
+      & .thumbnail-withText:after { background-color: rgba($color-primary, 0.8); }
+    }
+
     &.active { transform: translate3d(0, $stepHeight, 0); }
+
+    & .thumbnail-withText {
+      position: absolute;
+      top: -225px - 2px; // 225 is height of thumbnail
+    }
+  }
+
+  &.firstVisit {
+
+    $firstStepHeight: 60px;
+    $translateAmount: $firstStepHeight - $stepHeight;
+    @keyframes shrinkStep {
+      from {
+        transform: translate3d(0, 0, 0);
+        box-shadow: 0px 0px 0px 10000px rgba( $color-base-lighter-7, 0.98 );
+      }
+      to {
+        transform: translate3d(0, $translateAmount, 0);
+        box-shadow: none;
+      }
+    }
+
+    & .progressBar_step:first-child {
+      height: $firstStepHeight;
+      transform: translate3d(0, 0, 0);
+      box-shadow: 0px 0px 0px 10000px rgba( $color-base-lighter-7, 0.98 );
+      animation: shrinkStep 0.25s 5s ease-out forwards;
+      &:after {
+        content: 'Følg din fremgang på disse trin';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-size: $fontSize-small;
+        color: white;
+        background-color: inherit;
+        white-space: nowrap;
+        padding: $stepHeight * 3;
+        padding-top: 29px; // Space from text to top of step so that the text will expand a step to the right it will have the same height as the step
+      }
+    }
+
   }
 }
