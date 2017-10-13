@@ -55,4 +55,12 @@
       }
     }
   }
+
+  &-current {
+    content: 'Du er her';
+    line-height: 1.1;
+    position: absolute;
+    right: -1px;
+    top: -1px;
+  }
 }

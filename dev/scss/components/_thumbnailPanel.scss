@@ -12,7 +12,7 @@
   &_inner {
     width: 100%;
     height: 100%;
-    padding: 0 24px;
+    padding: 0 20px;
     overflow-x: scroll;
     overflow-y: hidden;
 
@@ -37,8 +37,11 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    transition: background-color 0.15s ease-out;
 
     img { height: 12px; }
+
+    &:hover { background-color: rgba($color-base-darker-1, 1); }
   }
 
   &_left {
@@ -78,6 +81,18 @@
     color: $color-base-lighter-7;
     font-size: $fontSize-xsmall;
     z-index: -1;
+  }
+
+  &-current {
+    border: 1px solid $color-base-lighter-7;
+    &:before {
+      opacity: 1;
+      transition: opacity 0.15s ease-out;
+      @extend .label;
+      @extend .label-light;
+      @extend .label-current;
+    }
+    &:hover:before { opacity: 0; }
   }
 
   &-withText {
