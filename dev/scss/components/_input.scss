@@ -8,6 +8,11 @@ input {
     padding-bottom: $scale-1-2 + 1px;
   }
 
+  &[disabled] {
+    border-color: rgba(white, 0.5);
+    background-color: rgba(white, 0.5);
+  }
+
   &:focus {
     outline: none !important;
     border-color: $color-base-lighter-5;
@@ -42,7 +47,7 @@ input {
     padding: $scale-1-2 $scale-1-2;
     width: 120px;
     text-align: right;
-    background: white;
+    background-color: white;
     border: 1px solid white;
     height: 100%;
     margin-right: 1px;
