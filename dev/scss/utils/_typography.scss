@@ -6,6 +6,7 @@ input[type="email"],
 input[type="tel"] {
   font-family: $fontFamily-sans;
   color: $color-base;
+  font-variant-ligatures: none;
 }
 
 p,
