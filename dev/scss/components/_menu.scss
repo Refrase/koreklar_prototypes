@@ -2,8 +2,8 @@
   position: absolute;
   width: 4000px;
   height: 4000px;
-  top: calc( -2000px + 27px ); // Center of burger
-  left: calc( -2000px + 30px ); // Center of burger
+  top: calc( -2000px + 36px ); // Center of burger
+  left: calc( -2000px + 42px ); // Center of burger
   background: rgba($color-base-lighter-7, 0.98);
   border-radius: 100%;
   pointer-events: auto;
@@ -30,6 +30,7 @@
 }
 
 .menu {
+  flex-direction: column;
   position: absolute;
   top: 0;
   left: 0;
@@ -50,41 +51,11 @@
   &_inner {
     max-height: 100vh;
     overflow-y: scroll;
+    padding-top: 55px !important;
 
     &::-webkit-scrollbar { width: 4px; }
     &::-webkit-scrollbar-track { background: $color-base-lighter-5; }
     &::-webkit-scrollbar-thumb { background: $color-base; }
-
-    &_top {
-      display: flex;
-      height: 32px;
-
-      .avatar {
-        position: relative;
-        height: 32px;
-        width: 32px;
-
-        &_background { position: absolute; }
-
-        &_initials {
-          position: absolute;
-          text-align: center;
-          width: inherit;
-          top: 7px;
-          font-size: $fontSize-small;
-          font-weight: 600;
-          color: $color-base-lighter-7;
-          text-transform: uppercase;
-          z-index: 1;
-        }
-      }
-
-      &_logo {
-        margin-left: $scale;
-        padding-left: $scale;
-        border-left: 2px solid $color-base-lighter-5;
-      }
-    }
 
     ul { list-style: none; }
 

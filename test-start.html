@@ -10,10 +10,41 @@
   </head>
   <body class="backgroundColor-base-lighter background-pattern background-pattern-base background-pattern-subtle">
 
-    <div class="burger">
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="nav">
+      <div id="burger" class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="position-relative" style="height: 40px;">
+        <a href="#" class="avatar" style="z-index: 1;" id="btnShowBoxUserMeta">
+          <img class="avatar_background" src="./assets/ic_avatar_background.svg" alt="Bruger initialer" height="100%">
+          <p class="avatar_initials">Ar</p>
+        </a>
+        <div class="box box-small box-usermeta display-none" id="boxUserMeta">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.28 13.28" class="box_close" id="boxUserMetaClose">
+            <polygon class="cls-1" points="13.28 1.41 11.87 0 6.64 5.23 1.41 0 0 1.41 5.23 6.64 0 11.87 1.41 13.28 6.64 8.05 11.87 13.28 13.28 11.87 8.05 6.64 13.28 1.41"/>
+          </svg>
+          <ul>
+            <li style="font-size: 14px; font-weight: bold; margin-bottom: 8px;">Andreas Reffstrup Rasmussen</li>
+            <li>
+              <p class="box-usermeta_key">Brugernavn</p>
+              <p>Andreas_RR</p>
+            </li>
+            <li>
+              <p class="box-usermeta_key">IP</p>
+              <p>66.249.76.70</p>
+            </li>
+            <li>
+              <p class="box-usermeta_key">Køreskole</p>
+              <p>Emdrup Køreskole</p>
+            </li>
+          </ul>
+          <div class="box-usermeta_split"></div>
+          <a href="#" id="btnShowPersonalInfoBoxUserMeta">Ret personlige oplysninger</a>
+          <a href="#" class="color-dismiss">Log ud</a>
+        </div>
+      </div>
     </div>
 
     <div class="gridBlock gridBlock-columns-12 gridBlock-noPadding">

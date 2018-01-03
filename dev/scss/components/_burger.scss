@@ -1,23 +1,7 @@
 .burger {
   cursor: pointer;
-  position: fixed;
   height: 22px;
   width: 28px;
-  left: $scale;
-  top: $scale;
-  z-index: $zindex-burger;
-
-  @include breakpoint( 'tablet' ) {
-    display: flex;
-    justify-content: center;
-    padding: 13px 10px;
-    transform: rotate(0deg);
-    bottom: 44px;
-    top: auto;
-    transition: 0.15s ease-out;
-  }
-
-  @include breakpoint( 'mobile' ) { bottom: $scale; }
 
   & span {
     display: block;

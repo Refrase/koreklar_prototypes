@@ -3,7 +3,8 @@
 const state = {
   thumbnailsVisible: null,
   explanationVisible: null,
-  personalInfoDialogVisible: null
+  personalInfoDialogVisible: null,
+  boxUserMetaVisible: null
 };
 
 // ########## GENERIC ##########
@@ -37,6 +38,7 @@ function toggle( elementToggled, className = 'display-none' ) { elementToggled.c
 // ----- Personal info
 var dialogPersonalInfo = document.getElementById( 'dialogPersonalInfo' );
 var btnShowPersonalInfo = document.getElementById( 'menuItem-personalInfo' );
+var btnShowPersonalInfoBoxUserMeta = document.getElementById( 'btnShowPersonalInfoBoxUserMeta' );
 var dialogPersonalInfoClose = document.getElementById( 'dialogPersonalInfoClose' ); // Cross-icon in upper left corner
 var btnSavePersonalInfo = document.getElementById( 'btnSavePersonalInfo' );
 var btnCancelPersonalInfo = document.getElementById( 'btnCancelPersonalInfo' );
@@ -52,6 +54,7 @@ var togglePersonalInfoDialog = function( dialog ) {
 };
 
 btnShowPersonalInfo ? btnShowPersonalInfo.addEventListener( 'click', function() { togglePersonalInfoDialog(dialogPersonalInfo) } ) : null;
+btnShowPersonalInfoBoxUserMeta ? btnShowPersonalInfoBoxUserMeta.addEventListener( 'click', function() { togglePersonalInfoDialog(dialogPersonalInfo) } ) : null;
 dialogPersonalInfoClose ? dialogPersonalInfoClose.addEventListener( 'click', function() { togglePersonalInfoDialog(dialogPersonalInfo) } ) : null;
 btnCancelPersonalInfo ? btnCancelPersonalInfo.addEventListener( 'click', function() { togglePersonalInfoDialog(dialogPersonalInfo) } ) : null;
 btnClosePersonalInfo ? btnClosePersonalInfo.addEventListener( 'click', function() { togglePersonalInfoDialog(dialogPersonalInfo) } ) : null;
@@ -166,8 +169,8 @@ controlBarBtnRestart ? controlBarBtnRestart.addEventListener( 'click', function(
   toggleClassTemporarily( dialogLoadingSpinner, 'dialog-hidden', 4000, true, messageElements );
 }) : null;
 
-/* ----- Thumbnails AND Explanation Box ----- */
-// Panel
+/* ----- Boxes ----- */
+// Thumbnails AND Explanation
 var controlBarBtnThumbnails = document.getElementById( 'controlBarBtnThumbnails' );
 var thumbnailPanel = document.getElementsByClassName( 'thumbnailPanel' );
 var btnShowExplanation = document.getElementById( 'btnShowExplanation' );
@@ -253,6 +256,21 @@ var addEventListenersToProgressSteps = function() {
     progressBarSteps[i].addEventListener( 'mouseleave', toggleCorrespondingThumbnail );
   }
 }();
+
+// User meta (toggled by avatar)
+var btnShowBoxUserMeta = document.getElementById( 'btnShowBoxUserMeta' );
+var boxUserMeta = document.getElementById( 'boxUserMeta' );
+var boxUserMetaClose = document.getElementById( 'boxUserMetaClose' );
+
+btnShowBoxUserMeta ? btnShowBoxUserMeta.addEventListener( 'click', function() {
+  toggle( boxUserMeta );
+  state.boxUserMetaVisible = true;
+}) : null;
+
+boxUserMetaClose ? boxUserMetaClose.addEventListener( 'click', () => {
+  toggle( boxUserMeta );
+  state.boxUserMetaVisible = null;
+}) : null;
 
 /* ----- Menu ----- */
 // Toggle

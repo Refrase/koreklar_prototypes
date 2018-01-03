@@ -1,0 +1,24 @@
+.nav {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  left: 28px;
+  top: 24px;
+  z-index: $zindex-nav;
+
+  @include breakpoint( 'tablet' ) {
+    bottom: 26px;
+    top: auto;
+    transition: 0.15s ease-out;
+  }
+
+  @include breakpoint( 'mobile' ) {
+    left: $scale;
+    bottom: 20px;
+  }
+
+  .avatar {
+    top: 9px;
+    left: -2px;
+  }
+}

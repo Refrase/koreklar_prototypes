@@ -1,0 +1,21 @@
+.avatar {
+  display: block;
+  position: relative;
+  min-height: 32px;
+  width: 32px;
+  border-radius: 50%;
+
+  &_background { position: absolute; }
+
+  &_initials {
+    position: absolute;
+    text-align: center;
+    width: inherit;
+    top: 7px;
+    font-size: $fontSize-small;
+    font-weight: 600;
+    color: $color-base-lighter-7;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+}
