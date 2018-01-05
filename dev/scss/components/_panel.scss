@@ -58,6 +58,33 @@
 
       > * { display: inline-block; }
     }
+
+    &_yesno {
+      li {
+        position: relative;
+
+        &:first-child {
+          width: 44px;
+          text-align: right;
+          .panel_list_yesno_iconWrap { left: 6px; }
+        }
+        &:last-child {
+          width: 52px;
+          .panel_list_yesno_iconWrap { right: 6px; }
+        }
+      }
+      &_iconWrap {
+        position: absolute;
+        top: 5px;
+        height: 8px;
+        width: 13px;
+      }
+      &_icon {
+        display: block;
+        margin: 0 auto;
+        height: 100%;
+      }
+    }
   }
 
   &_image {
