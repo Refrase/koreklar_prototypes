@@ -9,7 +9,7 @@ module.exports = function(grunt) {
       dist: {
         options: {
           transform: [[ 'babelify', {
-            presets: ['env'] 
+            presets: ['env']
           }]]
         },
         files: {
@@ -71,6 +71,25 @@ module.exports = function(grunt) {
           livereload: true
         }
       }
+    },
+
+    chokidar: {
+      options: { livereload: true },
+      scripts: {
+        files: [ 'dev/js/**/*.js' ],
+        tasks: [ 'browserify' ],
+        options: {
+          spawn: false,
+          interrupt: true
+        }
+      },
+      css: {
+        files: [ 'dev/scss/**/*.scss' ],
+        tasks: [ 'sass:dev', 'autoprefixer' ],
+      },
+      livereload: {
+        files: [ '*.html', 'images/**/*.{png,jpg,jpeg,gif,webp,svg}' ]
+      }
     }
 
   });
@@ -80,10 +99,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks( 'grunt-express' );
   grunt.loadNpmTasks( 'grunt-sass' );
   grunt.loadNpmTasks( 'grunt-contrib-watch' ); // Runs on command 'grunt watch'
+  grunt.loadNpmTasks( 'grunt-chokidar' );
   grunt.loadNpmTasks( 'grunt-autoprefixer' );
 
   // 3. Register task(s)
-  grunt.registerTask( 'serve', [ 'express', 'watch' ]); // Runs on command 'grunt' as it is set to default
+  grunt.registerTask( 'serve', [ 'express', 'chokidar' ]); // Runs on command 'grunt' as it is set to default
   grunt.registerTask( 'uglify', [ 'sass:dev', 'autoprefixer' ]); // Runs on command 'grunt uglify'
   grunt.registerTask( 'build', [ 'sass:build', 'autoprefixer', 'browserify' ]); // Runs on command 'grunt build'
 };
