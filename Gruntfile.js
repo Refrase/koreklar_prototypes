@@ -99,11 +99,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks( 'grunt-express' );
   grunt.loadNpmTasks( 'grunt-sass' );
   grunt.loadNpmTasks( 'grunt-contrib-watch' ); // Runs on command 'grunt watch'
-  grunt.loadNpmTasks( 'grunt-chokidar' );
+  grunt.loadNpmTasks( 'grunt-chokidar' ); // Faster alternative to watch task
   grunt.loadNpmTasks( 'grunt-autoprefixer' );
 
   // 3. Register task(s)
-  grunt.registerTask( 'serve', [ 'express', 'chokidar' ]); // Runs on command 'grunt' as it is set to default
+  grunt.registerTask( 'serve', [ 'express', 'chokidar' ]); // Runs also on command 'grunt' as it is set to default
   grunt.registerTask( 'uglify', [ 'sass:dev', 'autoprefixer' ]); // Runs on command 'grunt uglify'
   grunt.registerTask( 'build', [ 'sass:build', 'autoprefixer', 'browserify' ]); // Runs on command 'grunt build'
 };

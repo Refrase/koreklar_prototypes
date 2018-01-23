@@ -192,6 +192,7 @@ controlBarBtnRestart ? controlBarBtnRestart.addEventListener('click', function (
 // Thumbnails AND Explanation
 var controlBarBtnThumbnails = document.getElementById('controlBarBtnThumbnails');
 var thumbnailPanel = document.getElementsByClassName('thumbnailPanel');
+var thumbnailPanelClose = document.getElementById('thumbnailPanelClose');
 var btnShowExplanation = document.getElementById('btnShowExplanation');
 var boxExplanation = document.getElementById('boxExplanation');
 var boxExplanationClose = document.getElementById('boxExplanationClose');
@@ -207,6 +208,11 @@ controlBarBtnThumbnails ? controlBarBtnThumbnails.addEventListener('click', func
   }
   toggleThumbnailPanel();
   state.thumbnailsVisible = !state.thumbnailsVisible;
+}) : null;
+
+thumbnailPanelClose ? thumbnailPanelClose.addEventListener('click', function () {
+  toggleThumbnailPanel();
+  state.thumbnailsVisible = null;
 }) : null;
 
 btnShowExplanation ? btnShowExplanation.addEventListener('click', function () {
