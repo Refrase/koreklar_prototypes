@@ -1,64 +1,86 @@
-.statements {}
+.test01Svgknapper {
 
-.test01Svgknapper .statement {
-  position: relative;
-
-  @include breakpoint( 'tablet' ) { min-height: 42px; }
-
-  &:not(:first-child) { margin-top: $scale-2-1; }
-
-  &_text {
-    @include breakpoint( 'tablet' ) { padding-left: 96px; }
+  // From Jens' Køreklar code
+  .zombiecontainer {
+    width: 100%;
+    height: auto;
   }
 
-  .answers {
-    display: flex;
-    flex-wrap: nowrap;
-    position: absolute;
-    right: 100%;
-    margin-top: 2px;
-    margin-right: $scale-2-1;
-    list-style: none;
+  .statements {
 
-    @include breakpoint( 'tablet' ) { right: auto; }
-    @include breakpoint( 'desktop' ) { margin-right: $scale; }
-
-    & li {
+    .statement {
       position: relative;
-      min-width: 24px;
-      height: 24px;
 
-      @include breakpoint( 'tablet' ) {
-        min-width: 36px;
-        height: 36px;
+      @include breakpoint( 'tablet' ) { min-height: 42px; }
+
+      &:not(:first-child) { margin-top: $scale-2-1; }
+
+      &_text {
+        @include breakpoint( 'tablet' ) { padding-left: 96px; }
       }
 
-      &:first-child { margin-right: $scale-1-2; }
-
-      input[type="radio"] {
+      .answers {
+        display: flex;
+        flex-wrap: nowrap;
         position: absolute;
-        visibility: hidden;
+        right: 100%;
+        margin-top: 2px;
+        margin-right: $scale-2-1;
+        list-style: none;
 
-        &:checked ~ .check {
-          transition: background-image 100ms ease-in;
-          &-yes { background-image: url( './../../../assets/btn_answer_yes_down.svg'); }
-          &-no { background-image: url( './../../../assets/btn_answer_no_down.svg'); }
+        @include breakpoint( 'tablet' ) { right: auto; }
+        @include breakpoint( 'desktop' ) { margin-right: $scale; }
+
+        & li {
+          position: relative;
+          min-width: 24px;
+          height: 24px;
+
+          @include breakpoint( 'tablet' ) {
+            min-width: 36px;
+            height: 36px;
+          }
+
+          &:first-child { margin-right: $scale-1-2; }
+
+          input[type="radio"] {
+            position: absolute;
+            visibility: hidden;
+
+            &:checked ~ .check {
+              transition: background-image 100ms ease-in;
+              &-yes { background-image: url( './../../../assets/btn_answer_yes_down.svg'); }
+              &-no { background-image: url( './../../../assets/btn_answer_no_down.svg'); }
+            }
+          }
+
+          label { opacity: 0; }
+
+          .check {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            &-yes { background-image: url( './../../../assets/btn_answer_yes_up.svg'); }
+            &-no { background-image: url( './../../../assets/btn_answer_no_up.svg'); }
+          }
+        }
+
+        .btn-statementSVG {
+          min-width: auto;
+          max-width: 1000px;
+          height: auto;
+
+          .btn-control_inner {
+            padding-left: 0;
+          }
         }
       }
 
-      label { opacity: 0; }
-
-      .check {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-repeat: no-repeat;
-
-        &-yes { background-image: url( './../../../assets/btn_answer_yes_up.svg'); }
-        &-no { background-image: url( './../../../assets/btn_answer_no_up.svg'); }
-      }
     }
+
   }
 
 }
