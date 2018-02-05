@@ -241,6 +241,12 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 	&-slow { animation-duration: 1200ms; }
 }
 
+.stackable {
+	position: absolute;
+	top: 0;
+	left: 0;	
+}
+
 // Triggering scroll on y-axis, when controlBar is visible
 .visibleControlBar {
 	padding-bottom: 180px !important; // Making sure bottom content is visible on all screensizes
