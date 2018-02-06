@@ -359,10 +359,18 @@ btnAnswersPrevious ? btnAnswersPrevious.addEventListener( 'click', previousAnswe
 // ########## TEST-01-UNDERVISER ##########
 
 /* ----- Dialogs ----- */
-// Bug report
+// ----- Bug report
 var btnShowBugReport = document.getElementById( 'btnShowBugReport' );
 var dialogBugReport = document.getElementById( 'dialogBugReport' );
 var dialogBugReportClose = document.getElementById( 'dialogBugReportClose' );
+var btnSendBugReport = document.getElementById( 'btnSendBugReport' );
+var btnCancelBugReport = document.getElementById( 'btnCancelBugReport' );
 
 btnShowBugReport ? btnShowBugReport.addEventListener( 'click', function() { toggle(dialogBugReport, 'dialog-hidden') } ) : null;
 dialogBugReportClose ? dialogBugReportClose.addEventListener( 'click', function() { toggle(dialogBugReport, 'dialog-hidden') } ) : null;
+btnCancelBugReport ? btnCancelBugReport.addEventListener( 'click', function() { toggle(dialogBugReport, 'dialog-hidden') } ) : null;
+
+btnSendBugReport ? btnSendBugReport.addEventListener( 'click', function() {
+  toggleClassTemporarily( messageSuccess, 'message-showing', 5000, null, messageElements );
+  toggle(dialogBugReport, 'dialog-hidden');
+}) : null;
