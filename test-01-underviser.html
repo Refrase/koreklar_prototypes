@@ -551,20 +551,28 @@
         <span></span>
         <span></span>
       </a>
-      <div class="dialog_inner padding-bottom-6-1">
+      <div class="dialog_inner padding-bottom-6-1 margin-top-3-1">
 
         <div class="gridBlock gridBlock-columns-12 gridBlock-noPadding">
-          <div class="span-12 textAlign-center display-flex justifyContent-center alignItems-center">
-            <div class="margin-left-2-1 margin-right-2-1">
-              <h1 class="headline">Fejlmelding</h1>
-              <p class="contextLine">Test 1 &ndash; Spørgsmål 1 af 25<p>
-            </div>
-          </div>
+          <h1 class="headline span-12 textAlign-center margin-bottom">Fejlmelding</h1>
+          <p class="contextLine span-12 textAlign-center margin-bottom-2-1">Test 1 &ndash; Spørgsmål 1 af 25</p>
         </div>
 
-        <div class="gridBlock gridBlock-columns-12 gridBlock-noPadding margin-top-2-1" id="answersBlock-01">
+        <div class="gridBlock gridBlock-columns-12 gridBlock-noPadding" id="answersBlock-01">
+          <div class="span-8 offset-2 span-12-tablet">
+            <div class="inputWrap">
+              <label for="username">Din mail</label>
+              <input type="text" name="" id="username" class="input input-personalInfo" value="andreasrefras@gmail.com" disabled />
+              <div class="label label-lightInvert label-info" style="position: absolute; right: 8px; bottom: 8px;">i</div>
+            </div>
+            <div class="inputWrap">
+              <label for="name">Alternativ mail</label>
+              <input type="text" name="" id="name" class="input input-personalInfo" value="ar@type16.com" />
+              <div class="label label-lightInvert label-info" style="position: absolute; right: 8px; bottom: 8px;">i</div>
+            </div>
+          </div>
 
-          <div class="span-12" style="max-width: 600px; margin: 0 auto;">
+          <div class="span-8 offset-2 span-12-tablet margin-top">
             <textarea rows="10" placeholder="Beskrivelse af fejl..."></textarea>
           </div>
 
