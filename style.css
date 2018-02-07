@@ -6468,7 +6468,7 @@ table td {
 .box-btn {
   position: absolute;
   left: 0;
-  bottom: 12px !important;
+  bottom: 12px;
 }
 
 .box-coursesAndTests {
