@@ -5018,20 +5018,6 @@ a {
   padding-top: 7px;
 }
 
-.btn-fejlmeld {
-  position: absolute;
-  left: 32px;
-  bottom: 68px;
-  display: inline-block;
-}
-
-@media (max-width: 767px) {
-  .btn-fejlmeld {
-    left: 0;
-    bottom: 19px;
-  }
-}
-
 .btn-svg {
   height: 38px;
   position: relative;
@@ -6482,7 +6468,7 @@ table td {
 .box-btn {
   position: absolute;
   left: 0;
-  bottom: 12px;
+  bottom: 12px !important;
 }
 
 .box-coursesAndTests {

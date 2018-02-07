@@ -86,7 +86,7 @@
   &-btn {
     position: absolute;
     left: 0;
-    bottom: 12px; // Half button
+    bottom: 12px !important; // Half button
   }
 
   &-coursesAndTests {
