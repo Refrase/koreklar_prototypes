@@ -207,8 +207,8 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 	&-absolute { position: absolute !important; }
 	&-fixed { position: fixed !important;
 		&-bottom { bottom: 0;
-			&-mobile { @include breakpoint( 'mobile' ) { position: fixed; } }
-			&-tablet { @include breakpoint( 'tablet' ) { position: fixed; } }
+			&-mobile { @include breakpoint( 'mobile' ) { position: fixed !important; } }
+			&-tablet { @include breakpoint( 'tablet' ) { position: fixed !important; } }
 		}
 	}
 }
@@ -244,7 +244,7 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 .stackable {
 	position: absolute;
 	top: 0;
-	left: 0;	
+	left: 0;
 }
 
 // Triggering scroll on y-axis, when controlBar is visible

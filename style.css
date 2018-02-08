@@ -1421,13 +1421,13 @@ html {
 
 @media (max-width: 480px) {
   .position-fixed-bottom-mobile {
-    position: fixed;
+    position: fixed !important;
   }
 }
 
 @media (max-width: 767px) {
   .position-fixed-bottom-tablet {
-    position: fixed;
+    position: fixed !important;
   }
 }
 
@@ -5215,6 +5215,27 @@ a {
           flex-direction: column;
 }
 
+.btnGroupWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #f4f4f7;
+  padding: 16px;
+}
+
+@media (max-width: 1024px) {
+  .btnGroupWrap {
+    border-top: 1px solid #e9e9ee;
+    position: fixed !important;
+  }
+}
+
 textarea {
   width: 100%;
   padding-top: 24px;
@@ -5773,6 +5794,7 @@ textarea:focus {
   width: 100vw;
   height: 100vh;
   position: fixed;
+  overflow-y: scroll;
   top: 0;
   left: 0;
   z-index: 1005;
@@ -6548,6 +6570,7 @@ input.input-error {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  white-space: nowrap;
 }
 
 @media (max-width: 767px) {
@@ -6586,7 +6609,6 @@ input.input-error {
   text-align: right;
   background-color: white;
   border: 1px solid white;
-  height: 100%;
   margin-right: 1px;
 }
 

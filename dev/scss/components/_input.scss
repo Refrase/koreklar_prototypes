@@ -29,6 +29,7 @@ input {
   margin-bottom: $scale;
   display: flex;
   align-items: center;
+  white-space: nowrap;
   @include breakpoint( 'tablet' ) { flex-direction: column; }
 
   &.longLabel {
@@ -49,7 +50,6 @@ input {
     text-align: right;
     background-color: white;
     border: 1px solid white;
-    height: 100%;
     margin-right: 1px;
 
     @include breakpoint( 'tablet' ) {

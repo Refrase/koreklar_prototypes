@@ -178,3 +178,17 @@
     &-vertical { flex-direction: column; }
   }
 }
+
+.btnGroupWrap {
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background-color: $color-base-lighter-7;
+  padding: $scale;
+  @include breakpoint( 'desktop' ) {
+    border-top: 1px solid $color-base-lighter-6;
+    position: fixed !important;
+  }
+}
