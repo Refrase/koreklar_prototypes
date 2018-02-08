@@ -5964,7 +5964,9 @@ textarea:focus {
 }
 
 .menu_inner .level-4 li {
-  margin-bottom: 16px;
+  position: relative;
+  padding-bottom: 16px;
+  margin: 0;
 }
 
 .menu_inner .level-4 li a {
@@ -5982,17 +5984,35 @@ textarea:focus {
   font-weight: 600;
 }
 
-.menu_inner .level-4 li a:before {
-  content: '';
-  min-width: 6px;
-  height: 6px;
+.progressDot {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  left: -18px;
+  top: 4px;
   border-radius: 50%;
-  margin-right: 16px;
-  background: #dadbe3;
+  background-color: #dadbe3;
 }
 
-.menu_inner .level-4 li a.completed:before {
-  background: #00c878;
+.progressDot-completed {
+  background-color: #00c878;
+}
+
+.progressDot-completed + .progressDotConnector {
+  background-color: #00c878;
+}
+
+.progressDotConnector {
+  position: absolute;
+  left: -15px;
+  top: calc( 15% + 11px);
+  width: 1px;
+  height: calc( 70% - 7px);
+  background-color: #dadbe3;
+}
+
+li:last-child .progressDotConnector {
+  display: none;
 }
 
 .leftRightMarkers {

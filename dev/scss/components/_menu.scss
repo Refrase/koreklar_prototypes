@@ -101,7 +101,10 @@
 
       &-4 { margin-top: $scale;
 
-        li { margin-bottom: $scale;
+        li {
+          position: relative;
+          padding-bottom: $scale;
+          margin: 0;
 
           a {
             position: relative;
@@ -110,24 +113,34 @@
             align-items: center;
 
             &.active { font-weight: 600; }
-
-            &:before {
-              content: '';
-              min-width: 6px;
-              height: 6px;
-              border-radius: 50%;
-              margin-right: $scale;
-              background: $color-base-lighter-5;
-            }
-
-            &.completed {
-              &:before {
-                background: $color-primary;
-              }
-            }
           }
         }
       }
     }
   }
 }
+
+.progressDot {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  left: -18px;
+  top: 4px;
+  border-radius: 50%;
+  background-color: $color-base-lighter-5;
+
+  &-completed { background-color: $color-primary;
+    & + .progressDotConnector { background-color: $color-primary; }
+  }
+}
+
+.progressDotConnector {
+  position: absolute;
+  left: -15px;
+  top: calc( 15% + 11px );
+  width: 1px;
+  height: calc( 70% - 7px );
+  background-color: $color-base-lighter-5;
+}
+
+li:last-child .progressDotConnector { display: none; }
