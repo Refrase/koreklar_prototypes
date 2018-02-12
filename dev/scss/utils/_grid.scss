@@ -1,6 +1,8 @@
 .gridBlock {
   display: flex;
+  display: -webkit-flex;
   flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
   padding: $scale-6-1 0;
   margin: 0 auto;
 
@@ -34,6 +36,7 @@ $spans: 0 1 2 3 4 5 6 7 8 9 10 11 12;
   .gridBlock-columns-#{$col} > * {
     position: relative;
     width: percentage(1/$col) !important;
+    -webkit-flex-basis: percentage(1/$col) !important; // iOS bug
 
     @include breakpoint( 'tablet' ) {
       // Default to 100% width on tablet and below
@@ -46,18 +49,21 @@ $spans: 0 1 2 3 4 5 6 7 8 9 10 11 12;
     .gridBlock-columns-#{$col} > *.span-#{$span} {
       @include breakpoint( 'tabletAbove' ) {
         width: percentage(1/$col * $span) !important;
+        -webkit-flex-basis: percentage(1/$col * $span) !important; // iOS bug
       }
     }
 
     .gridBlock-columns-#{$col} > *.span-#{$span}-tablet {
       @include breakpoint( 'tabletOnly' ) {
         width: percentage(1/$col * $span) !important;
+        -webkit-flex-basis: percentage(1/$col * $span) !important; // iOS bug
       }
     }
 
     .gridBlock-columns-#{$col} > *.span-#{$span}-mobile {
       @include breakpoint( 'mobile' ) {
         width: percentage(1/$col * $span) !important;
+        -webkit-flex-basis: percentage(1/$col * $span) !important; // iOS bug
       }
     }
 
