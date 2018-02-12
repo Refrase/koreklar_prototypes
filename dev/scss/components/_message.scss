@@ -8,6 +8,7 @@
   font-size: $fontSize-base;
   font-weight: 400;
   text-align: center;
+  min-width: 100vw; // iOS Safari
   width: calc( 100vw + 2px );
   padding: 22px $scale-2-1; // Adjusted to have same amount of space above and below icon-cross in dialog
   transform: translate3d( 0, -100px, 0 );

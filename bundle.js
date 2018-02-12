@@ -13,9 +13,9 @@ var state = {
 // ########## GENERIC ##########
 
 // Message: Clear other messages than the current
-function removeClassFromAllSimilarElementsApartFromThis(elementToShowId, className, similarElementsIds) {
+function removeClassFromAllSimilarElementsApartFromThis(elementToShow, className, similarElementsIds) {
   for (var i = 0; i < similarElementsIds.length; i++) {
-    if (similarElementsIds[i].id != elementToShowId) {
+    if (similarElementsIds[i].id != elementToShow.id) {
       similarElementsIds[i].classList.remove(className);
     }
   }
