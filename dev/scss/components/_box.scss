@@ -42,7 +42,7 @@
     padding-right: $scale-2-1;
     padding-bottom: $scale-1-2 + $scale-1-4;
 
-    @include breakpoint( 'tablet' ) {
+    @include breakpoint( 'belowTablet' ) {
       top: auto;
       bottom: 259px;
     }
@@ -93,7 +93,8 @@
     bottom: 0;
     @extend .width-fill-right;
     @include breakpoint( 'desktop' ) { width: calc( 100% + #{$scale-2-1} ) !important; } // 64px
-    @include breakpoint( 'tablet' ) { width: calc( 100% + #{$scale-4-1} ) !important; } // 32px
+    @include breakpoint( 'belowDesktop' ) { width: calc( 100% + #{$scale-8-1} ) !important; } // 96px
+    @include breakpoint( 'belowTablet' ) { width: calc( 100% + #{$scale-4-1} ) !important; } // 32px
     @include breakpoint( 'widescreen' ) { width: calc( 100% + #{$scale-6-1} ) !important; } // 96px
     @include breakpoint( 'extraWidescreen' ) { width: calc( 100% + #{$scale-6-1} ) !important; } // 96px
   }

@@ -9,7 +9,7 @@
   &-noPadding {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-    @include breakpoint( 'tablet' )        { padding: 0 $scale-2-1 !important; }
+    @include breakpoint( 'belowTablet' )        { padding: 0 $scale-2-1 !important; }
   }
 
   &-noWrap { flex-wrap: nowrap !important; }
@@ -22,7 +22,7 @@
 
   // Content-widths
   @include breakpoint( 'desktop' )         { width: 100%; padding: $scale-6-1 $scale-4-1; }
-  @include breakpoint( 'tablet' )          { width: 100%; padding: $scale-2-1; }
+  @include breakpoint( 'belowTablet' )     { width: 100%; padding: $scale-2-1; }
   @include breakpoint( 'widescreen' )      { width: 100%; padding: $scale-6-1 $scale-8-1; }
   @include breakpoint( 'extraWidescreen' ) { width: $contentWidth-extraWidescreen; }
 }
@@ -38,7 +38,7 @@ $spans: 0 1 2 3 4 5 6 7 8 9 10 11 12;
     width: percentage(1/$col) !important;
     -webkit-flex-basis: percentage(1/$col) !important; // iOS bug
 
-    @include breakpoint( 'tablet' ) {
+    @include breakpoint( 'belowDesktop' ) {
       // Default to 100% width on tablet and below
       width: 100% !important;
       -webkit-flex-basis: 100% !important; // iOS bug
@@ -48,9 +48,14 @@ $spans: 0 1 2 3 4 5 6 7 8 9 10 11 12;
   @each $span in $spans {
     // Set num. of columns to span for direct children
     .gridBlock-columns-#{$col} > *.span-#{$span} {
-      @include breakpoint( 'tabletAbove' ) {
+      @include breakpoint( 'tablet' ) {
         width: percentage(1/$col * $span) !important;
         -webkit-flex-basis: percentage(1/$col * $span) !important; // iOS bug
+      }
+      @include breakpoint( 'belowDesktop' ) {
+        // Default to 100% width on tablet and below
+        width: 100% !important;
+        -webkit-flex-basis: 100% !important; // iOS bug
       }
     }
 
@@ -70,21 +75,21 @@ $spans: 0 1 2 3 4 5 6 7 8 9 10 11 12;
 
     // Set num. of columns to offset
     .gridBlock-columns-#{$col} > *.offset-#{$span} {
-      @include breakpoint( 'tabletAbove' ) {
-        margin-left: percentage(1/$col * $span) !important;
-      }
+      @include breakpoint( 'tablet' ) { margin-left: percentage(1/$col * $span) !important; }
+      // Default to 0 margin on tablet and below
+      @include breakpoint( 'belowDesktop' ) { margin-left: 0 !important; }
+    }
+
+    .gridBlock-columns-#{$col} > *.offset-#{$span}-belowDesktop {
+      @include breakpoint( 'belowDesktop' ) { margin-left: percentage(1/$col * $span) !important; }
     }
 
     .gridBlock-columns-#{$col} > *.offset-#{$span}-tablet {
-      @include breakpoint( 'tabletOnly' ) {
-        margin-left: percentage(1/$col * $span) !important;
-      }
+      @include breakpoint( 'tabletOnly' ) { margin-left: percentage(1/$col * $span) !important; }
     }
 
     .gridBlock-columns-#{$col} > *.offset-#{$span}-mobile {
-      @include breakpoint( 'mobile' ) {
-        margin-left: percentage(1/$col * $span) !important;
-      }
+      @include breakpoint( 'mobile' ) { margin-left: percentage(1/$col * $span) !important; }
     }
   }
 }

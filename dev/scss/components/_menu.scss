@@ -13,7 +13,7 @@
   transform-origin: center;
   transition: transform 600ms ease-out;
 
-  @include breakpoint( 'tablet' ) {
+  @include breakpoint( 'belowTablet' ) {
     top: auto;
     bottom: calc( -2000px + 43px ); // Center of burger
     left: calc( -2000px + 30px ); // Center of burger

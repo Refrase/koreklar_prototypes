@@ -6,7 +6,7 @@
   top: 24px;
   z-index: $zindex-nav;
 
-  @include breakpoint( 'tablet' ) {
+  @include breakpoint( 'belowDesktop' ) {
     bottom: 26px;
     top: auto;
     transition: 0.15s ease-out;

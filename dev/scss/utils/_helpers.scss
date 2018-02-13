@@ -41,7 +41,7 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 .margin-none  { margin: 0 !important;
 	&-top 	    { margin-top: 0 !important; }
 	&-bottom    { margin-bottom: 0 !important; }
-	&-tablet    { @include breakpoint('tablet') { margin: 0 !important; }}}
+	&-tablet    { @include breakpoint( 'belowTablet' ) { margin: 0 !important; }}}
 
 .font {
 	&Size {
@@ -112,7 +112,7 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 	&Wrap { flex-wrap: wrap; }
 	&Direction {
 		&-columnReverse { flex-direction: column-reverse;
-			&-tablet { @include breakpoint( 'tablet' ) { flex-direction: column-reverse; }}
+			&-belowDesktop { @include breakpoint( 'belowDesktop' ) { flex-direction: column-reverse; }}
 		}
 	}
 }
@@ -124,7 +124,12 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 			@include breakpoint( 'desktop' ){
 				width: calc( 100% + #{$scale-4-1} ) !important;
 			}
-			@include breakpoint( 'tablet' ) {
+			@include breakpoint( 'belowDesktop' ) {
+				width: calc( 100% + #{$scale-4-1} ) !important;
+				margin-left: -$scale-6-1 !important;
+				margin-right: 0 !important;
+			}
+			@include breakpoint( 'belowTablet' ) {
 				width: calc( 100% + #{$scale-8-1} ) !important;
 				margin-left: -$scale-4-1 !important;
 				margin-right: 0 !important;
@@ -196,7 +201,7 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 	&-top {
 		&-base {
 			&-lighter {
-				&-tablet { @include breakpoint('tablet') { border-top: 1px solid $color-base-lighter-6; } }
+				&-tablet { @include breakpoint( 'belowTablet' ) { border-top: 1px solid $color-base-lighter-6; } }
 			}
 		}
 	}
@@ -208,7 +213,7 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 	&-fixed { position: fixed !important;
 		&-bottom { bottom: 0;
 			&-mobile { @include breakpoint( 'mobile' ) { position: fixed !important; } }
-			&-tablet { @include breakpoint( 'tablet' ) { position: fixed !important; } }
+			&-tablet { @include breakpoint( 'belowTablet' ) { position: fixed !important; } }
 		}
 	}
 }

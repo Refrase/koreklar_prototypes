@@ -15,12 +15,12 @@
     .statement {
       position: relative;
 
-      @include breakpoint( 'tablet' ) { min-height: 42px; }
+      @include breakpoint( 'belowTablet' ) { min-height: 42px; }
 
       &:not(:first-child) { margin-top: $scale-2-1; }
 
       &_text {
-        @include breakpoint( 'tablet' ) { padding-left: 96px; }
+        @include breakpoint( 'belowTablet' ) { padding-left: 96px; }
       }
 
       .answers {
@@ -32,7 +32,7 @@
         margin-right: $scale-2-1;
         list-style: none;
 
-        @include breakpoint( 'tablet' ) { right: auto; }
+        @include breakpoint( 'belowTablet' ) { right: auto; }
         @include breakpoint( 'desktop' ) { margin-right: $scale; }
 
         & li {
@@ -40,7 +40,7 @@
           min-width: 28px;
           height: 28px;
 
-          @include breakpoint( 'tablet' ) {
+          @include breakpoint( 'belowTablet' ) {
             min-width: 36px;
             height: 36px;
           }

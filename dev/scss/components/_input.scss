@@ -30,16 +30,16 @@ input {
   display: flex;
   align-items: center;
   white-space: nowrap;
-  @include breakpoint( 'tablet' ) { flex-direction: column; }
+  @include breakpoint( 'belowTablet' ) { flex-direction: column; }
 
   &.longLabel {
     label {
       width: 200px;
-      @include breakpoint( 'tablet' ) { width: 100%; }
+      @include breakpoint( 'belowTablet' ) { width: 100%; }
     }
     input {
       width: calc(100% - 200px);
-      @include breakpoint( 'tablet' ) { width: 100%; }
+      @include breakpoint( 'belowTablet' ) { width: 100%; }
     }
   }
 
@@ -52,7 +52,7 @@ input {
     border: 1px solid white;
     margin-right: 1px;
 
-    @include breakpoint( 'tablet' ) {
+    @include breakpoint( 'belowTablet' ) {
       text-align: left;
       width: 100%;
       padding: 0 $scale-1-2;
@@ -66,6 +66,6 @@ input {
   input {
     display: inline-block;
     width: calc(100% - 120px);
-    @include breakpoint( 'tablet' ) { width: 100%; }
+    @include breakpoint( 'belowTablet' ) { width: 100%; }
   }
 }

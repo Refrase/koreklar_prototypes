@@ -47,7 +47,7 @@
     justify-content: flex-end;
 
     @include breakpoint( 'desktop' ) { justify-content: flex-end; }
-    @include breakpoint( 'tablet' ) { justify-content: center; }
+    @include breakpoint( 'belowTablet' ) { justify-content: center; }
 
     &-SVG {
       align-items: flex-start;
@@ -76,7 +76,7 @@
     font-weight: 600;
     font-family: $fontFamily-system;
 
-    @include breakpoint( 'tablet' ) {
+    @include breakpoint( 'belowTablet' ) {
       max-width: 40px;
       position: fixed;
       height: auto;
