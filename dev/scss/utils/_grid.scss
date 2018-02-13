@@ -41,6 +41,7 @@ $spans: 0 1 2 3 4 5 6 7 8 9 10 11 12;
     @include breakpoint( 'tablet' ) {
       // Default to 100% width on tablet and below
       width: 100% !important;
+      -webkit-flex-basis: 100% !important; // iOS bug
     }
   }
 
