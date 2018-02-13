@@ -7,17 +7,36 @@
   border-top: 1px solid $color-base-lighter-6;
   z-index: $zindex-controlBar;
 
-  @include breakpoint( 'tablet' ) { padding: $scale-2-1 0 $scale-2-1; }
+  @include breakpoint( 'mobile' ) { padding: $scale 0 $scale; }
+
+  &_boxExplanation {
+    position: absolute;
+    top: 0px;
+    transform: translateY(-100%);
+
+    @include breakpoint( 'widescreen' ) {
+      position: relative;
+      top: -$scale-2-1;
+    }
+  }
+
+  &_breadcrumbWrap {
+    width: 100%;
+    background-color: rgba( $color-base-lighter-6, 0.9 );
+    position: absolute;
+    top: 0;
+    transform: translateY(-100%);
+  }
 
   &_breadcrumb {
     list-style: none;
-    font-size: $fontSize-small;
-
-    @include breakpoint( 'tablet' ) { display: none; }
+    font-size: $fontSize-xsmall;
+    padding-top: $scale-1-4 + 2px;
+    padding-bottom: $scale-1-4;
 
     li {
       display: inline-block;
-      margin-bottom: $scale-1-4;
+      margin: $scale-1-8 0;
     }
 
     li, a { font-family: $fontFamily-system; }
@@ -25,9 +44,10 @@
 
   &_buttons {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: flex-end;
+
+    @include breakpoint( 'desktop' ) { justify-content: flex-end; }
+    @include breakpoint( 'tablet' ) { justify-content: center; }
 
     &-SVG {
       align-items: flex-start;
@@ -49,20 +69,24 @@
   }
 
   &_time {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    max-width: 40px;
     position: absolute;
-    right: $scale-2-1;
-    bottom: 0;
-    font-size: $fontSize-small;
+    height: 100%;
+    font-size: 24px;
+    line-height: 40px;
     font-weight: 600;
     font-family: $fontFamily-system;
 
-    @include breakpoint( 'mobile' ) {
+    @include breakpoint( 'tablet' ) {
+      max-width: 40px;
+      position: fixed;
       height: auto;
+      font-size: 12px;
       bottom: $scale;
+      right: $scale-2-1;
+    }
+
+    @include breakpoint( 'mobile' ) {
+      bottom: $scale-1-2;
       right: $scale;
     }
   }

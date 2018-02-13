@@ -1590,6 +1590,7 @@ html {
 @media (max-width: 767px) {
   .gridBlock-columns-2 > * {
     width: 100% !important;
+    -webkit-flex-basis: 100% !important;
   }
 }
 
@@ -2109,6 +2110,7 @@ html {
 @media (max-width: 767px) {
   .gridBlock-columns-3 > * {
     width: 100% !important;
+    -webkit-flex-basis: 100% !important;
   }
 }
 
@@ -2628,6 +2630,7 @@ html {
 @media (max-width: 767px) {
   .gridBlock-columns-4 > * {
     width: 100% !important;
+    -webkit-flex-basis: 100% !important;
   }
 }
 
@@ -3147,6 +3150,7 @@ html {
 @media (max-width: 767px) {
   .gridBlock-columns-5 > * {
     width: 100% !important;
+    -webkit-flex-basis: 100% !important;
   }
 }
 
@@ -3666,6 +3670,7 @@ html {
 @media (max-width: 767px) {
   .gridBlock-columns-6 > * {
     width: 100% !important;
+    -webkit-flex-basis: 100% !important;
   }
 }
 
@@ -4185,6 +4190,7 @@ html {
 @media (max-width: 767px) {
   .gridBlock-columns-8 > * {
     width: 100% !important;
+    -webkit-flex-basis: 100% !important;
   }
 }
 
@@ -4704,6 +4710,7 @@ html {
 @media (max-width: 767px) {
   .gridBlock-columns-12 > * {
     width: 100% !important;
+    -webkit-flex-basis: 100% !important;
   }
 }
 
@@ -5598,26 +5605,45 @@ textarea:focus {
   z-index: 999;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 480px) {
   .controlBar {
-    padding: 32px 0 32px;
+    padding: 16px 0 16px;
   }
+}
+
+.controlBar_boxExplanation {
+  position: absolute;
+  top: 0px;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+
+@media (min-width: 1025px) {
+  .controlBar_boxExplanation {
+    position: relative;
+    top: -32px;
+  }
+}
+
+.controlBar_breadcrumbWrap {
+  width: 100%;
+  background-color: rgba(233, 233, 238, 0.9);
+  position: absolute;
+  top: 0;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
 }
 
 .controlBar_breadcrumb {
   list-style: none;
-  font-size: 12px;
-}
-
-@media (max-width: 767px) {
-  .controlBar_breadcrumb {
-    display: none;
-  }
+  font-size: 11px;
+  padding-top: 6px;
+  padding-bottom: 4px;
 }
 
 .controlBar_breadcrumb li {
   display: inline-block;
-  margin-bottom: 4px;
+  margin: 2px 0;
 }
 
 .controlBar_breadcrumb li, .controlBar_breadcrumb a {
@@ -5628,16 +5654,25 @@ textarea:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+@media (max-width: 1024px) {
+  .controlBar_buttons {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+}
+
+@media (max-width: 767px) {
+  .controlBar_buttons {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 .controlBar_buttons-SVG {
@@ -5663,26 +5698,28 @@ textarea:focus {
 }
 
 .controlBar_time {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 100%;
-  max-width: 40px;
   position: absolute;
-  right: 32px;
-  bottom: 0;
-  font-size: 12px;
+  height: 100%;
+  font-size: 24px;
+  line-height: 40px;
   font-weight: 600;
   font-family: "Roboto", "Helvetica Neue", sans-serif;
 }
 
+@media (max-width: 767px) {
+  .controlBar_time {
+    max-width: 40px;
+    position: fixed;
+    height: auto;
+    font-size: 12px;
+    bottom: 16px;
+    right: 32px;
+  }
+}
+
 @media (max-width: 480px) {
   .controlBar_time {
-    height: auto;
-    bottom: 16px;
+    bottom: 8px;
     right: 16px;
   }
 }
@@ -6803,19 +6840,25 @@ table td {
 
 @media (max-width: 1024px) {
   .box-coursesAndTests {
-    width: calc( 100% + 96px) !important;
+    width: calc( 100% + 32px) !important;
   }
 }
 
 @media (max-width: 767px) {
   .box-coursesAndTests {
-    width: calc( 100% + 128px) !important;
+    width: calc( 100% + 64px) !important;
   }
 }
 
 @media (min-width: 1025px) {
   .box-coursesAndTests {
-    width: calc( 100% + 160px) !important;
+    width: calc( 100% + 96px) !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  .box-coursesAndTests {
+    width: calc( 100% + 96px) !important;
   }
 }
 

@@ -7,7 +7,8 @@ var state = {
   thumbnailsVisible: null,
   explanationVisible: null,
   personalInfoDialogVisible: null,
-  boxUserMetaVisible: null
+  boxUserMetaVisible: null,
+  breadcrumbWrapVisible: true
 };
 
 // ########## GENERIC ##########
@@ -189,13 +190,14 @@ controlBarBtnRestart ? controlBarBtnRestart.addEventListener('click', function (
 }) : null;
 
 /* ----- Boxes ----- */
-// Thumbnails AND Explanation
+// Thumbnails AND Explanation AND Breadcrumb
 var controlBarBtnThumbnails = document.getElementById('controlBarBtnThumbnails');
 var thumbnailPanel = document.getElementsByClassName('thumbnailPanel');
 var thumbnailPanelClose = document.getElementById('thumbnailPanelClose');
 var btnShowExplanation = document.getElementById('btnShowExplanation');
 var boxExplanation = document.getElementById('boxExplanation');
 var boxExplanationClose = document.getElementById('boxExplanationClose');
+var breadcrumbWrap = document.getElementById('breadcrumbWrap');
 
 var toggleThumbnailPanel = function toggleThumbnailPanel() {
   thumbnailPanel[0].classList.toggle('thumbnailPanel-hidden');
@@ -205,12 +207,17 @@ controlBarBtnThumbnails ? controlBarBtnThumbnails.addEventListener('click', func
   if (state.explanationVisible) {
     toggle(boxExplanation);
     state.explanationVisible = null;
+  } else {
+    toggle(breadcrumbWrap);
+    state.breadcrumbWrapVisible = !state.breadcrumbWrapVisible;
   }
   toggleThumbnailPanel();
   state.thumbnailsVisible = !state.thumbnailsVisible;
 }) : null;
 
 thumbnailPanelClose ? thumbnailPanelClose.addEventListener('click', function () {
+  toggle(breadcrumbWrap);
+  state.breadcrumbWrapVisible = true;
   toggleThumbnailPanel();
   state.thumbnailsVisible = null;
 }) : null;
@@ -219,12 +226,17 @@ btnShowExplanation ? btnShowExplanation.addEventListener('click', function () {
   if (state.thumbnailsVisible) {
     toggleThumbnailPanel();
     state.thumbnailsVisible = null;
+  } else {
+    toggle(breadcrumbWrap);
+    state.breadcrumbWrapVisible = !state.breadcrumbWrapVisible;
   }
   toggle(boxExplanation);
   state.explanationVisible = !state.explanationVisible;
 }) : null;
 
 boxExplanationClose ? boxExplanationClose.addEventListener('click', function () {
+  toggle(breadcrumbWrap);
+  state.breadcrumbWrapVisible = true;
   toggle(boxExplanation);
   state.explanationVisible = null;
 }) : null;
