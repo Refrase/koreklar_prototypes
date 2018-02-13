@@ -131,32 +131,81 @@
     </div>
 
     <div class="controlBar">
+      <div class="thumbnailPanelCover backgroundColor-base-lighter" style="position: absolute; width: 100%; height: 100%; top: 0; z-index: -1;"></div>
+      <div class="thumbnailPanel thumbnailPanel-hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.28 13.28" class="thumbnailPanel_close" id="thumbnailPanelClose">
+          <polygon class="cls-1" points="13.28 1.41 11.87 0 6.64 5.23 1.41 0 0 1.41 5.23 6.64 0 11.87 1.41 13.28 6.64 8.05 11.87 13.28 13.28 11.87 8.05 6.64 13.28 1.41"/>
+        </svg>
+        <div class="thumbnailPanel_left">
+          <img src="./assets/ic_left_white.svg" alt="Ikon forrige">
+        </div>
+        <ul class="thumbnailPanel_inner">
+          <li class="thumbnail thumbnail-current">
+            <img class="thumbnail_image" src="./images/thumbnails/lektion_1_og_2/1.jpg" alt="Køreuddannelsens formål og indhold">
+            <p class="thumbnail_text">Køreuddannelsens formål og indhold</p>
+          </li>
+          <li class="thumbnail">
+            <img class="thumbnail_image" src="./images/thumbnails/lektion_1_og_2/2.jpg" alt="Nærmere orientering om sammenhænge mellem den teoretiske og praktiske uddannelse">
+            <p class="thumbnail_text">Nærmere orientering om sammenhænge mellem den teoretiske og praktiske uddannelse</p>
+          </li>
+          <li class="thumbnail">
+            <img class="thumbnail_image" src="./images/thumbnails/lektion_1_og_2/3.jpg" alt="10.1 Betingelser for at få kørekort">
+            <p class="thumbnail_text"><span class="fontWeight-bold">10.1</span></br> Betingelser for at få kørekort</p>
+          </li>
+          <li class="thumbnail">
+            <img class="thumbnail_image" src="./images/thumbnails/lektion_1_og_2/4.jpg" alt="10.2 Krav til teoriprøven og den praktiske prøve">
+            <p class="thumbnail_text"><span class="fontWeight-bold">10.2</span></br> Krav til teoriprøven og den praktiske prøve</p>
+          </li>
+          <li class="thumbnail">
+            <img class="thumbnail_image" src="./images/thumbnails/lektion_1_og_2/5.jpg" alt="1.1.3 Motor tænding og speeder">
+            <p class="thumbnail_text"><span class="fontWeight-bold">1.1.3</span></br> Motor tænding og speeder</p>
+          </li>
+          <li class="thumbnail">
+            <img class="thumbnail_image" src="./images/thumbnails/lektion_1_og_2/6.jpg" alt="1.1.4 Kobling">
+            <p class="thumbnail_text"><span class="fontWeight-bold">1.1.4</span></br> Kobling</p>
+          </li>
+        </ul>
+        <div class="thumbnailPanel_right">
+          <img src="./assets/ic_right_white.svg" alt="Ikon næste">
+        </div>
+      </div>
+
+      <div class="controlBar_breadcrumbWrap" id="breadcrumbWrap">
+        <div class="gridBlock gridBlock-columns-12 gridBlock-noPadding">
+          <ul class="controlBar_breadcrumb span-12">
+            <li><a href="#">Evaluerende prøver kategori B1</a> &nbsp;&#8729;&nbsp;</li>
+            <li><a href="#">Øvelse til teoriprøve</a> &nbsp;&#8729;&nbsp;</li>
+            <li>Test 1</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="controlBar_boxExplanation gridBlock gridBlock-columns-12 gridBlock-noPadding">
+        <div class="span-8 offset-4">
+          <div class="box box-coursesAndTests position-absolute" id="boxExplanation">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.28 13.28" class="box_close" id="boxExplanationClose">
+              <polygon class="cls-1" points="13.28 1.41 11.87 0 6.64 5.23 1.41 0 0 1.41 5.23 6.64 0 11.87 1.41 13.28 6.64 8.05 11.87 13.28 13.28 11.87 8.05 6.64 13.28 1.41"/>
+            </svg>
+            <p>Styreapparatet skal virke let, sikkert og hurtigt. Styreapparatet skal ikke være hurtigt, sikkert og virksom, det er lovkravene til driftsbremsen. Væsentligt slør i styreapparatet som helhed eller i dets enkelte dele er forbudt. Ved lav hastighed skal rattet let kunne drejes fra side til side uden at møde ujævn modstand eller fremkalde mislyde.</p>
+          </div>
+          <div class="btn btn-small btn-base btn-fejlmeld position-absolute" style="top: -12px; left: calc(100% - 32px); transform: translateX(-100%);" id="btnShowBugReport">
+            <div class="btn_inner">Fejlmeld side</div>
+          </div>
+        </div>
+      </div>
+
       <div class="gridBlock gridBlock-columns-12 gridBlock-noPadding">
 
-        <ul class="controlBar_breadcrumb span-4">
-          <li><a href="#">Evaluerende prøver kategori B1</a> >&nbsp;</li>
-          <li><a href="#">Øvelse til teoriprøve</a> >&nbsp;</li>
-          <li>Test 1</li>
-        </ul>
+        <p class="controlBar_time">01.47</p>
 
-        <div class="controlBar_buttons span-8">
-
-          <div class="position-relative display-flex flexDirection-column alignItems-center justifyContent-center" style="width: 100%; margin-top: -46px; margin-bottom: 24px;">
-            <div class="box box-btn box-coursesAndTests width-fill-right" id="boxExplanation" style="bottom: 12px;">
-              <p>Styreapparatet skal virke let, sikkert og hurtigt. Styreapparatet skal ikke være hurtigt, sikkert og virksom, det er lovkravene til driftsbremsen. Væsentligt slør i styreapparatet som helhed eller i dets enkelte dele er forbudt. Ved lav hastighed skal rattet let kunne drejes fra side til side uden at møde ujævn modstand eller fremkalde mislyde.</p>
-            </div>
-            <div class="btn btn-small btn-base btn-fejlmeld" id="btnShowBugReport">
-              <div class="btn_inner">Fejlmeld side</div>
-            </div>
-          </div>
-
+        <div class="controlBar_buttons span-12">
           <div class="display-flex justifyContent-center flexWrap">
-            <div class="btn btn-control margin-right-1-2">
+            <div id="controlBarBtnLeftRight" class="btn btn-control margin-right-1-2">
               <div class="btn-control_inner">
                 <img src="assets/ic_vh.svg" alt="Ikon venstre/højre" height="14" style="margin-right: 3px;">
               </div>
             </div>
-            <div class="btn btn-control margin-right-1-2">
+            <div id="controlBarBtnRestart" class="btn btn-control margin-right-1-2">
               <div class="btn-control_inner">
                 <img src="assets/ic_restart.svg" alt="Ikon genstart" height="14" style="margin-right: 3px;">
               </div>
@@ -171,29 +220,25 @@
                 <img src="assets/ic_left.svg" alt="Ikon venstre" height="12" style="margin-right: 3px;">
               </div>
             </div>
-            <a href="./resultat.html">
-              <div class="btn btn-control margin-right-1-2">
-                <div class="btn-control_inner">
-                  <img src="assets/ic_right.svg" alt="Ikon højre" height="12" style="margin-left: 1px;">
-                </div>
+            <div id="controlBarBtnNext" class="btn btn-control margin-right-1-2">
+              <div class="btn-control_inner">
+                <img src="assets/ic_right.svg" alt="Ikon højre" height="12" style="margin-left: 1px;">
               </div>
-            </a>
-            <div class="btn btn-control margin-right-1-2">
+            </div>
+            <div id="controlBarBtnThumbnails" class="btn btn-control margin-right-1-2">
               <div class="btn-control_inner">
                 <img src="assets/ic_thumbnails.svg" alt="Ikon billedepanel" width="26" style="margin-right: 2px;">
               </div>
             </div>
             <div class="btn btn-control">
-              <div class="btn-control_inner">
+              <div class="btn-control_inner active">
                 <img src="assets/ic_pause.svg" alt="Ikon pause" height="11" style="margin-right: 1px;">
               </div>
             </div>
           </div>
-
         </div>
-      </div>
 
-      <p class="controlBar_time">01.47</p>
+      </div>
 
       <ul class="progressBar">
         <li class="progressBar_step"></li>
