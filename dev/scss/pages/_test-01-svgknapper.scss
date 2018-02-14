@@ -83,4 +83,22 @@
 
   }
 
+  .btn {
+    &-control {
+      &-SVG {
+        visibility: visible;
+        position: relative;
+        min-width: 40px;
+        width: 40px;
+        height: 40px;
+
+        &_inner {
+          left: 0px;
+          top: 0px;
+          position: absolute;
+        }
+      }
+    }
+  }
+
 }

@@ -8722,18 +8722,6 @@ textarea:focus {
           align-items: flex-start;
 }
 
-.controlBar_buttons-SVG .btn-control-SVG {
-  visibility: visible;
-  position: relative;
-  min-width: 40px;
-}
-
-.controlBar_buttons-SVG .btn-control-SVG_inner {
-  left: 0px;
-  top: 0px;
-  position: absolute;
-}
-
 .controlBar_buttons .btn-control {
   margin-bottom: 8px;
 }
@@ -10250,4 +10238,18 @@ input.input-error {
   min-width: auto;
   max-width: 1000px;
   height: auto;
+}
+
+.test01Svgknapper .btn-control-SVG {
+  visibility: visible;
+  position: relative;
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+}
+
+.test01Svgknapper .btn-control-SVG_inner {
+  left: 0px;
+  top: 0px;
+  position: absolute;
 }

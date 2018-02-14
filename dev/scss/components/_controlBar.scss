@@ -49,21 +49,7 @@
     @include breakpoint( 'desktop' ) { justify-content: flex-end; }
     @include breakpoint( 'belowTablet' ) { justify-content: center; }
 
-    &-SVG {
-      align-items: flex-start;
-
-      & .btn-control-SVG {
-        visibility: visible;
-        position: relative;
-        min-width: 40px;
-
-        &_inner {
-          left: 0px;
-          top: 0px;
-          position: absolute;
-        }
-      }
-    }
+    &-SVG { align-items: flex-start; }
 
     & .btn-control { margin-bottom: $scale-1-2; }
   }
