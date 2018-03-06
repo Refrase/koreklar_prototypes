@@ -18,7 +18,10 @@ input {
     border-color: $color-base-lighter-5;
     box-shadow: 0 0 4px $color-base-lighter-5;
   }
+}
 
+input,
+textarea {
   &.input-error {
     border: 1px solid $color-dismiss;
   }
