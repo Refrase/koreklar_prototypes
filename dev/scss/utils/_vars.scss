@@ -73,6 +73,23 @@ $color-dismiss-darker-2: mix(black, $color-dismiss, 28% );
 $color-dismiss-darker-3: mix(black, $color-dismiss, 43% );
 $color-dismiss-darker-4: mix(black, $color-dismiss, 59% );
 
+// ----- Warning
+$color-warning: #FFA341;
+
+$color-warning-lighter-8: mix(white, $color-warning, 98% );
+$color-warning-lighter-7: mix(white, $color-warning, 94% );
+$color-warning-lighter-6: mix(white, $color-warning, 88% );
+$color-warning-lighter-5: mix(white, $color-warning, 80% );
+$color-warning-lighter-4: mix(white, $color-warning, 70% );
+$color-warning-lighter-3: mix(white, $color-warning, 50% );
+$color-warning-lighter-2: mix(white, $color-warning, 30% );
+$color-warning-lighter-1: mix(white, $color-warning, 15% );
+
+$color-warning-darker-1: mix(black, $color-warning, 11% );
+$color-warning-darker-2: mix(black, $color-warning, 28% );
+$color-warning-darker-3: mix(black, $color-warning, 43% );
+$color-warning-darker-4: mix(black, $color-warning, 59% );
+
 /* ----- Font-family ----- */
 
 $fontFamily-sans: "Raleway", "Roboto", "Helvetica Neue", sans-serif;

@@ -16,6 +16,7 @@
   z-index: 1;
 
   &-primary { @include labelColoring($color-primary, $color-primary-darker-1, white); }
+  &-warning { @include labelColoring($color-warning, $color-warning-darker-1, white); }
   &-dismiss { @include labelColoring($color-dismiss, $color-dismiss-darker-1, white); }
   &-base { @include labelColoring($color-base, $color-base-darker-1, $color-base-lighter-7); }
   &-dismiss, &-primary { svg { path, polygon { fill: white; }} } // SVG icons inside darker labels

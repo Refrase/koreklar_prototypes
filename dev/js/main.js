@@ -100,9 +100,11 @@ if ( inputInfoLabels ) {
   }
 }
 
-// Message: Saved personal info successfully OR error message when e-mail is not sufficiently provided
+// Message: Saved personal info successfully OR error message when e-mail is not sufficiently provided OR warning if no city provided
 var messageSuccess = document.getElementById( 'messageSuccess' );
+var messageWarning = document.getElementById( 'messageWarning' );
 var inputEmail = document.getElementById( 'email' );
+var inputCity = document.getElementById( 'city' );
 var emailRegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 function emailValidator(string) {
@@ -113,6 +115,8 @@ btnSavePersonalInfo ? btnSavePersonalInfo.addEventListener( 'click', function() 
   if ( !emailValidator(inputEmail.value) ) {
     inputEmail.classList.add( 'input-error' );
     toggleClassTemporarily( messageError, 'message-showing', 5000, null, messageElements );
+  } else if ( !inputCity.value ) {
+    toggleClassTemporarily( messageWarning, 'message-showing', 5000, null, messageElements );
   } else {
     for ( var i = 0; i < personalInfoInputs.length; i++ ) {
       personalInfoInputs[i].classList.remove( 'input-error' );
