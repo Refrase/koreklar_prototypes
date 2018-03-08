@@ -9291,8 +9291,7 @@ textarea:focus {
 .menu_inner .level {
   position: relative;
   margin-top: 16px;
-  margin-bottom: 32px;
-  padding-left: 16px;
+  padding-left: 32px;
   transition: max-height 3000ms cubic-bezier(0.25, 0.75, 0.25, 1), opacity 200ms 300ms ease-out;
   max-height: 1000px;
   opacity: 1;
@@ -9304,10 +9303,6 @@ textarea:focus {
   opacity: 0;
   overflow: hidden;
   transition: none;
-}
-
-.menu_inner .level > * {
-  margin-bottom: 8px;
 }
 
 .menu_inner .level-1 {
@@ -9327,7 +9322,17 @@ textarea:focus {
   margin-bottom: 48px;
 }
 
-.menu_inner .level-3 li a {
+.menu_inner .level-2 > li {
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.menu_inner .level-3 > li {
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.menu_inner .level-3 > li a {
   font-weight: 100;
 }
 
@@ -9338,7 +9343,6 @@ textarea:focus {
 .menu_inner .level-4 li {
   position: relative;
   padding-bottom: 16px;
-  margin: 0;
 }
 
 .menu_inner .level-4 li a {
@@ -9356,35 +9360,109 @@ textarea:focus {
   font-weight: 600;
 }
 
+.menu_inner .level-4 li a.active:after {
+  right: -8px !important;
+  top: -2px !important;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .menu_inner .level-4 li a.active:after {
+    -webkit-transform: rotate(90deg) translateY(-300%);
+            transform: rotate(90deg) translateY(-300%);
+    top: 50% !important;
+  }
+}
+
 .progressDot {
   position: absolute;
-  width: 7px;
-  height: 7px;
-  left: -18px;
-  top: 4px;
+  width: 11px;
+  height: 11px;
+  left: -24px;
+  top: 3px;
   border-radius: 50%;
+  border: 1px solid #dadbe3;
+  overflow: hidden;
+  z-index: 1;
+  /* This makes overflow: hidden; actually apply for this element that has also border-radius applied to it. In Chrome. */
+}
+
+.progressDot_fill {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 100%;
   background-color: #dadbe3;
 }
 
-.progressDot-completed {
-  background-color: #00c878;
+.level li[completion="0"] > .progressDot .progressDot_fill {
+  top: 100%;
 }
 
-.progressDot-completed + .progressDotConnector {
+.level li[completion="10"] > .progressDot .progressDot_fill {
+  top: 90%;
+}
+
+.level li[completion="20"] > .progressDot .progressDot_fill {
+  top: 80%;
+}
+
+.level li[completion="30"] > .progressDot .progressDot_fill {
+  top: 70%;
+}
+
+.level li[completion="40"] > .progressDot .progressDot_fill {
+  top: 60%;
+}
+
+.level li[completion="50"] > .progressDot .progressDot_fill {
+  top: 50%;
+}
+
+.level li[completion="60"] > .progressDot .progressDot_fill {
+  top: 40%;
+}
+
+.level li[completion="70"] > .progressDot .progressDot_fill {
+  top: 30%;
+}
+
+.level li[completion="80"] > .progressDot .progressDot_fill {
+  top: 20%;
+}
+
+.level li[completion="90"] > .progressDot .progressDot_fill {
+  top: 10%;
+}
+
+.level li[completion="100"] > .progressDot {
   background-color: #00c878;
+  border-color: #00c878;
+}
+
+.level li[completion="100"] > .progressDot .progressDot_fill {
+  display: none;
+}
+
+.level-withConnector > li[completion="100"] > .progressDotConnector {
+  display: block;
+}
+
+.level-withConnector li:not([completion="100"]) ~ li > .progressDotConnector {
+  display: none;
 }
 
 .progressDotConnector {
-  position: absolute;
-  left: -15px;
-  top: calc( 15% + 11px);
-  width: 1px;
-  height: calc( 70% - 7px);
-  background-color: #dadbe3;
-}
-
-li:last-child .progressDotConnector {
   display: none;
+  position: absolute;
+  left: -19px;
+  top: 17px;
+  width: 1px;
+  height: calc( 100% - 17px);
+  min-height: 9px;
+  background-color: #00c878;
 }
 
 .leftRightMarkers {
@@ -9456,7 +9534,7 @@ li:last-child .progressDotConnector {
   font-weight: 100;
 }
 
-.label, .thumbnail-current:before, .panel-current:before, .message {
+.label, .thumbnail-current:before, .menu_inner .level-4 li a.active:after, .panel-current:before, .message {
   padding: 4px 8px;
   padding-bottom: calc( 4px - 1px);
   font-size: 11px;
@@ -9486,7 +9564,7 @@ li:last-child .progressDotConnector {
   color: white;
 }
 
-.label-base, .panel-current:before, .message-base {
+.label-base, .menu_inner .level-4 li a.active:after, .panel-current:before, .message-base {
   background: rgba(69, 74, 115, 0.8);
   border: 1px solid #3d4266;
   color: #f4f4f7;
@@ -9551,7 +9629,7 @@ li:last-child .progressDotConnector {
   margin-left: -3px;
 }
 
-.label-current, .thumbnail-current:before, .panel-current:before {
+.label-current, .thumbnail-current:before, .menu_inner .level-4 li a.active:after, .panel-current:before {
   content: 'Du er her';
   line-height: 1.1;
   position: absolute;
@@ -9617,7 +9695,7 @@ li:last-child .progressDotConnector {
   margin-bottom: 0;
 }
 
-.panel_list > li > .label, .panel_list > li > .thumbnail-current:before, .panel_list > li > .panel-current:before, .panel_list > li > .message {
+.panel_list > li > .label, .panel_list > li > .thumbnail-current:before, .menu_inner .level-4 .panel_list > li > a.active:after, .panel_list > li > .panel-current:before, .panel_list > li > .message {
   left: -32px;
 }
 

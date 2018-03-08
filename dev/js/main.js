@@ -333,6 +333,22 @@ menuItemKategoriB ? menuItemKategoriB.addEventListener( 'click', function() { to
 menuItemLektion1Og2 ? menuItemLektion1Og2.addEventListener( 'click', function() { toggleList(menuListLektion1Og2); }) : null;
 menuItemDiverse ? menuItemDiverse.addEventListener( 'click', function() { toggleList(menuListDiverse); }) : null;
 
+// // Mark menuItem as part of a streak (showing the connector) if all menuItems before is completed AND the streak starts at the first task in the list
+// // A CSS solution is also implemented, which is why this is commented out
+// // If activated also uncomment the class under &-withConnector in _menu.scss that is labeled as part of this implementation
+
+// const menuListsWithConnectors = document.getElementsByClassName( 'level-withConnector' )
+// loopLists:
+// for ( let list in menuListsWithConnectors ) {
+//   const listItems = menuListsWithConnectors[list].children
+//   loopListitems:
+//   for ( let listItem in listItems ) {
+//     const completion = listItems[listItem].getAttribute('completion')
+//     if ( completion && completion == 100 ) listItems[listItem].classList.add( 'streak' )
+//     else break loopListitems
+//   }
+// }
+
 /* ----- Left/right markers ----- */
 // Toggle
 var controlBarBtnLeftRight = document.getElementById( 'controlBarBtnLeftRight' );
