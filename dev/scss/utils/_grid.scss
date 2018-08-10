@@ -14,7 +14,10 @@
 
   &-noWrap { flex-wrap: nowrap !important; }
 
-  & > * { padding: 0 $scale-2-1; }
+  & > * {
+    padding: 0 $scale-2-1;
+    @include breakpoint( 'belowTablet' )     { width: 100%; padding: 0; }
+  }
 
   &-colPaddingSmall {
     & > * { padding: 0 $scale-1-2; }

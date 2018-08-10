@@ -5,10 +5,16 @@
 
   @include breakpoint( 'belowTablet' ) { min-height: 42px; }
 
-  &:not(:first-child) { margin-top: $scale-2-1; }
+  &:not(:first-child) {
+    margin-top: $scale-2-1;
+    @include breakpoint( 'belowTablet' ) { margin-top: 12px; }
+  }
 
   &_text {
-    @include breakpoint( 'belowTablet' ) { padding-left: 96px; }
+    @include breakpoint( 'belowTablet' ) {
+      padding-left: 96px;
+      font-size: 12px;
+    }
   }
 
   .answers {

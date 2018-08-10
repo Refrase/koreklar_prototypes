@@ -47,7 +47,10 @@
     justify-content: flex-end;
 
     @include breakpoint( 'desktop' ) { justify-content: flex-end; }
-    @include breakpoint( 'belowTablet' ) { justify-content: center; }
+    @include breakpoint( 'belowTablet' ) {
+      justify-content: center;
+      padding: 0 $scale-2-1;
+    }
 
     &-SVG { align-items: flex-start; }
 
