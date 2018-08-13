@@ -4,7 +4,7 @@
     position: absolute;
     @include breakpoint( 'desktop' ) { width: calc( 100% + #{$scale-2-1} ) !important; }
     @include breakpoint( 'belowDesktop' ) { width: calc( 100% + #{$scale-12-1} ) !important; position: relative; }
-    @include breakpoint( 'belowTablet' ) { width: calc( 100% + #{$scale-8-1} ) !important; position: relative; }
+    @include breakpoint( 'belowTablet' ) { width: calc( 100% + #{$scale-4-1} ) !important; position: relative; }
     @include breakpoint( 'widescreen' ) { width: calc( 100% + #{$scale-6-1} ) !important; }
   }
 }

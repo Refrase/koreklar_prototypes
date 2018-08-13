@@ -10165,7 +10165,7 @@ textarea.input-error {
 
 @media (max-width: 767px) {
   .image-coursesAndTests {
-    width: calc( 100% + 128px) !important;
+    width: calc( 100% + 64px) !important;
     position: relative;
   }
 }
