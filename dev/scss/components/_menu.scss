@@ -52,10 +52,12 @@
     max-height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
-    padding-top: 55px !important;
 
     padding: $scale-6-1 0 $scale-6-1 $scale-8-1;
     @include breakpoint( 'belowDesktop' ) { padding: $scale-2-1; }
+    padding-top: 55px !important;
+    @include breakpoint( 'belowTablet' ) { padding-top: $scale-2-1 !important; }
+
     margin: 0 0 0 auto;
 
     &::-webkit-scrollbar { width: 4px; }
