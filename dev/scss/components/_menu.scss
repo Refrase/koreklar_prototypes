@@ -51,6 +51,7 @@
   &_inner {
     max-height: 100vh;
     overflow-y: scroll;
+    overflow-x: hidden;
     padding-top: 55px !important;
 
     &::-webkit-scrollbar { width: 4px; }
@@ -72,6 +73,7 @@
       position: relative;
       margin-top: $scale;
       padding-left: $scale-2-1;
+      @include breakpoint( 'mobile' ) { padding-left: $scale; }
       transition: max-height 3000ms cubic-bezier(0.25, 0.75, 0.25, 1), opacity 200ms 300ms ease-out;
       max-height: 1000px;
       opacity: 1;
@@ -86,7 +88,6 @@
 
       &-1 {
         margin-top: 0;
-        padding-left: $scale-2-1;
         & > li { margin-bottom: $scale;
           & > a { font-size: $fontSize-xxlarge; }
         }
@@ -94,6 +95,7 @@
 
       &-2 {
         margin-bottom: $scale-3-1;
+        @include breakpoint( 'mobile' ) { padding-left: $scale-2-1; }
         & > li {
           position: relative;
           padding-bottom: $scale-1-2;
@@ -104,7 +106,7 @@
         & > li {
           position: relative;
           padding-bottom: $scale-1-2;
-          a { font-weight: 100; }
+          a { font-weight: 400; }
         }
       }
 
@@ -116,7 +118,7 @@
 
           a {
             position: relative;
-            font-weight: 100;
+            font-weight: 400;
             display: flex;
             align-items: center;
 
@@ -127,6 +129,7 @@
                 @extend .label-base;
                 @extend .label-current;
                 right: -$scale-1-2 !important;
+                @include breakpoint('mobile') { right: 0 !important; }
                 top: -2px !important;
                 transform: translateX(100%);
                 white-space: nowrap;

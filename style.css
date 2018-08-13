@@ -9273,6 +9273,7 @@ textarea:focus {
 .menu_inner {
   max-height: 100vh;
   overflow-y: scroll;
+  overflow-x: hidden;
   padding-top: 55px !important;
 }
 
@@ -9312,6 +9313,12 @@ textarea:focus {
   opacity: 1;
 }
 
+@media (max-width: 480px) {
+  .menu_inner .level {
+    padding-left: 16px;
+  }
+}
+
 .menu_inner .level-closed {
   position: absolute;
   max-height: 0;
@@ -9322,7 +9329,6 @@ textarea:focus {
 
 .menu_inner .level-1 {
   margin-top: 0;
-  padding-left: 32px;
 }
 
 .menu_inner .level-1 > li {
@@ -9337,6 +9343,12 @@ textarea:focus {
   margin-bottom: 48px;
 }
 
+@media (max-width: 480px) {
+  .menu_inner .level-2 {
+    padding-left: 32px;
+  }
+}
+
 .menu_inner .level-2 > li {
   position: relative;
   padding-bottom: 8px;
@@ -9348,7 +9360,7 @@ textarea:focus {
 }
 
 .menu_inner .level-3 > li a {
-  font-weight: 100;
+  font-weight: 400;
 }
 
 .menu_inner .level-4 {
@@ -9362,7 +9374,7 @@ textarea:focus {
 
 .menu_inner .level-4 li a {
   position: relative;
-  font-weight: 100;
+  font-weight: 400;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9381,6 +9393,12 @@ textarea:focus {
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
   white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .menu_inner .level-4 li a.active:after {
+    right: 0 !important;
+  }
 }
 
 @media (max-width: 767px) {
