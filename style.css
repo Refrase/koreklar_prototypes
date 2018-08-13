@@ -9275,6 +9275,14 @@ textarea:focus {
   overflow-y: scroll;
   overflow-x: hidden;
   padding-top: 55px !important;
+  padding: 96px 0 96px 128px;
+  margin: 0 0 0 auto;
+}
+
+@media (max-width: 840px) {
+  .menu_inner {
+    padding: 32px;
+  }
 }
 
 .menu_inner::-webkit-scrollbar {
@@ -9395,7 +9403,7 @@ textarea:focus {
   white-space: nowrap;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 840px) {
   .menu_inner .level-4 li a.active:after {
     right: 0 !important;
   }

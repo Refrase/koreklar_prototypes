@@ -54,6 +54,10 @@
     overflow-x: hidden;
     padding-top: 55px !important;
 
+    padding: $scale-6-1 0 $scale-6-1 $scale-8-1;
+    @include breakpoint( 'belowDesktop' ) { padding: $scale-2-1; }
+    margin: 0 0 0 auto;
+
     &::-webkit-scrollbar { width: 4px; }
     &::-webkit-scrollbar-track { background: $color-base-lighter-5; }
     &::-webkit-scrollbar-thumb { background: $color-base; }
@@ -129,7 +133,7 @@
                 @extend .label-base;
                 @extend .label-current;
                 right: -$scale-1-2 !important;
-                @include breakpoint('mobile') { right: 0 !important; }
+                @include breakpoint( 'belowDesktop' ) { right: 0 !important; }
                 top: -2px !important;
                 transform: translateX(100%);
                 white-space: nowrap;
