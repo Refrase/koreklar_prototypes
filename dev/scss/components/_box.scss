@@ -23,12 +23,11 @@
     position: relative;
     max-width: 320px;
     height: auto;
-    box-shadow: 0px 0px 0px 10000px rgba($color-base, 0.2);
   }
 
   &-light {
     background-color: rgba( $color-base-lighter-7, 0.98 );
-    border: 1px solid $color-base-lighter-6;
+    border: 1px solid $color-base-lighter-5;
   }
 
   &-usermeta {
@@ -79,7 +78,7 @@
 
   &-paddingLarge { padding: $scale-2-1 $scale-3-1; }
 
-  &-backdrop { box-shadow: 0px 0px 0px 10000px rgba( $color-base, 0.98 ); }
+  &-backdrop { box-shadow: 0px 0px 0px 10000px rgba( $color-base, 0.5 ); }
 
   li, p, a { color: white; }
 

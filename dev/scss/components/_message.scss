@@ -1,6 +1,6 @@
 .message {
   @extend .label;
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: -1px;
   z-index: $zindex-message;

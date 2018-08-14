@@ -21,7 +21,7 @@
           <img class="avatar_background" src="./assets/ic_avatar_background.svg" alt="Bruger initialer" height="100%">
           <p class="avatar_initials">Ar</p>
         </a>
-        <div class="box box-small box-usermeta display-none" id="boxUserMeta">
+        <div class="box box-small box-usermeta box-backdrop display-none" id="boxUserMeta">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.28 13.28" class="box_close" id="boxUserMetaClose">
             <polygon class="cls-1" points="13.28 1.41 11.87 0 6.64 5.23 1.41 0 0 1.41 5.23 6.64 0 11.87 1.41 13.28 6.64 8.05 11.87 13.28 13.28 11.87 8.05 6.64 13.28 1.41"/>
           </svg>
@@ -49,13 +49,13 @@
 
     <div class="gridBlock gridBlock-columns-12 gridBlock-noPadding flexDirection-columnReverse-belowDesktop">
       <div class="span-5 position-relative">
-        <div class="padding-top-2-1 padding-bottom-2-1 position-relative backgroundColor-white background-full">
+        <div class="padding-top-2-1 padding-top-belowTablet padding-bottom-2-1 padding-bottom-belowTablet position-relative backgroundColor-white background-full">
           <p class="fontSize-small margin-bottom-1-2 color-base-lighter-4 fontFamily-system">Resultat</p>
           <!-- <h1 class="fontSize-xxxlarge">Desværre</h1> -->
           <h1 class="fontSize-xxxlarge">Tillykke</h1>
         </div>
 
-        <div class="padding-top-2-1 margin-bottom-2-1">
+        <div class="padding-top-2-1 padding-top-belowTablet margin-bottom-2-1 margin-bottom-belowTablet">
           <p class="fontWeight-bold margin-bottom display-flex" style="white-space: nowrap;">
             <span id="rightAnswersPercentHolder" class="fontSize-display fontFamily-system" style="line-height: 0.9;">0</span>
             <span class="fontSize-xxxlarge fontFamily-system" style="font-weight: 900;">%</span>
@@ -112,7 +112,7 @@
         </div>
       </div>
 
-      <div class="span-7">
+      <div class="span-7 display-none-belowTablet">
         <!-- <img src="./images/bil-i-vaeg.png" alt="Bilrat" width="100%"> -->
         <img src="./images/medalje.png" alt="Bilrat" width="100%">
       </div>
