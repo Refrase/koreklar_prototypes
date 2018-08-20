@@ -25,7 +25,11 @@ input[type="tel"] {
 label { font-weight: 600; }
 
 a {
+  color: $color-primary;
   font-weight: 600;
   text-decoration: none;
-  display: inline-block;
+
+  &.small {
+    font-size: 12px;
+  }
 }

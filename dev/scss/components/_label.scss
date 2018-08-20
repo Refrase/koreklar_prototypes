@@ -5,6 +5,7 @@
 }
 
 .label {
+  position: relative;
   padding: $scale-1-4 $scale-1-2;
   padding-bottom: calc( #{$scale-1-4} - 1px );
   font-size: $fontSize-xsmall;
@@ -23,6 +24,23 @@
   &-light { @include labelColoring(white, $color-base-lighter-7, $color-base); }
   &-lightInvert { @include labelColoring($color-base-lighter-7, white, $color-base); }
   &-lightDarkBorder { @include labelColoring(white, $color-base, $color-base); }
+
+  &-withIcon {
+    padding-right: 24px;
+  }
+
+  &Icon {
+    display: block;
+    margin: 0 auto;
+    height: 100%;
+
+    &_wrap {
+      position: absolute;
+      right: 7px;
+      top: 5px;
+      height: 9px;
+    }
+  }
 
   &-info {
     min-width: 24px;

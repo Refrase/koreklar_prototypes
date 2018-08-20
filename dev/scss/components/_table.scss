@@ -5,4 +5,8 @@ table {
 
   td { padding: $scale-1-4 $scale-1-2; }
 
+  &.light {
+    background-color: rgba( $color-base-lighter-7, 0.98 );
+    border: 1px solid $color-base-lighter-5;
+  }
 }

@@ -153,6 +153,11 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 	}
 }
 
+.float {
+	&-left { float: left; }
+	&-right { float: right; }
+}
+
 .width		{
 	&-full  { width: 100% }
 	&-fill  { // Counter spacing the grid for covering margins defined by grid. ATT! Depending on grid side paddings as they are
@@ -252,6 +257,17 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 			&-tablet { @include breakpoint( 'belowTablet' ) { position: fixed !important; } }
 		}
 	}
+}
+
+.center {
+	display: block;
+	margin: 0 auto;
+}
+
+.clearfix:after {
+    content: '';
+    clear: both;
+    display: table;
 }
 
 .overflow {

@@ -8,9 +8,38 @@ input {
     padding-bottom: $scale-1-2 + 1px;
   }
 
+  &[type="checkbox"] {
+    appearance: none;
+    border: none;
+
+    &:focus {
+      border-color: none;
+      box-shadow: none;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      min-height: 100%;
+      background-color: white;
+      border: 1px solid $color-base-lighter-5;
+    }
+
+    &:checked:after {
+      content: '';
+      background-image: url('./assets/ic_checkmark_white_small_fat.svg');
+      background-repeat: no-repeat;
+      background-position: center 3px;
+      background-size: 80%;
+      color: white;
+      background-color: $color-base;
+    }
+   }
+
   &[disabled] {
     border-color: rgba(white, 0.5);
-    background-color: rgba(white, 0.5);
+    background-color: $color-base-lighter-8;
   }
 
   &:focus {
@@ -46,12 +75,36 @@ textarea {
     }
   }
 
+  &.checkbox {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    input {
+      width: 100%;
+      height: 100%;
+    }
+    label {
+      font-size: 11px;
+      position: relative;
+      left: calc( 100% + #{$scale-1-4} );
+      text-align: left;
+      background-color: transparent;
+      border: none;
+      width: auto;
+      margin-right: auto;
+      @include breakpoint( 'belowTablet' ) {
+        white-space: normal;
+        min-width: 100px;
+      }
+    }
+  }
+
   label {
     display: inline-block;
     padding: $scale-1-2 $scale-1-2;
     width: 120px;
     text-align: right;
-    background-color: white;
+    background-color: $color-base-lighter-8;
     border: 1px solid white;
     margin-right: 1px;
 
