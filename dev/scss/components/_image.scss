@@ -1,10 +1,70 @@
 .image {
   &-coursesAndTests {
+    z-index: $zindex-testImage;
     @extend .width-fill-right;
     position: absolute;
     @include breakpoint( 'desktop' ) { width: calc( 100% + #{$scale-2-1} ) !important; }
     @include breakpoint( 'belowDesktop' ) { width: calc( 100% + #{$scale-12-1} ) !important; position: relative; }
     @include breakpoint( 'belowTablet' ) { width: calc( 100% + #{$scale-4-1} ) !important; position: relative; }
     @include breakpoint( 'widescreen' ) { width: calc( 100% + #{$scale-6-1} ) !important; }
+
+    img { width: 100%; }
+
+    &-smallScreenFriendly {
+      @include breakpoint( 'belowDesktop' ) {
+        width: auto !important; // Counter styling image-coursesAndTests
+        margin: auto !important;
+        position: fixed;
+      }
+
+      img {
+        @include breakpoint( 'belowDesktop' ) {
+          display: block;
+          position: absolute;
+          width: calc( 100vw - #{$scale-2-1} ) !important;
+          transform: scale3d(0.5, 0.5, 0.5);
+          transition: transform 200ms ease-out;
+          &.expanded { transform: scale3d(1, 1, 1); }
+        }
+      }
+
+      .btn {
+        display: none;
+        position: absolute;
+        @include breakpoint( 'belowDesktop' ) { display: block; }
+        &_inner {
+          &-wideScreens { @include breakpoint( 'belowTablet' ) { display: none; } }
+          &-narrowScreens { @include breakpoint( 'tablet' ) { display: none; } }
+        }
+      }
+
+      @include breakpoint( 'belowDesktop' ) {
+        &.bottomRight {
+          right: $scale; left: auto; top: auto; bottom: calc( 138px + #{$scale} );
+          @include breakpoint( 'custom', '600px' ) { bottom: calc( 170px + #{$scale} ); }
+          img { right: 0; left: auto; bottom: 0; top: auto; transform-origin: bottom right; }
+          .btn { right: $scale-1-2; left: auto; bottom: $scale-1-2; top: auto; }
+        }
+
+        &.bottomLeft {
+          right: auto; left: $scale; top: auto; bottom: calc( 138px + #{$scale} );
+          @include breakpoint( 'custom', '600px' ) { bottom: calc( 170px + #{$scale} ); }
+          img { right: auto; left: 0; bottom: 0; top: auto; transform-origin: bottom left; }
+          .btn { right: auto; left: $scale-1-2; bottom: $scale-1-2; top: auto; }
+        }
+
+        &.topRight {
+          right: $scale; left: auto; top: $scale; bottom: auto;
+          img { right: 0; left: auto; bottom: auto; top: 0; transform-origin: top right; }
+          .btn { right: $scale-1-2; left: auto; bottom: auto; top: $scale-1-2; }
+        }
+
+        &.topLeft {
+          right: auto; left: $scale; top: $scale; bottom: auto;
+          img { right: auto; left: 0; bottom: auto; top: 0; transform-origin: top left; }
+          .btn { right: auto; left: $scale-1-2; bottom: auto; top: $scale-1-2; }
+        }
+      }
+    }
   }
 }

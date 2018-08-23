@@ -1,14 +1,17 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
+var scale = 16;
+
 // ########## STATE ##########
 
 var state = {
-  thumbnailsVisible: null,
-  explanationVisible: null,
-  personalInfoDialogVisible: null,
-  boxUserMetaVisible: null,
-  breadcrumbWrapVisible: true
+  thumbnailsVisible: false,
+  explanationVisible: false,
+  personalInfoDialogVisible: false,
+  boxUserMetaVisible: false,
+  breadcrumbWrapVisible: true,
+  testImageExpanded: false
 };
 
 // ########## GENERIC ##########
@@ -449,6 +452,207 @@ btnCancelBugReport ? btnCancelBugReport.addEventListener('click', function () {
 btnSendBugReport ? btnSendBugReport.addEventListener('click', function () {
   toggleClassTemporarily(messageSuccess, 'message-showing', 5000, null, messageElements);
   toggle(dialogBugReport, 'dialog-hidden');
+}) : null;
+
+// ########## TEST-01-SMALL-SCREEN-ALTERNATIVE ##########
+
+/* ----- Image ----- */
+var floatingTestImageWrap = document.getElementById('floatingTestImageWrap');
+var floatingTestImage = document.getElementById('floatingTestImage');
+var btnExpandImage = document.getElementById('btnExpandImage');
+
+var testImageWidth = floatingTestImage ? floatingTestImage.width / 2 : null; // Not expanded by default, therefore it is half width due to the initial CSS transform scale3d(0.5, 0.5, 0.5) to preserve high quality on expansion
+var testImageHeight = floatingTestImage ? floatingTestImage.height / 2 : null;
+
+// Toggling the image between full and half width
+btnExpandImage ? btnExpandImage.addEventListener('click', function () {
+  toggle(floatingTestImage, 'expanded');
+  state.testImageExpanded = !state.testImageExpanded;
+  testImageWidth = state.testImageExpanded === true ? floatingTestImage.width : floatingTestImage.width / 2;
+  testImageHeight = state.testImageExpanded === true ? floatingTestImage.height : floatingTestImage.height / 2;
+}) : null;
+
+// Possibility of moving around the 'floating' image to each corner of the screen (it snaps to each corner after touch release)
+var originalTouchPosX = 0;
+var originalTouchPosY = 0;
+floatingTestImageWrap ? floatingTestImageWrap.addEventListener('touchstart', function (event) {
+  if (event.targetTouches.length == 1) {
+    var touch = event.targetTouches[0];
+    originalTouchPosX = touch.pageX;
+    originalTouchPosY = touch.pageY;
+  }
+}) : null;
+
+floatingTestImageWrap ? floatingTestImageWrap.addEventListener('touchmove', function (event) {
+  if (event.targetTouches.length == 1) {
+    // If there's exactly one finger inside this element
+    var touch = event.targetTouches[0];
+    floatingTestImageWrap.style.transition = 'none';
+    floatingTestImageWrap.style.transform = 'translate3d(' + (touch.pageX - originalTouchPosX) + 'px, ' + (touch.pageY - originalTouchPosY) + 'px, 0)';
+  }
+}, false) : null;
+
+var currentArea = 'bottomRight';
+floatingTestImageWrap ? floatingTestImageWrap.addEventListener('touchend', function (event) {
+  if (event.changedTouches.length == 1) {
+    var touch = event.changedTouches[0];
+
+    var classNames = ['topLeft', 'topRight', 'bottomRight', 'bottomLeft'];
+    var addRightClassname = function addRightClassname(rightClassname) {
+      for (var className in classNames) {
+        floatingTestImageWrap.classList.remove(classNames[className]);
+      }floatingTestImageWrap.classList.add(rightClassname);
+    };
+
+    var decideDestination = function decideDestination() {
+
+      var dragThreshold = 50;
+      var dragDirection = '';
+      var decideDragDirection = function decideDragDirection() {
+        if (touch.pageX > 0 && originalTouchPosX - touch.pageX > dragThreshold) dragDirection += 'left';
+        if (touch.pageX < window.innerWidth && originalTouchPosX - touch.pageX < -dragThreshold) dragDirection += 'right';
+        if (touch.pageY > 0 && originalTouchPosY - touch.pageY > dragThreshold) dragDirection += 'up';
+        if (touch.pageY < window.innerHeight && originalTouchPosY - touch.pageY < -dragThreshold) dragDirection += 'down';
+      };
+      decideDragDirection();
+
+      var startAndStopTouchXDif = touch.pageX - originalTouchPosX;
+      var startAndStopTouchYDif = touch.pageY - originalTouchPosY;
+      var imageWidthIfNotExpanded = state.testImageExpanded ? 0 : testImageWidth;
+      var halfImageHightIfExpandedElseDoubleHeight = state.testImageExpanded ? testImageHeight / 2 : testImageHeight * 2;
+
+      var endTransforms = {
+        bottomRight: {
+          bottomLeft: startAndStopTouchXDif + imageWidthIfNotExpanded + 'px, ' + startAndStopTouchYDif,
+          topRight: startAndStopTouchXDif + 'px, ' + (startAndStopTouchYDif + halfImageHightIfExpandedElseDoubleHeight + 26),
+          topLeft: startAndStopTouchXDif + imageWidthIfNotExpanded + 'px, ' + (startAndStopTouchYDif + halfImageHightIfExpandedElseDoubleHeight + 26)
+        },
+        bottomLeft: {
+          bottomRight: startAndStopTouchXDif - imageWidthIfNotExpanded + 'px, ' + startAndStopTouchYDif,
+          topRight: startAndStopTouchXDif - imageWidthIfNotExpanded + 'px, ' + (startAndStopTouchYDif + halfImageHightIfExpandedElseDoubleHeight + 26),
+          topLeft: startAndStopTouchXDif + 'px, ' + (startAndStopTouchYDif + halfImageHightIfExpandedElseDoubleHeight + 26)
+        },
+        topRight: {
+          bottomRight: startAndStopTouchXDif + 'px, ' + (startAndStopTouchYDif - halfImageHightIfExpandedElseDoubleHeight - 26),
+          bottomLeft: startAndStopTouchXDif + imageWidthIfNotExpanded + 'px, ' + (startAndStopTouchYDif - halfImageHightIfExpandedElseDoubleHeight - 26),
+          topLeft: startAndStopTouchXDif + imageWidthIfNotExpanded + 'px, ' + startAndStopTouchYDif
+        },
+        topLeft: {
+          bottomRight: startAndStopTouchXDif - imageWidthIfNotExpanded + 'px, ' + (startAndStopTouchYDif - halfImageHightIfExpandedElseDoubleHeight - 26),
+          bottomLeft: startAndStopTouchXDif + 'px, ' + (startAndStopTouchYDif - halfImageHightIfExpandedElseDoubleHeight - 26),
+          topRight: startAndStopTouchXDif - imageWidthIfNotExpanded + 'px, ' + startAndStopTouchYDif
+        }
+      };
+
+      var floatingTestImageWrapEndTransform = function floatingTestImageWrapEndTransform(transform) {
+        return floatingTestImageWrap.style.transform = 'translate3d(' + transform + 'px, 0)';
+      };
+
+      var moveToDestination = function moveToDestination() {
+        var fromArea = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'bottomRight';
+        var toArea = arguments[1];
+
+        addRightClassname(toArea);
+        floatingTestImageWrapEndTransform(endTransforms[fromArea][toArea]);
+        currentArea = toArea;
+      };
+
+      var directionHolds = function directionHolds(direction) {
+        return dragDirection.indexOf(direction) > -1;
+      };
+
+      if (currentArea === 'bottomRight') {
+        if (directionHolds('left') && directionHolds('up')) return moveToDestination(currentArea, 'topLeft');else if (directionHolds('left')) return moveToDestination(currentArea, 'bottomLeft');else if (directionHolds('up')) return moveToDestination(currentArea, 'topRight');
+      }
+      if (currentArea === 'bottomLeft') {
+        if (directionHolds('right') && directionHolds('up')) return moveToDestination(currentArea, 'topRight');else if (directionHolds('right')) return moveToDestination(currentArea, 'bottomRight');else if (directionHolds('up')) return moveToDestination(currentArea, 'topLeft');
+      }
+      if (currentArea === 'topRight') {
+        if (directionHolds('left') && directionHolds('down')) return moveToDestination(currentArea, 'bottomLeft');else if (directionHolds('left')) return moveToDestination(currentArea, 'topLeft');else if (directionHolds('down')) return moveToDestination(currentArea, 'bottomRight');
+      }
+      if (currentArea === 'topLeft') {
+        if (directionHolds('right') && directionHolds('down')) return moveToDestination(currentArea, 'bottomRight');else if (directionHolds('right')) return moveToDestination(currentArea, 'topRight');else if (directionHolds('down')) return moveToDestination(currentArea, 'bottomLeft');
+      }
+
+      dragDirection = '';
+
+      // OLD CODE FOR DECIDING THE DESTINATION BASED ON WHICH CORNER OF THE SCREEN THE TOUCHEND OCCURS (CAN STILL BE ENABLED BY UNCOMMENTING THE CODE --> BUT SURPLUS AS THE NEW CODE DOES THE JOB IN A MORE SMOOTH WAY)
+      // THE NEW CODE REGISTERS IN WHICH DIRECTION THE TOUCH IS GOING AND SENDS THE IMAGE IN THE CORNER OF THAT DIRECTION IF A DRAGGING DISTANCE THRESHOLD IS REACHED
+      // if ( touch.pageX > window.innerWidth / 2 && touch.pageY > window.innerHeight / 2 ) {
+      //   addRightClassname( 'bottomRight' );
+      //   if ( currentArea === 'bottomLeft' ) {
+      //     floatingTestImageWrap.style.transform = `translate3d(
+      //       ${startAndStopTouchXDif - imageWidthIfNotExpanded}px,
+      //       ${startAndStopTouchYDif}px, 0)`;
+      //   } else if ( currentArea === 'topRight' ) {
+      //     floatingTestImageWrap.style.transform = `translate3d(
+      //       ${startAndStopTouchXDif}px,
+      //       ${startAndStopTouchYDif - halfImageHightIfExpandedElseDoubleHeight - 26}px, 0)`;
+      //   } else if ( currentArea === 'topLeft' ) {
+      //     floatingTestImageWrap.style.transform = `translate3d(
+      //       ${startAndStopTouchXDif - imageWidthIfNotExpanded}px,
+      //       ${startAndStopTouchYDif - halfImageHightIfExpandedElseDoubleHeight - 26}px, 0)`;
+      //   }
+      //   currentArea = 'bottomRight';
+      // }
+      // else if ( touch.pageX < window.innerWidth / 2 && touch.pageY > window.innerHeight / 2 ) {
+      //   addRightClassname( 'bottomLeft' );
+      //   if ( currentArea === 'bottomRight' ) {
+      //     floatingTestImageWrap.style.transform = `translate3d(
+      //       ${startAndStopTouchXDif + imageWidthIfNotExpanded}px,
+      //       ${startAndStopTouchYDif}px, 0)`;
+      //   } else if ( currentArea === 'topRight' ) {
+      //     floatingTestImageWrap.style.transform = `translate3d(
+      //       ${startAndStopTouchXDif + imageWidthIfNotExpanded}px,
+      //       ${startAndStopTouchYDif - halfImageHightIfExpandedElseDoubleHeight - 26}px, 0)`;
+      //   } else if ( currentArea === 'topLeft' ) {
+      //     floatingTestImageWrap.style.transform = `translate3d(
+      //       ${startAndStopTouchXDif}px,
+      //       ${startAndStopTouchYDif - halfImageHightIfExpandedElseDoubleHeight - 26}px, 0)`;
+      //   }
+      //   currentArea = 'bottomLeft';
+      // }
+      // else if ( touch.pageX > window.innerWidth / 2 && touch.pageY < window.innerHeight / 2 ) {
+      //   addRightClassname( 'topRight' );
+      //   if ( currentArea === 'bottomRight' ) {
+      //     floatingTestImageWrap.style.transform = `translate3d(
+      //       ${startAndStopTouchXDif}px,
+      //       ${startAndStopTouchYDif + halfImageHightIfExpandedElseDoubleHeight + 26}px, 0)`;
+      //   } else if ( currentArea === 'bottomLeft' ) {
+      //     floatingTestImageWrap.style.transform = `translate3d(
+      //       ${startAndStopTouchXDif - imageWidthIfNotExpanded}px,
+      //       ${startAndStopTouchYDif + halfImageHightIfExpandedElseDoubleHeight + 26}px, 0)`;
+      //   } else if ( currentArea === 'topLeft' ) {
+      //     floatingTestImageWrap.style.transform = `translate3d(
+      //       ${startAndStopTouchXDif - imageWidthIfNotExpanded}px,
+      //       ${startAndStopTouchYDif}px, 0)`;
+      //   }
+      //   currentArea = 'topRight';
+      // } else {
+      //   addRightClassname( 'topLeft' );
+      //   if ( currentArea === 'bottomRight' ) {
+      //     floatingTestImageWrap.style.transform = `translate3d(
+      //       ${startAndStopTouchXDif + imageWidthIfNotExpanded}px,
+      //       ${startAndStopTouchYDif + halfImageHightIfExpandedElseDoubleHeight + 26}px, 0)`;
+      //   } else if ( currentArea === 'bottomLeft' ) {
+      //     floatingTestImageWrap.style.transform = `translate3d(
+      //       ${startAndStopTouchXDif}px,
+      //       ${startAndStopTouchYDif + halfImageHightIfExpandedElseDoubleHeight + 26}px, 0)`;
+      //   } else if ( currentArea === 'topRight' ) {
+      //     floatingTestImageWrap.style.transform = `translate3d(
+      //       ${startAndStopTouchXDif + imageWidthIfNotExpanded}px,
+      //       ${startAndStopTouchYDif}px, 0)`;
+      //   }
+      //   currentArea = 'topLeft';
+      // }
+    };
+    decideDestination();
+  }
+
+  setTimeout(function () {
+    floatingTestImageWrap.style.transition = 'transform 600ms cubic-bezier(0.23, 1, 0.32, 1)';
+    floatingTestImageWrap.style.transform = 'translate3d(0, 0, 0)';
+  }, 20); // Timeout to put transition in next callstack as it will otherwise make the image jump due to the image having new position properties applied
 }) : null;
 
 },{}]},{},[1]);

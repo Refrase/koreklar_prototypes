@@ -9253,6 +9253,7 @@ a.small {
 }
 
 .btn {
+  display: inline-block;
   border-radius: 100px;
   text-transform: uppercase;
   font-size: 12px;
@@ -9579,7 +9580,7 @@ textarea:focus {
 .controlBar {
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
   background-color: #f4f4f7;
   padding: 32px 0 32px;
   border-top: 1px solid #e9e9ee;
@@ -11168,6 +11169,7 @@ textarea.input-error {
 }
 
 .image-coursesAndTests {
+  z-index: 998;
   position: absolute;
 }
 
@@ -11194,6 +11196,158 @@ textarea.input-error {
 @media (min-width: 1025px) {
   .image-coursesAndTests {
     width: calc( 100% + 96px) !important;
+  }
+}
+
+.image-coursesAndTests img {
+  width: 100%;
+}
+
+@media (max-width: 840px) {
+  .image-coursesAndTests-smallScreenFriendly {
+    width: auto !important;
+    margin: auto !important;
+    position: fixed;
+  }
+}
+
+@media (max-width: 840px) {
+  .image-coursesAndTests-smallScreenFriendly img {
+    display: block;
+    position: absolute;
+    width: calc( 100vw - 32px) !important;
+    -webkit-transform: scale3d(0.5, 0.5, 0.5);
+            transform: scale3d(0.5, 0.5, 0.5);
+    transition: -webkit-transform 200ms ease-out;
+    transition: transform 200ms ease-out;
+  }
+  .image-coursesAndTests-smallScreenFriendly img.expanded {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+.image-coursesAndTests-smallScreenFriendly .btn {
+  display: none;
+  position: absolute;
+}
+
+@media (max-width: 840px) {
+  .image-coursesAndTests-smallScreenFriendly .btn {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .image-coursesAndTests-smallScreenFriendly .btn_inner-wideScreens {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .image-coursesAndTests-smallScreenFriendly .btn_inner-narrowScreens {
+    display: none;
+  }
+}
+
+@media (max-width: 840px) {
+  .image-coursesAndTests-smallScreenFriendly.bottomRight {
+    right: 16px;
+    left: auto;
+    top: auto;
+    bottom: calc( 138px + 16px);
+  }
+}
+
+@media (max-width: 840px) and (max-width: 600px) {
+  .image-coursesAndTests-smallScreenFriendly.bottomRight {
+    bottom: calc( 170px + 16px);
+  }
+}
+
+@media (max-width: 840px) {
+  .image-coursesAndTests-smallScreenFriendly.bottomRight img {
+    right: 0;
+    left: auto;
+    bottom: 0;
+    top: auto;
+    -webkit-transform-origin: bottom right;
+            transform-origin: bottom right;
+  }
+  .image-coursesAndTests-smallScreenFriendly.bottomRight .btn {
+    right: 8px;
+    left: auto;
+    bottom: 8px;
+    top: auto;
+  }
+  .image-coursesAndTests-smallScreenFriendly.bottomLeft {
+    right: auto;
+    left: 16px;
+    top: auto;
+    bottom: calc( 138px + 16px);
+  }
+}
+
+@media (max-width: 840px) and (max-width: 600px) {
+  .image-coursesAndTests-smallScreenFriendly.bottomLeft {
+    bottom: calc( 170px + 16px);
+  }
+}
+
+@media (max-width: 840px) {
+  .image-coursesAndTests-smallScreenFriendly.bottomLeft img {
+    right: auto;
+    left: 0;
+    bottom: 0;
+    top: auto;
+    -webkit-transform-origin: bottom left;
+            transform-origin: bottom left;
+  }
+  .image-coursesAndTests-smallScreenFriendly.bottomLeft .btn {
+    right: auto;
+    left: 8px;
+    bottom: 8px;
+    top: auto;
+  }
+  .image-coursesAndTests-smallScreenFriendly.topRight {
+    right: 16px;
+    left: auto;
+    top: 16px;
+    bottom: auto;
+  }
+  .image-coursesAndTests-smallScreenFriendly.topRight img {
+    right: 0;
+    left: auto;
+    bottom: auto;
+    top: 0;
+    -webkit-transform-origin: top right;
+            transform-origin: top right;
+  }
+  .image-coursesAndTests-smallScreenFriendly.topRight .btn {
+    right: 8px;
+    left: auto;
+    bottom: auto;
+    top: 8px;
+  }
+  .image-coursesAndTests-smallScreenFriendly.topLeft {
+    right: auto;
+    left: 16px;
+    top: 16px;
+    bottom: auto;
+  }
+  .image-coursesAndTests-smallScreenFriendly.topLeft img {
+    right: auto;
+    left: 0;
+    bottom: auto;
+    top: 0;
+    -webkit-transform-origin: top left;
+            transform-origin: top left;
+  }
+  .image-coursesAndTests-smallScreenFriendly.topLeft .btn {
+    right: auto;
+    left: 8px;
+    bottom: auto;
+    top: 8px;
   }
 }
 
