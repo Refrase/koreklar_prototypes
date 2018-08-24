@@ -83,7 +83,10 @@ $positions: '-top' '-right' '-bottom' '-left' ''; // One left blank for the clea
 		&-display { font-size: $fontSize-display; }
 		&-xxxlarge { font-size: $fontSize-xxxlarge; }
 		&-xxlarge { font-size: $fontSize-xxlarge; }
-		&-xlarge { font-size: $fontSize-xlarge; }
+		&-xlarge {
+			font-size: $fontSize-xlarge;
+			&-belowTablet { @include breakpoint( 'belowTablet' ) { font-size: $fontSize-xlarge; }}
+		}
 		&-large { font-size: $fontSize-large; }
 		&-base { font-size: $fontSize-base; }
 		&-small { font-size: $fontSize-small; }
