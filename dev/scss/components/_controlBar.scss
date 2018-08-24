@@ -39,7 +39,10 @@
       margin: $scale-1-8 0;
     }
 
-    li, a { font-family: $fontFamily-system; }
+    li, a {
+      font-family: $fontFamily-system;
+      font-weight: 500;
+    }
   }
 
   &_buttons {

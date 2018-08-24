@@ -9630,6 +9630,7 @@ textarea:focus {
 
 .controlBar_breadcrumb li, .controlBar_breadcrumb a {
   font-family: "Roboto", "Helvetica Neue", sans-serif;
+  font-weight: 500;
 }
 
 .controlBar_buttons {
