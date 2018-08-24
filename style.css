@@ -10516,7 +10516,13 @@ textarea:focus {
 }
 
 .headline-small {
-  font-size: 24px;
+  font-size: 18px;
+}
+
+@media (max-width: 767px) {
+  .headline-small-belowTablet {
+    font-size: 18px;
+  }
 }
 
 .headline span {
@@ -10770,8 +10776,8 @@ textarea:focus {
 }
 
 .contextLine {
-  color: #a2a5b9;
-  font-weight: 300;
+  color: #7d809d;
+  font-weight: 500;
   text-transform: uppercase;
   font-size: 11px;
   font-family: "Roboto", "Helvetica Neue", sans-serif;
@@ -10862,19 +10868,27 @@ table.light {
   color: white;
 }
 
+.box_headlineWrap {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  height: 100px;
+  width: 100%;
+}
+
 .box h1, .box h2 {
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   font-size: 24px;
-  top: -64px;
+  bottom: 32px;
 }
 
 @media (max-width: 767px) {
   .box h1, .box h2 {
-    font-size: 18px;
-    top: -48px;
+    font-size: 20px;
+    bottom: 16px;
   }
 }
 
@@ -10918,7 +10932,7 @@ table.light {
   padding-bottom: 12px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 840px) {
   .box-usermeta {
     top: auto;
     bottom: 259px;

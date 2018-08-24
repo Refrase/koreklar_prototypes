@@ -3,7 +3,10 @@
   font-size: $fontSize-xxxlarge;
   margin-bottom: $scale-1-8;
 
-  &-small { font-size: $fontSize-xxlarge; }
+  &-small {
+    font-size: $fontSize-xlarge;
+    &-belowTablet { @include breakpoint( 'belowTablet' ) { font-size: $fontSize-xlarge; }} 
+  }
 
   span { font-weight: 100; } // Secondary info in a headline
 }
