@@ -1,17 +1,18 @@
 .menuBackground {
   position: absolute;
-  width: 4000px;
-  height: 4000px;
-  top: calc( -2000px + 36px ); // Center of burger
-  left: calc( -2000px + 42px ); // Center of burger
+  width: 5000px;
+  height: 5000px;
+  top: calc( -2500px + 36px ); // Center of burger
+  left: calc( -2500px + 42px ); // Center of burger
   background: rgba($color-base-lighter-7, 0.98);
   border-radius: 100%;
   pointer-events: auto;
   z-index: $zindex-menuBackground;
   opacity: 1;
-  transform: scale(1);
+  transform: scale3d(1, 1, 1);
   transform-origin: center;
-  transition: transform 600ms ease-out;
+  transition: transform 2000ms cubic-bezier(0.23, 1, 0.32, 1); // ease-out-quint
+  border: 2px solid $color-base-lighter-4;
 
   @include breakpoint( 'belowTablet' ) {
     top: auto;
@@ -22,10 +23,10 @@
   @include breakpoint( 'mobile' ) { bottom: calc( -2000px + 32px ); } // Center of burger
 
   &-hidden {
-    transition: opacity 200ms 600ms ease-out, transform 600ms ease-in;
+    transition: opacity 200ms 400ms ease-out, transform 400ms ease-in;
     pointer-events: none;
     opacity: 0;
-    transform: scale(0);
+    transform: scale3d(0, 0, 0);
   }
 }
 
@@ -40,10 +41,10 @@
   z-index: $zindex-menuContent;
   opacity: 1;
   pointer-events: auto;
-  transition: opacity 300ms 400ms ease-out;
+  transition: opacity 200ms 200ms ease-out;
 
   &-hidden {
-    transition: opacity 300ms ease-out;
+    transition: opacity 200ms ease-out;
     pointer-events: none;
     opacity: 0;
   }

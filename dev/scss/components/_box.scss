@@ -4,9 +4,22 @@
   padding-top: $scale + $scale-1-2;
   background-color: rgba( $color-base, 0.98 );
   border: 1px solid $color-base-darker-1;
-  z-index: -1;
   opacity: 0;
+  z-index: $zindex-box;
   animation: fadeIn 0.25s ease-out forwards;
+
+  h1, h2, h3, h4, h5, h6, li, p, a { color: white; }
+  h1, h2 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    top: -$scale-4-1;
+    @include breakpoint( 'belowTablet' ) {
+      font-size: 18px;
+      top: -$scale-3-1;
+    }
+  }
 
   &_close {
     cursor: pointer;
@@ -28,6 +41,7 @@
   &-light {
     background-color: rgba( $color-base-lighter-7, 0.98 );
     border: 1px solid $color-base-lighter-5;
+    p { color: $color-base; }
   }
 
   &-usermeta {
@@ -78,14 +92,20 @@
 
   &-paddingLarge { padding: $scale-2-1 $scale-3-1; }
 
-  &-backdrop { box-shadow: 0px 0px 0px 10000px rgba( $color-base, 0.5 ); }
+  &-backdrop {
+    box-shadow: 0px 0px 0px 10000px rgba( $color-base, 0.8 );
+    border: 1px solid $color-base-lighter-1;
+  }
 
-  h1, h2, h3, h4, h5, h6, li, p, a { color: white; }
+  .inputWrap {
+    &:last-child { margin-bottom: 0; }
+  }
 
   &-btn {
     position: absolute;
     left: 0;
     bottom: 12px; // Half button
+    z-index: -1;
   }
 
   &-coursesAndTests {

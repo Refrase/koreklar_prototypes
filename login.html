@@ -48,10 +48,40 @@
             <div class="btn btn-primary display-inlineBlock margin-bottom-1-2" style="width: 100%; text-align: center;">
               <div class="btn_inner">Log ind</div>
             </div>
-            <a href="" class="small display-block textAlign-center" id="btnShowChangePasswordLogin">Glemt adgangskode?</a>
+
+            <a href="#" class="small display-block textAlign-center" id="btnShowChangePasswordLogin">Glemt adgangskode?</a>
           </div>
         </div>
       </div>
+
+      <div class="btnGroupWrap span-8 offset-2 display-none" id="boxChangePasswordLogin" style="z-index: 1004;">
+        <div class="btnGroup btnGroup-vertical width-full">
+          <div class="box box-light box-backdrop box-btn box-paddingLarge" style="bottom: 74px;">
+            <h2 class="margin-bottom-2-1 textAlign-center fontSize-xlarge">Glemt adgangskode</h2>
+            <p class="margin-bottom">Denne funktionalitet er kun tilgængelig for brugere der har købt adgang gennem Køreklar elevSHOP. Hvis du er oprettet gennem en køreskole bedes du henvende dig der.</p>
+            <div class="inputWrap">
+              <label for="email">Email</label>
+              <input type="email" name="" id="email" class="input" value="" />
+            </div>
+          </div>
+          <div class="display-flex justifyContent-center">
+            <div class="btn btn-small btn-light margin-right" id="btnSavePasswordLogin">
+              <div class="btn_inner">Gem</div>
+            </div>
+            <div class="btn btn-small btn-light" id="btnCancelPasswordLogin">
+              <div class="btn_inner">Annuller</div>
+            </div>
+            <div class="btn btn-small btn-light display-none" id="btnClosePasswordLogin">
+              <div class="btn_inner">Luk</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="message message-base" id="messageInputInfo">Besked...</div>
+      <div class="message message-success" id="messageSuccess">Succesbesked...</div>
+      <div class="message message-warning" id="messageWarning">Advarselsbesked...</div>
+      <div class="message message-error" id="messageError">Fejlbesked...</div>
 
       <div class="span-12 margin-top-3-1">
         <h2 class="textAlign-center">E-læring kompatibilitet</h2>
@@ -102,5 +132,7 @@
         </div>
       </div>
     </div>
+
+    <script src="./bundle.js"></script>
   </body>
 </html>

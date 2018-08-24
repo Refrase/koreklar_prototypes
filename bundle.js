@@ -14,10 +14,32 @@ var state = {
   testImageExpanded: false
 };
 
-// ########## GENERIC ##########
+// ########## DOM ELEMENTS ##########
+var getEl = function getEl(id) {
+  return document.getElementById(id);
+};
+var dom = {
+  changePassword: {
+    personalInfo: {
+      show: getEl('btnShowChangePassword'),
+      close: getEl('btnClosePassword'),
+      cancel: getEl('btnCancelPassword'),
+      save: getEl('btnSavePassword'),
+      box: getEl('boxChangePassword')
+    },
+    login: {
+      show: getEl('btnShowChangePasswordLogin'),
+      close: getEl('btnClosePasswordLogin'),
+      cancel: getEl('btnCancelPasswordLogin'),
+      save: getEl('btnSavePasswordLogin'),
+      box: getEl('boxChangePasswordLogin')
+    }
+  }
 
-// Message: Clear other messages than the current
-function removeClassFromAllSimilarElementsApartFromThis(elementToShow, className, similarElementsIds) {
+  // ########## GENERIC ##########
+
+  // Message: Clear other messages than the current
+};function removeClassFromAllSimilarElementsApartFromThis(elementToShow, className, similarElementsIds) {
   for (var i = 0; i < similarElementsIds.length; i++) {
     if (similarElementsIds[i].id != elementToShow.id) {
       similarElementsIds[i].classList.remove(className);
@@ -39,6 +61,35 @@ function toggle(elementToggled) {
   var className = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'display-none';
   elementToggled.classList.toggle(className);
 }
+
+// Change password box. Initialize the logic
+var initChangePasswordBox = function initChangePasswordBox(btnShow, btnClose, btnCancel, btnSave, boxChangePassword) {
+
+  btnShow ? btnShow.addEventListener('click', function () {
+    console.log(btnSave, btnShow, boxChangePassword);
+    if (!btnClose.classList.contains('display-none')) {
+      // Make sure "Annuller" is shown on every visit
+      toggle(btnCancel);
+      toggle(btnClose);
+    }
+    toggle(boxChangePassword);
+  }) : null;
+
+  btnCancel ? btnCancel.addEventListener('click', function () {
+    toggle(boxChangePassword);
+  }) : null;
+  btnClose ? btnClose.addEventListener('click', function () {
+    toggle(boxChangePassword);
+  }) : null;
+
+  btnSave ? btnSave.addEventListener('click', function () {
+    if (btnClose.classList.contains('display-none')) {
+      toggle(btnCancel);
+      toggle(btnClose);
+    }
+    toggleClassTemporarily(messageSuccess, 'message-showing', 5000, null, messageElements);
+  }) : null;
+};
 
 // ########## UNDERVISNING ##########
 
@@ -143,35 +194,15 @@ btnSavePersonalInfo ? btnSavePersonalInfo.addEventListener('click', function () 
 }) : null;
 
 // Change password box
-var btnShowChangePassword = document.getElementById('btnShowChangePassword');
-var boxChangePassword = document.getElementById('boxChangePassword');
-var btnSavePassword = document.getElementById('btnSavePassword');
-var btnCancelPassword = document.getElementById('btnCancelPassword');
-var btnClosePassword = document.getElementById('btnClosePassword');
+var pi = {};
+var _dom$changePassword$p = dom.changePassword.personalInfo;
+pi.show = _dom$changePassword$p.show;
+pi.close = _dom$changePassword$p.close;
+pi.cancel = _dom$changePassword$p.cancel;
+pi.save = _dom$changePassword$p.save;
+pi.box = _dom$changePassword$p.box;
 
-btnShowChangePassword ? btnShowChangePassword.addEventListener('click', function () {
-  if (!btnClosePassword.classList.contains('display-none')) {
-    // Make sure "Annuller" is shown on every visit
-    toggle(btnCancelPassword);
-    toggle(btnClosePassword);
-  }
-  toggle(boxChangePassword);
-}) : null;
-
-btnCancelPassword ? btnCancelPassword.addEventListener('click', function () {
-  toggle(boxChangePassword);
-}) : null;
-btnClosePassword ? btnClosePassword.addEventListener('click', function () {
-  toggle(boxChangePassword);
-}) : null;
-
-btnSavePassword ? btnSavePassword.addEventListener('click', function () {
-  if (btnClosePassword.classList.contains('display-none')) {
-    toggle(btnCancelPassword);
-    toggle(btnClosePassword);
-  }
-  toggleClassTemporarily(messageSuccess, 'message-showing', 5000, null, messageElements);
-}) : null;
+initChangePasswordBox(pi.show, pi.close, pi.cancel, pi.save, pi.box);
 
 // Milestone completed
 var controlBarBtnNext = document.getElementById('controlBarBtnNext');
@@ -430,7 +461,6 @@ btnAnswersNext ? btnAnswersNext.addEventListener('click', nextAnswersBlock) : nu
 btnAnswersPrevious ? btnAnswersPrevious.addEventListener('click', previousAnswersBlock) : null;
 
 // ########## TEST-01-UNDERVISER ##########
-
 /* ----- Dialogs ----- */
 // ----- Bug report
 var btnShowBugReport = document.getElementById('btnShowBugReport');
@@ -453,6 +483,18 @@ btnSendBugReport ? btnSendBugReport.addEventListener('click', function () {
   toggleClassTemporarily(messageSuccess, 'message-showing', 5000, null, messageElements);
   toggle(dialogBugReport, 'dialog-hidden');
 }) : null;
+
+// ########## LOGIN ##########
+// ----- Change password box
+var l = {};
+var _dom$changePassword$l = dom.changePassword.login;
+l.show = _dom$changePassword$l.show;
+l.close = _dom$changePassword$l.close;
+l.cancel = _dom$changePassword$l.cancel;
+l.save = _dom$changePassword$l.save;
+l.box = _dom$changePassword$l.box;
+
+initChangePasswordBox(l.show, l.close, l.cancel, l.save, l.box);
 
 // ########## TEST-01-SMALL-SCREEN-ALTERNATIVE ##########
 
