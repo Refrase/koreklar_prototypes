@@ -47,10 +47,14 @@
       </div>
     </div>
 
+    <audio id="audioPlayer">
+      <source id="audioSource" src="./assets/sample_voiceover.mp3" type="audio/mpeg">
+    </audio>
+
     <div class="gridBlock gridBlock-columns-12 gridBlock-noPadding flexDirection-columnReverse-belowDesktop">
       <div class="span-4 position-relative">
         <div class="padding-top-2-1 padding-top-belowTablet padding-bottom-2-1 padding-bottom-belowTablet position-relative backgroundColor-white background-full">
-          <p class="fontSize-small margin-bottom-1-2 color-base-lighter-4 fontFamily-system">Spørgsmål 1 af 25</p>
+          <p class="fontSize-small margin-bottom-1-2 color-base-lighter-4 fontFamily-system" id="questionNumber" data-question-number="1">Spørgsmål 1 af 25</p>
           <h1 class="fontSize-xxlarge fontSize-xlarge-belowTablet">Hvilke bestemmelser gælder for bilens styreapparat?</h1>
         </div>
 
@@ -233,9 +237,10 @@
                 <img src="assets/ic_thumbnails.svg" alt="Ikon billedepanel" width="26" style="margin-right: 2px;">
               </div>
             </div>
-            <div class="btn btn-control">
-              <div class="btn-control_inner active">
-                <img src="assets/ic_pause.svg" alt="Ikon pause" height="11" style="margin-right: 1px;">
+            <div id="controlBarBtnPlayPause" class="btn btn-control">
+              <div class="btn-control_inner">
+                <img id="controlBarBtnPlayPauseIconsPause" src="assets/ic_pause.svg" alt="Ikon pause" height="11" style="margin-right: 1px;">
+                <img id="controlBarBtnPlayPauseIconsPlay" class="display-none" src="assets/ic_play.svg" alt="Ikon pause" height="12" style="margin-left: 1px;">
               </div>
             </div>
           </div>
@@ -244,31 +249,31 @@
       </div>
 
       <ul class="progressBar">
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
-        <li class="progressBar_step"></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
+        <li class="progressBar_step"><div class="completion"></div></li>
       </ul>
     </div>
 

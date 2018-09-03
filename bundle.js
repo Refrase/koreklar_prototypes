@@ -11,12 +11,16 @@ var state = {
   personalInfoDialogVisible: false,
   boxUserMetaVisible: false,
   breadcrumbWrapVisible: true,
-  testImageExpanded: false
+  testImageExpanded: false,
+  audioPlaying: false
 };
 
 // ########## DOM ELEMENTS ##########
 var getEl = function getEl(id) {
   return document.getElementById(id);
+};
+var getElsByClass = function getElsByClass(className) {
+  return document.getElementsByClassName(className);
 };
 var dom = {
   changePassword: {
@@ -34,6 +38,23 @@ var dom = {
       save: getEl('btnSavePasswordLogin'),
       box: getEl('boxChangePasswordLogin')
     }
+  },
+  audioPlayer: {
+    test: getEl('audioPlayer')
+  },
+  controlBar: {
+    buttons: {
+      playPause: {
+        button: getEl('controlBarBtnPlayPause'),
+        icons: {
+          pause: getEl('controlBarBtnPlayPauseIconsPause'),
+          play: getEl('controlBarBtnPlayPauseIconsPlay')
+        }
+      }
+    }
+  },
+  progressBar: {
+    steps: getElsByClass('progressBar_step')
   }
 
   // ########## GENERIC ##########
@@ -459,6 +480,55 @@ var previousAnswersBlock = function previousAnswersBlock() {
 
 btnAnswersNext ? btnAnswersNext.addEventListener('click', nextAnswersBlock) : null;
 btnAnswersPrevious ? btnAnswersPrevious.addEventListener('click', previousAnswersBlock) : null;
+
+/* ----- Sound and completion-indicator ----- */
+// Controlling audio and animation refered to below with play/pause button
+// Animation filling out the progress bar step with green from left to right depending on how far the audio voiceover has come
+
+var testNumber = parseInt(document.getElementById('questionNumber').dataset.questionNumber);
+var testProgressBarStep = dom.progressBar.steps[testNumber - 1];
+var testProgressBarStepCompletionIndicator = testProgressBarStep.getElementsByClassName('completion')[0];
+
+var audioDuration = null;
+
+if (dom.audioPlayer.test) {
+  dom.audioPlayer.test.play();
+  state.audioPlaying = true;
+  audioDuration = Math.floor(dom.audioPlayer.test.duration);
+}
+
+function onAudioEnd(interval) {
+  if (dom.audioPlayer.test.ended) {
+    state.audioPlaying = false;
+    toggle(dom.controlBar.buttons.playPause.icons.pause, 'display-none');
+    toggle(dom.controlBar.buttons.playPause.icons.play, 'display-none');
+    clearInterval(interval);
+  }
+};
+
+var audioEndCheck = setInterval(function () {
+  onAudioEnd(audioEndCheck);
+}, 500);
+
+testProgressBarStepCompletionIndicator ? testProgressBarStepCompletionIndicator.style.animation = 'toFullWidth ' + audioDuration + 's linear forwards' : null;
+
+dom.controlBar.buttons.playPause.button ? dom.controlBar.buttons.playPause.button.addEventListener('click', function () {
+  clearInterval(audioEndCheck);
+  toggle(dom.controlBar.buttons.playPause.icons.pause, 'display-none');
+  toggle(dom.controlBar.buttons.playPause.icons.play, 'display-none');
+  if (state.audioPlaying) {
+    testProgressBarStepCompletionIndicator.style.animationPlayState = 'paused';
+    dom.audioPlayer.test.pause();
+    state.audioPlaying = false;
+  } else {
+    testProgressBarStepCompletionIndicator.style.animationPlayState = 'running';
+    audioEndCheck = setInterval(function () {
+      onAudioEnd(audioEndCheck);
+    }, 500);
+    dom.audioPlayer.test.play();
+    state.audioPlaying = true;
+  }
+}) : null;
 
 // ########## TEST-01-UNDERVISER ##########
 /* ----- Dialogs ----- */

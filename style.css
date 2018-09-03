@@ -9720,7 +9720,7 @@ textarea:focus {
 }
 
 .progressBar_step {
-  height: 6px;
+  height: 8px;
   position: relative;
   width: calc(100% / 6 - 2px);
   background-color: #454a73;
@@ -9729,6 +9729,46 @@ textarea:focus {
   transition: transform 300ms ease-out;
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
+}
+
+@-webkit-keyframes toFullWidth {
+  0% {
+    -webkit-transform: scale3d(0, 1, 1);
+            transform: scale3d(0, 1, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes toFullWidth {
+  0% {
+    -webkit-transform: scale3d(0, 1, 1);
+            transform: scale3d(0, 1, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+}
+
+.progressBar_step .completion {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00c878;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transform: scale3d(0, 1, 1);
+          transform: scale3d(0, 1, 1);
+  -webkit-animation: none;
+          animation: none;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
 }
 
 .progressBar_step:last-child {
@@ -9745,8 +9785,8 @@ textarea:focus {
 }
 
 .progressBar_step.active {
-  -webkit-transform: translate3d(0, 6px, 0);
-          transform: translate3d(0, 6px, 0);
+  -webkit-transform: translate3d(0, 8px, 0);
+          transform: translate3d(0, 8px, 0);
 }
 
 .progressBar_step .thumbnail-withText {
@@ -9761,8 +9801,8 @@ textarea:focus {
     box-shadow: 0px 0px 0px 10000px rgba(244, 244, 247, 0.98);
   }
   to {
-    -webkit-transform: translate3d(0, 54px, 0);
-            transform: translate3d(0, 54px, 0);
+    -webkit-transform: translate3d(0, 52px, 0);
+            transform: translate3d(0, 52px, 0);
     box-shadow: none;
   }
 }
@@ -9774,8 +9814,8 @@ textarea:focus {
     box-shadow: 0px 0px 0px 10000px rgba(244, 244, 247, 0.98);
   }
   to {
-    -webkit-transform: translate3d(0, 54px, 0);
-            transform: translate3d(0, 54px, 0);
+    -webkit-transform: translate3d(0, 52px, 0);
+            transform: translate3d(0, 52px, 0);
     box-shadow: none;
   }
 }
@@ -9798,7 +9838,7 @@ textarea:focus {
   color: white;
   background-color: inherit;
   white-space: nowrap;
-  padding: 18px;
+  padding: 24px;
   padding-top: 29px;
 }
 
