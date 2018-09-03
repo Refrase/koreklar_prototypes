@@ -10057,6 +10057,10 @@ textarea:focus {
   color: white;
 }
 
+.statement .answers li input[type="radio"]:checked ~ label:hover {
+  background-color: transparent;
+}
+
 .statement .answers li label {
   position: absolute;
   z-index: 1;
@@ -10064,19 +10068,21 @@ textarea:focus {
   height: 100%;
   padding-top: 9px;
   line-height: 1;
-  color: #dadbe3;
+  color: #7d809d;
   font-size: 8px;
   font-family: "Roboto", "Helvetica Neue", sans-serif;
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.2px;
+  border-radius: 50%;
   cursor: pointer;
-  transition: color 200ms ease-out;
+  transition: all 100ms ease-out;
 }
 
 .statement .answers li label:hover {
   color: #454a73;
+  background-color: #e9e9ee;
 }
 
 @media (max-width: 767px) {

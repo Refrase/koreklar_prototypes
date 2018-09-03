@@ -49,7 +49,10 @@
           background: $color-base;
           transition: background 100ms ease-in;
         }
-        &:checked ~ label { color: white; }
+        &:checked ~ label {
+          color: white;
+          &:hover { background-color: transparent; }
+        }
       }
 
       label {
@@ -59,17 +62,21 @@
         height: 100%;
         padding-top: 9px;
         line-height: 1;
-        color: $color-base-lighter-5;
+        color: $color-base-lighter-2;
         font-size: $fontSize-xxxsmall;
         font-family: $fontFamily-system;
         font-weight: 700;
         text-align: center;
         text-transform: uppercase;
         letter-spacing: 0.2px;
+        border-radius: 50%;
         cursor: pointer;
-        transition: color 200ms ease-out;
+        transition: all 100ms ease-out;
 
-        &:hover { color: $color-base; }
+        &:hover {
+          color: $color-base;
+          background-color: $color-base-lighter-6;
+        }
 
         @include breakpoint( 'belowTablet' ) {
           padding-top: 12px;
