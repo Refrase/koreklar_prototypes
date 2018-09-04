@@ -9706,6 +9706,9 @@ textarea:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
@@ -9713,6 +9716,7 @@ textarea:focus {
   position: absolute;
   bottom: 0;
   width: 100%;
+  z-index: 10000;
 }
 
 .progressBar-done .progressBar_step {
@@ -9722,7 +9726,9 @@ textarea:focus {
 .progressBar_step {
   height: 8px;
   position: relative;
-  width: calc(100% / 6 - 2px);
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   background-color: #454a73;
   margin-right: 2px;
   transition: -webkit-transform 300ms ease-out;
@@ -9772,12 +9778,15 @@ textarea:focus {
 }
 
 .progressBar_step:last-child {
-  width: calc(100% / 6);
   margin-right: 0;
 }
 
 .progressBar_step.done {
   background-color: #00c878;
+}
+
+.progressBar_step.done .thumbnail-withText {
+  border-color: #00c878;
 }
 
 .progressBar_step.done .thumbnail-withText:after {
@@ -9791,18 +9800,25 @@ textarea:focus {
 
 .progressBar_step .thumbnail-withText {
   position: absolute;
-  top: -227px;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  border: 8px solid #454a73;
+  border-bottom: 0;
+}
+
+.progressBar_step:nth-last-child(-n+3) .thumbnail-withText {
+  right: 0;
 }
 
 @-webkit-keyframes shrinkStep {
   from {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
-    box-shadow: 0px 0px 0px 10000px rgba(244, 244, 247, 0.98);
+    box-shadow: 0px 0px 0px 10000px rgba(244, 244, 247, 0.8);
   }
   to {
-    -webkit-transform: translate3d(0, 52px, 0);
-            transform: translate3d(0, 52px, 0);
+    -webkit-transform: translate3d(0, 32px, 0);
+            transform: translate3d(0, 32px, 0);
     box-shadow: none;
   }
 }
@@ -9811,35 +9827,35 @@ textarea:focus {
   from {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
-    box-shadow: 0px 0px 0px 10000px rgba(244, 244, 247, 0.98);
+    box-shadow: 0px 0px 0px 10000px rgba(244, 244, 247, 0.8);
   }
   to {
-    -webkit-transform: translate3d(0, 52px, 0);
-            transform: translate3d(0, 52px, 0);
+    -webkit-transform: translate3d(0, 32px, 0);
+            transform: translate3d(0, 32px, 0);
     box-shadow: none;
   }
 }
 
 .progressBar.firstVisit .progressBar_step:first-child {
-  height: 60px;
+  height: 40px;
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
-  box-shadow: 0px 0px 0px 10000px rgba(244, 244, 247, 0.98);
+  box-shadow: 0px 0px 0px 10000px rgba(244, 244, 247, 0.8);
   -webkit-animation: shrinkStep 0.25s 5s ease-out forwards;
           animation: shrinkStep 0.25s 5s ease-out forwards;
 }
 
 .progressBar.firstVisit .progressBar_step:first-child:after {
-  content: 'Følg din fremgang på disse trin';
+  content: 'Hover og følg din fremgang på disse trin';
   position: absolute;
-  bottom: 0;
-  left: 0;
+  top: 8px;
+  left: calc( 100% + 4px);
+  max-width: 100%;
   font-size: 12px;
-  color: white;
-  background-color: inherit;
+  font-weight: bold;
+  color: #454a73;
+  background-color: transparent;
   white-space: nowrap;
-  padding: 24px;
-  padding-top: 29px;
 }
 
 .thumbnailPanel {
@@ -9986,11 +10002,17 @@ textarea:focus {
 
 .thumbnail-withText {
   display: none;
-  width: 300px;
+  min-width: 250px;
   margin: 0;
   opacity: 0;
   -webkit-animation: fadeIn 0.15s ease-out forwards;
           animation: fadeIn 0.15s ease-out forwards;
+}
+
+@media (max-width: 480px) {
+  .thumbnail-withText {
+    min-width: 200px;
+  }
 }
 
 .thumbnail-withText:after {
@@ -10005,7 +10027,7 @@ textarea:focus {
 }
 
 .thumbnail-withText .thumbnail_text {
-  font-size: 16px;
+  font-size: 14px;
   padding: 16px;
   z-index: 1;
 }

@@ -109,9 +109,9 @@
 
   &-withText {
     display: none;
-    width: 300px;
+    min-width: 250px;
+    @include breakpoint( 'mobile' ) { min-width: 200px; }
     margin: 0;
-
     opacity: 0;
     animation: fadeIn 0.15s ease-out forwards;
 
@@ -127,7 +127,7 @@
     }
 
     & .thumbnail_text {
-      font-size: $fontSize-large;
+      font-size: $fontSize-base;
       padding: $scale;
       z-index: 1;
     }

@@ -54,6 +54,8 @@ var dom = {
     }
   },
   progressBar: {
+    thumbnails: getElsByClass('thumbnail'),
+    thumbnailsWithText: getElsByClass('thumbnail-withText'),
     steps: getElsByClass('progressBar_step')
   }
 
@@ -306,52 +308,36 @@ var buildArray = function buildArray(domArray, emptyArray) {
   }
 };
 
-// When hovering over a thumbnail the corresponding progressbar step has a class added or removed
-var thumbnails = document.getElementsByClassName('thumbnail');
-var thumbnailsWithText = document.getElementsByClassName('thumbnail-withText');
-var progressBarSteps = document.getElementsByClassName('progressBar_step');
-var thumbnailsArray = [];
-var thumbnailsWithTextArray = [];
-var progressBarStepsArray = [];
-buildArray(thumbnails, thumbnailsArray);
-buildArray(thumbnailsWithText, thumbnailsWithTextArray);
-buildArray(progressBarSteps, progressBarStepsArray);
-
+// Context: thumbnailPanel -> When hovering over a thumbnail the corresponding progressbar step has a class added or removed
 var toggleCorrespondingProgressStep = function toggleCorrespondingProgressStep(e) {
-  for (var i = 0; i < progressBarStepsArray.length; i++) {
-    if (thumbnailsArray.indexOf(e.target) === progressBarStepsArray.indexOf(progressBarStepsArray[i])) {
-      if (e.type === 'mouseenter') {
-        progressBarStepsArray[i].classList.add('active');
-      } else {
-        progressBarStepsArray[i].classList.remove('active');
-      }
+  for (var i = 0; i < dom.progressBar.steps.length; i++) {
+    if ([].indexOf.call(dom.progressBar.thumbnails, e.target) === [].indexOf.call(dom.progressBar.steps, dom.progressBar.steps[i])) {
+      if (e.type === 'mouseenter') dom.progressBar.steps[i].classList.add('active');else dom.progressBar.steps[i].classList.remove('active');
     }
   }
 };
 
 var addEventListenersToThumbnails = function () {
-  for (var i = 0; i < thumbnailsArray.length; i++) {
-    thumbnailsArray[i].addEventListener('mouseenter', toggleCorrespondingProgressStep);
-    thumbnailsArray[i].addEventListener('mouseleave', toggleCorrespondingProgressStep);
+  for (var i = 0; i < dom.progressBar.thumbnails.length; i++) {
+    dom.progressBar.thumbnails[i].addEventListener('mouseenter', toggleCorrespondingProgressStep);
+    dom.progressBar.thumbnails[i].addEventListener('mouseleave', toggleCorrespondingProgressStep);
   }
 }();
 
+// Context: progressBar -> When hovering over a progressbar step the corresponding thumbnail has a class added or removed
 var toggleCorrespondingThumbnail = function toggleCorrespondingThumbnail(e) {
-  for (var i = 0; i < thumbnailsWithTextArray.length; i++) {
-    if (progressBarStepsArray.indexOf(e.target) === thumbnailsWithTextArray.indexOf(thumbnailsWithTextArray[i])) {
-      if (e.type === 'mouseenter') {
-        thumbnailsWithTextArray[i].classList.add('active');
-      } else {
-        thumbnailsWithTextArray[i].classList.remove('active');
-      }
+  for (var i = 0; i < dom.progressBar.thumbnailsWithText.length; i++) {
+    dom.progressBar.thumbnailsWithText[i].style.width = dom.progressBar.steps[0].clientWidth + 'px'; // Setting the thumbnail width to the step width
+    if ([].indexOf.call(dom.progressBar.steps, e.target) === [].indexOf.call(dom.progressBar.thumbnailsWithText, dom.progressBar.thumbnailsWithText[i])) {
+      if (e.type === 'mouseenter') dom.progressBar.thumbnailsWithText[i].classList.add('active');else dom.progressBar.thumbnailsWithText[i].classList.remove('active');
     }
   }
 };
 
 var addEventListenersToProgressSteps = function () {
-  for (var i = 0; i < progressBarStepsArray.length; i++) {
-    progressBarSteps[i].addEventListener('mouseenter', toggleCorrespondingThumbnail);
-    progressBarSteps[i].addEventListener('mouseleave', toggleCorrespondingThumbnail);
+  for (var i = 0; i < dom.progressBar.steps.length; i++) {
+    dom.progressBar.steps[i].addEventListener('mouseenter', toggleCorrespondingThumbnail);
+    dom.progressBar.steps[i].addEventListener('mouseleave', toggleCorrespondingThumbnail);
   }
 }();
 
@@ -485,7 +471,7 @@ btnAnswersPrevious ? btnAnswersPrevious.addEventListener('click', previousAnswer
 // Controlling audio and animation refered to below with play/pause button
 // Animation filling out the progress bar step with green from left to right depending on how far the audio voiceover has come
 
-var testNumber = document.getElementById('questionNumber') ? parseInt(document.getElementById('questionNumber').dataset.questionNumber) : null;
+var testNumber = document.getElementById('pageNumber') ? parseInt(document.getElementById('pageNumber').dataset.pageNumber) : null;
 var testProgressBarStep = testNumber ? dom.progressBar.steps[testNumber - 1] : null;
 var testProgressBarStepCompletionIndicator = testProgressBarStep ? testProgressBarStep.getElementsByClassName('completion')[0] : null;
 

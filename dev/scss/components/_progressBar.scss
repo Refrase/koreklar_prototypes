@@ -1,10 +1,12 @@
 .progressBar {
   display: flex;
+  justify-content: space-between;
   align-items: flex-end;
   list-style: none;
   position: absolute;
   bottom: 0;
   width: 100%;
+  z-index: 10000;
 
   &-done { .progressBar_step { background-color: $color-primary; } }
 
@@ -13,7 +15,7 @@
   &_step {
     height: $stepHeight;
     position: relative;
-    width: calc(100% / 6 - 2px);
+    flex: 1;
     background-color: $color-base;
     margin-right: 2px;
     transition: transform 300ms ease-out;
@@ -38,29 +40,40 @@
       animation-play-state: running;
     }
 
-    &:last-child { width: calc(100% / 6); margin-right: 0; }
+    &:last-child { margin-right: 0; }
 
     &.done {
       background-color: $color-primary;
-      & .thumbnail-withText:after { background-color: rgba($color-primary, 0.8); }
+      & .thumbnail-withText {
+        border-color: $color-primary;
+        &:after { background-color: rgba($color-primary, 0.8); }
+      }
     }
 
     &.active { transform: translate3d(0, $stepHeight, 0); }
 
     & .thumbnail-withText {
       position: absolute;
-      top: -225px - 2px; // 225 is height of thumbnail
+      transform: translateY(-100%);
+      border: 8px solid $color-base;
+      border-bottom: 0;
+    }
+
+    &:nth-last-child(-n+3) {
+      & .thumbnail-withText {
+        right: 0;
+      }
     }
   }
 
   &.firstVisit {
 
-    $firstStepHeight: 60px;
+    $firstStepHeight: 40px;
     $translateAmount: $firstStepHeight - $stepHeight;
     @keyframes shrinkStep {
       from {
         transform: translate3d(0, 0, 0);
-        box-shadow: 0px 0px 0px 10000px rgba( $color-base-lighter-7, 0.98 );
+        box-shadow: 0px 0px 0px 10000px rgba( $color-base-lighter-7, 0.8 );
       }
       to {
         transform: translate3d(0, $translateAmount, 0);
@@ -71,19 +84,19 @@
     & .progressBar_step:first-child {
       height: $firstStepHeight;
       transform: translate3d(0, 0, 0);
-      box-shadow: 0px 0px 0px 10000px rgba( $color-base-lighter-7, 0.98 );
+      box-shadow: 0px 0px 0px 10000px rgba( $color-base-lighter-7, 0.8 );
       animation: shrinkStep 0.25s 5s ease-out forwards;
       &:after {
-        content: 'Følg din fremgang på disse trin';
+        content: 'Hover og følg din fremgang på disse trin';
         position: absolute;
-        bottom: 0;
-        left: 0;
+        top: $stepHeight;
+        left: calc( 100% + #{$scale-1-4} );
+        max-width: 100%;
         font-size: $fontSize-small;
-        color: white;
-        background-color: inherit;
+        font-weight: bold;
+        color: $color-base;
+        background-color: transparent;
         white-space: nowrap;
-        padding: $stepHeight * 3;
-        padding-top: 29px; // Space from text to top of step so that the text will expand a step to the right it will have the same height as the step
       }
     }
 
