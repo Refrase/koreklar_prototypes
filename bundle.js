@@ -485,9 +485,9 @@ btnAnswersPrevious ? btnAnswersPrevious.addEventListener('click', previousAnswer
 // Controlling audio and animation refered to below with play/pause button
 // Animation filling out the progress bar step with green from left to right depending on how far the audio voiceover has come
 
-var testNumber = parseInt(document.getElementById('questionNumber').dataset.questionNumber);
-var testProgressBarStep = dom.progressBar.steps[testNumber - 1];
-var testProgressBarStepCompletionIndicator = testProgressBarStep.getElementsByClassName('completion')[0];
+var testNumber = document.getElementById('questionNumber') ? parseInt(document.getElementById('questionNumber').dataset.questionNumber) : null;
+var testProgressBarStep = testNumber ? dom.progressBar.steps[testNumber - 1] : null;
+var testProgressBarStepCompletionIndicator = testProgressBarStep ? testProgressBarStep.getElementsByClassName('completion')[0] : null;
 
 var audioDuration = null;
 
@@ -498,7 +498,7 @@ if (dom.audioPlayer.test) {
 }
 
 function onAudioEnd(interval) {
-  if (dom.audioPlayer.test.ended) {
+  if (dom.audioPlayer.test && dom.audioPlayer.test.ended) {
     state.audioPlaying = false;
     toggle(dom.controlBar.buttons.playPause.icons.pause, 'display-none');
     toggle(dom.controlBar.buttons.playPause.icons.play, 'display-none');
