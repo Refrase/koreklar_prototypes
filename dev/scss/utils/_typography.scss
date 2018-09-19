@@ -3,7 +3,8 @@ body { -webkit-font-smoothing: subpixel-antialiased; } // Preventing fonts of ge
 h1, h2, h3, h4, h5, h6, p, a, li, td, button, label,
 input[type="text"],
 input[type="email"],
-input[type="tel"] {
+input[type="tel"],
+select {
   font-family: $fontFamily-sans;
   color: $color-base;
   font-variant-ligatures: none;
@@ -16,7 +17,8 @@ td,
 label,
 input[type="text"],
 input[type="email"],
-input[type="tel"] {
+input[type="tel"],
+select {
   font-size: $fontSize-copy;
   line-height: 1.5;
   color: $color-base;

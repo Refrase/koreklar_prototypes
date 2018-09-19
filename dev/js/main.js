@@ -16,6 +16,17 @@ const state = {
 const getEl = ( id ) => { return document.getElementById( id ); }
 const getElsByClass = ( className ) => { return document.getElementsByClassName( className ); }
 const dom = {
+  createUser: {
+    buttons: {
+      create: getEl( 'btnCreateUser' ),
+      confirmCreate: getEl( 'btnConfirmCreateUser' ),
+      cancelCreate: getEl( 'btnCancelCreateUser' )
+    },
+    dialogs: {
+      createUser: getEl( 'dialogCreateUser' ),
+      userCreated: getEl( 'dialogUserCreated' )
+    }
+  },
   changePassword: {
     personalInfo: {
       show: getEl( 'btnShowChangePassword' ),
@@ -489,6 +500,22 @@ btnSendBugReport ? btnSendBugReport.addEventListener( 'click', function() {
 const l = {};
 ({ show: l.show, close: l.close, cancel: l.cancel, save: l.save, box: l.box } = dom.changePassword.login);
 initChangePasswordBox( l.show, l.close, l.cancel, l.save, l.box );
+
+// ----- Create user box
+// const cub = {};
+// ({ create: cub.create, confirmCreate: cub.confirmCreate, cancelCreate: cub.cancelCreate } = dom.createUser.buttons);
+// ({ createUser: cub.createUser, userCreated: cub.userCreated } = dom.createUser.dialogs);
+const { create, confirmCreate, cancelCreate } = dom.createUser.buttons;
+const { createUser, userCreated } = dom.createUser.dialogs;
+if (create) {
+  create.addEventListener( 'click', () => { toggle(createUser, 'display-none') } );
+  confirmCreate.addEventListener( 'click', () => {
+    console.log('test')
+    toggle(createUser, 'display-none');
+    toggle(userCreated, 'display-none');
+  } );
+  cancelCreate.addEventListener( 'click', () => { toggle(createUser, 'display-none') } );
+}
 
 // ########## TEST-01-SMALL-SCREEN-ALTERNATIVE ##########
 

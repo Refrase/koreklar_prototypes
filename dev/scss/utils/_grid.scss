@@ -6,6 +6,14 @@
   padding: $scale-6-1 0;
   margin: 0 auto;
 
+  &-dialogsContainer {
+    position: absolute;
+    left: 50%;
+    transform: translate( -50% );
+    margin-top: $scale-2-1;
+    z-index: 1004; 
+  }
+
   &-noPadding {
     padding-top: 0 !important;
     padding-bottom: 0 !important;

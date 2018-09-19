@@ -10,6 +10,96 @@
   </head>
   <body class="backgroundColor-base-lighter background-pattern">
 
+    <div class="gridBlock gridBlock-columns-12 gridBlock-dialogsContainer">
+
+      <div id="dialogCreateUser" class="span-8 offset-2 display-flex justifyContent-center display-none">
+        <div class="box box-light box-backdrop">
+          <div class="box_headlineWrap">
+            <h2 class="textAlign-center fontSize-xlarge">Opret bruger</h2>
+          </div>
+          <div class="inputWrap shortLabel">
+            <label for="name">Navn</label>
+            <input type="text" name="" id="name" class="input" value="" />
+          </div>
+          <div class="inputWrap shortLabel">
+            <label for="address">Adresse</label>
+            <input type="text" name="" id="address" class="input" value="" />
+          </div>
+          <div class="inputGroup">
+            <div class="inputWrap shortLabel" style="flex-basis: 150px;">
+              <label for="postalCode">Post nr.</label>
+              <input type="text" name="" id="postalCode" class="input" value="" style="min-width: 50px;" />
+            </div>
+            <div class="inputWrap shortLabel">
+              <label for="city">By</label>
+              <input type="text" name="" id="city" class="input" value="" />
+            </div>
+          </div>
+          <div class="inputWrap shortLabel">
+            <label for="emailCreateUser">Email</label>
+            <input type="email" name="" id="emailCreateUser" class="input" value="" />
+          </div>
+          <div class="inputGroup">
+            <div class="inputWrap shortLabel">
+              <label for="cprNumber">CPR nr.</label>
+              <input type="text" name="" id="cprNumber" class="input" value="" />
+            </div>
+            <div class="inputWrap shortLabel">
+              <label for="phone">Telefon</label>
+              <input type="tel" name="" id="phone" class="input" value="" />
+            </div>
+          </div>
+          <div class="margin-top margin-bottom-2-1" style="height: 1px; width: calc( 100% + 64px ); background-color: white; position: relative; left: -32px;"></div>
+          <div class="inputWrap longLabel">
+            <label for="passwordCreateUser">Adgangskode</label>
+            <input type="password" name="" id="passwordCreateUser" class="input" value="" />
+          </div>
+          <div class="inputWrap longLabel">
+            <label for="passwordCreateUserConfirm">Bekræft adgangskode</label>
+            <input type="password" name="" id="passwordCreateUserConfirm" class="input" value="" />
+          </div>
+          <div class="inputWrap longLabel">
+            <label for="teamCode">Evt. holdkode</label>
+            <input type="text" name="" id="teamCode" class="input" value="" />
+          </div>
+          <div class="inputWrap longLabel">
+            <label for="school">Køreskole</label>
+            <select id="school" class="input" value="" />
+              <option value="EksempelSkole">Eksempel Skole</option>
+            </select>
+          </div>
+
+          <div class="box_buttonsWrap display-flex justifyContent-center">
+            <div class="btn btn-small btn-light margin-right" id="btnConfirmCreateUser">
+              <div class="btn_inner">Opret</div>
+            </div>
+            <div class="btn btn-small btn-base" id="btnCancelCreateUser">
+              <div class="btn_inner">Annuller</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="dialogUserCreated" class="span-8 offset-2 display-flex justifyContent-center display-none">
+        <div class="box box-light box-backdrop box-noFade">
+          <div class="box_headlineWrap">
+            <h2 class="textAlign-center fontSize-xlarge">Bruger oprettet</h2>
+          </div>
+          <p class="margin-bottom-2-1">Du er nu oprettet som bruger på systemet og kan logge på. Du er endnu ikke blevet tildelt kurser, det er noget din kørelærer skal sørge for.<br><br>Hvis du har indtastet en email adresse, vil du have fået tilsendt en mail med dine brugeroplysninger.<br><br>Du kan logge på med nedenstående brugernavn, samt den adgangskode du har valgt.</p>
+          <div class="inputWrap margin-none">
+            <label for="username">Brugernavn</label>
+            <input type="text" name="" id="username" class="input" value="Jens0702" disabled />
+          </div>
+          <div class="box_buttonsWrap display-flex justifyContent-center">
+            <a href="./index.html" class="btn btn-primary">
+              <div class="btn_inner">Log ind</div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
     <div class="gridBlock gridBlock-columns-12">
       <div class="span-6 offset-3">
         <img src="./assets/logo_koreklar.svg" alt="Køreklar logo" width="240" class="center margin-bottom-3-1">
@@ -41,16 +131,22 @@
         <div class="clearfix margin-top-2-1">
           <div class="inputWrap checkbox float-left">
             <input type="checkbox" name="" id="logOffOtherDevice" class="input" value="" />
-            <label for="logOffOtherDevice">Log ud på anden enhed</label>
+            <label for="logOffOtherDevice" style="white-space: nowrap;">Log ud på anden enhed</label>
           </div>
 
-          <div class="display-inlineBlock float-right" style="width: 200px; max-width: 50%;">
-            <div class="btn btn-primary display-inlineBlock margin-bottom-1-2" style="width: 100%; text-align: center;">
+          <div class="display-inlineBlock float-right">
+            <div class="btn btn-primary btn-small display-inlineBlock margin-bottom-1-2" style="width: 100%; text-align: center;">
               <div class="btn_inner">Log ind</div>
             </div>
 
             <a href="#" class="small display-block textAlign-center" id="btnShowChangePasswordLogin">Glemt adgangskode?</a>
           </div>
+        </div>
+      </div>
+
+      <div class="span-12 display-flex justifyContent-center margin-top-2-1">
+        <div id="btnCreateUser" class="btn btn-light btn-small btn-withDivider display-inlineBlock margin-bottom-1-2" style="width: 150px; text-align: center;">
+          <div class="btn_inner">Opret bruger</div>
         </div>
       </div>
 
