@@ -46,7 +46,7 @@
       background-color: $color-primary;
       & .thumbnail-withText {
         border-color: $color-primary;
-        &:after { background-color: rgba($color-primary, 0.8); }
+        &:after { background-color: rgba($color-primary, 0.5); }
       }
     }
 
