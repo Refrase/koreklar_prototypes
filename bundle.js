@@ -438,10 +438,12 @@ menuItemDiverse ? menuItemDiverse.addEventListener('click', function () {
 /* ----- Left/right markers ----- */
 // Toggle
 var controlBarBtnLeftRight = document.getElementById('controlBarBtnLeftRight');
-var leftRightMarkers = document.getElementById('leftRightMarkers');
+var leftRightMarkers = document.getElementsByClassName('leftRightMarkers');
 
 controlBarBtnLeftRight ? controlBarBtnLeftRight.addEventListener('click', function () {
-  leftRightMarkers.classList.toggle('display-none');
+  for (var i = 0; i < leftRightMarkers.length; i++) {
+    leftRightMarkers[i].classList.toggle('display-none');
+  }
 }) : null;
 
 // ########## TEST-01 ##########
@@ -595,9 +597,24 @@ if (create) {
 var floatingTestImageWrap = document.getElementById('floatingTestImageWrap');
 var floatingTestImage = document.getElementById('floatingTestImage');
 var btnExpandImage = document.getElementById('btnExpandImage');
+var btnExpandImageDesktop = document.getElementById('btnExpandImageDesktop');
+var expandedImageDesktopWrap = document.getElementById('expandedImageDesktopWrap');
+var dialogExpandedImageDesktop = document.getElementById('dialogExpandedImageDesktop');
 
 var testImageWidth = floatingTestImage ? floatingTestImage.width / 2 : null; // Not expanded by default, therefore it is half width due to the initial CSS transform scale3d(0.5, 0.5, 0.5) to preserve high quality on expansion
 var testImageHeight = floatingTestImage ? floatingTestImage.height / 2 : null;
+
+btnExpandImageDesktop ? btnExpandImageDesktop.addEventListener('click', function (e) {
+  toggle(dialogExpandedImageDesktop, 'dialog-hidden');
+}) : null;
+
+expandedImageDesktopWrap ? expandedImageDesktopWrap.addEventListener('click', function (e) {
+  toggle(dialogExpandedImageDesktop, 'dialog-hidden');
+}) : null;
+
+dialogExpandedImageDesktop ? dialogExpandedImageDesktop.addEventListener('click', function (e) {
+  if (e.srcElement === dialogExpandedImageDesktop) toggle(dialogExpandedImageDesktop, 'dialog-hidden');
+}) : null;
 
 // Toggling the image between full and half width
 btnExpandImage ? btnExpandImage.addEventListener('click', function () {

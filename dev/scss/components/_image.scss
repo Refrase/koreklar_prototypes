@@ -28,11 +28,15 @@
         }
       }
 
-      .btn {
+      #btnExpandImageDesktop {
+        @include breakpoint( 'belowDesktop' ) { display: none; }
+      }
+
+      #btnExpandImage {
         display: none;
         position: absolute;
         @include breakpoint( 'belowDesktop' ) { display: block; }
-        &_inner {
+        .btn_inner {
           &-wideScreens { @include breakpoint( 'belowTablet' ) { display: none; } }
           &-narrowScreens { @include breakpoint( 'tablet' ) { display: none; } }
         }
@@ -65,6 +69,29 @@
           .btn { right: auto; left: $scale-1-2; bottom: auto; top: $scale-1-2; }
         }
       }
+    }
+  }
+}
+
+$controlBarAndMargin: $scale-2-1 + 138px;
+
+#dialogExpandedImageDesktop {
+  @include breakpoint( 'belowDesktop' ) { display: none; }
+  z-index: $zindex-dialogExpandedImageDesktop;
+  #expandedImageDesktopWrap {
+    position: absolute;
+    top: $scale;
+    left: $scale-5-1;
+    height: calc( 100vh - #{$controlBarAndMargin} );
+    width: calc( 100vw - 232px );
+    overflow: hidden;
+    img { 
+      position: absolute;
+      min-width: 100%;
+      min-height: 100%; 
+      left: 50%; 
+      top: 50%;
+      transform: translate3d(-50%,-50%,0)
     }
   }
 }

@@ -1,4 +1,26 @@
-.statements {}
+.statements {
+  &-expandedImage {
+    position: absolute; 
+    right: 0; 
+    top: 0;
+    height: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    height: 200px;
+
+    .statement .answers {
+      li {
+        min-width: 36px;
+        height: 36px;
+      }
+      label {
+        padding-top: 12px;
+        font-size: $fontSize-xsmall;
+      }
+    }
+  }
+}
 
 .statement {
   position: relative;
