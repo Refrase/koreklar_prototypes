@@ -398,8 +398,10 @@ menuItemDiverse ? menuItemDiverse.addEventListener( 'click', function() { toggle
 // Toggle
 var controlBarBtnLeftRight = document.getElementById( 'controlBarBtnLeftRight' );
 var leftRightMarkers = document.getElementsByClassName( 'leftRightMarkers' );
+var leftRightMarkersMobile = document.getElementById( 'leftRightMarkersMobile' );
 
 controlBarBtnLeftRight ? controlBarBtnLeftRight.addEventListener( 'click', function() { 
+  leftRightMarkersMobile.classList.toggle( 'display-none' );
   for (var i = 0; i < leftRightMarkers.length; i++) {
     leftRightMarkers[i].classList.toggle( 'display-none' ); 
   }

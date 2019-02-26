@@ -14,4 +14,27 @@
     position: absolute;
     top: $scale;
   }
+
+  &-mobile {
+    display: none;
+    @include breakpoint( 'belowDesktop' ) {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      background-color: white;
+      margin-bottom: 1px;
+      top: 0;
+      & > * {
+        width: 50%;
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+        border-top-width: 0 !important;
+        border-left-width: 0 !important;
+        &:last-child {
+          border-right-width: 0 !important;
+        }
+      }
+    }
+  }
 }
