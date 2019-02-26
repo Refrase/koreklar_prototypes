@@ -10591,6 +10591,12 @@ textarea:focus {
   top: calc( -25px - 16px);
 }
 
+@media (max-width: 840px) {
+  .leftRightMarkers {
+    display: none;
+  }
+}
+
 .leftRightMarkers_marker-left {
   margin-left: 16px;
 }
@@ -11467,7 +11473,7 @@ select::-ms-expand {
   }
 }
 
-.image-coursesAndTests img {
+.image-coursesAndTests_image {
   width: 100%;
 }
 
@@ -11480,7 +11486,7 @@ select::-ms-expand {
 }
 
 @media (max-width: 840px) {
-  .image-coursesAndTests-smallScreenFriendly img {
+  .image-coursesAndTests-smallScreenFriendly_image {
     display: block;
     position: absolute;
     width: calc( 100vw - 32px) !important;
@@ -11489,7 +11495,7 @@ select::-ms-expand {
     transition: -webkit-transform 200ms ease-out;
     transition: transform 200ms ease-out;
   }
-  .image-coursesAndTests-smallScreenFriendly img.expanded {
+  .image-coursesAndTests-smallScreenFriendly_image.expanded {
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1);
   }
@@ -11502,26 +11508,18 @@ select::-ms-expand {
 }
 
 .image-coursesAndTests-smallScreenFriendly #btnExpandImage {
-  display: none;
   position: absolute;
 }
 
-@media (max-width: 840px) {
+@media (min-width: 841px) {
   .image-coursesAndTests-smallScreenFriendly #btnExpandImage {
-    display: block;
-  }
-}
-
-@media (max-width: 767px) {
-  .image-coursesAndTests-smallScreenFriendly #btnExpandImage .btn_inner-wideScreens {
     display: none;
   }
 }
 
-@media (min-width: 768px) {
-  .image-coursesAndTests-smallScreenFriendly #btnExpandImage .btn_inner-narrowScreens {
-    display: none;
-  }
+.image-coursesAndTests-smallScreenFriendly #btnExpandImage #iconShrink {
+  width: 16px;
+  height: 16px;
 }
 
 @media (max-width: 840px) {

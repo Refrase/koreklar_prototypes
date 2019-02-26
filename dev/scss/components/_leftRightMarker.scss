@@ -5,6 +5,8 @@
   position: relative;
   top: calc( -25px - #{$scale} ); // First number = marker height
 
+  @include breakpoint( 'belowDesktop' ) { display: none; }
+
   &_marker {
     &-left { margin-left: $scale; }
     &-right { margin-right: $scale; }

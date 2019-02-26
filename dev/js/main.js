@@ -529,6 +529,8 @@ if (create) {
 const floatingTestImageWrap = document.getElementById( 'floatingTestImageWrap' );
 const floatingTestImage = document.getElementById( 'floatingTestImage' );
 const btnExpandImage = document.getElementById( 'btnExpandImage' );
+const btnExpand = document.getElementById( 'btnExpand' );
+const btnShrink = document.getElementById( 'btnShrink' );
 const btnExpandImageDesktop = document.getElementById( 'btnExpandImageDesktop' );
 const expandedImageDesktopWrap = document.getElementById( 'expandedImageDesktopWrap' );
 const dialogExpandedImageDesktop = document.getElementById( 'dialogExpandedImageDesktop' );
@@ -551,6 +553,8 @@ dialogExpandedImageDesktop ? dialogExpandedImageDesktop.addEventListener( 'click
 // Toggling the image between full and half width
 btnExpandImage ? btnExpandImage.addEventListener( 'click', () => {
   toggle( floatingTestImage, 'expanded' );
+  toggle( iconExpand, 'display-none' );
+  toggle( iconShrink, 'display-none' );
   state.testImageExpanded = !state.testImageExpanded;
   testImageWidth = state.testImageExpanded === true ? floatingTestImage.width : floatingTestImage.width / 2;
   testImageHeight = state.testImageExpanded === true ? floatingTestImage.height : floatingTestImage.height / 2;

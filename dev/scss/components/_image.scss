@@ -8,7 +8,7 @@
     @include breakpoint( 'belowTablet' ) { width: calc( 100% + #{$scale-4-1} ) !important; position: relative; }
     @include breakpoint( 'widescreen' ) { width: calc( 100% + #{$scale-6-1} ) !important; }
 
-    img { width: 100%; }
+    &_image { width: 100%; }
 
     &-smallScreenFriendly {
       @include breakpoint( 'belowDesktop' ) {
@@ -17,7 +17,7 @@
         position: fixed;
       }
 
-      img {
+      &_image {
         @include breakpoint( 'belowDesktop' ) {
           display: block;
           position: absolute;
@@ -33,13 +33,9 @@
       }
 
       #btnExpandImage {
-        display: none;
         position: absolute;
-        @include breakpoint( 'belowDesktop' ) { display: block; }
-        .btn_inner {
-          &-wideScreens { @include breakpoint( 'belowTablet' ) { display: none; } }
-          &-narrowScreens { @include breakpoint( 'tablet' ) { display: none; } }
-        }
+        @include breakpoint( 'aboveTablet' ) { display: none; }
+        & #iconShrink { width: 16px; height: 16px; }
       }
 
       @include breakpoint( 'belowDesktop' ) {

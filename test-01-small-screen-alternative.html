@@ -136,7 +136,7 @@
 
       <div class="span-8">
         <div class="image-coursesAndTests image-coursesAndTests-smallScreenFriendly bottomRight" id="floatingTestImageWrap">
-          <img src="./images/rat.jpg" alt="Bilrat" id="floatingTestImage">
+          <img src="./images/rat.jpg" class="image-coursesAndTests_image image-coursesAndTests-smallScreenFriendly_image" alt="Bilrat" id="floatingTestImage">
           <div id="leftRightMarkers" class="leftRightMarkers leftRightMarkers-imageTop display-none">
             <p class="label label-base leftRightMarkers_marker-left">Venstre</p>
             <div class="btn btn-small btn-light" id="btnExpandImageDesktop">
@@ -144,9 +144,11 @@
             </div>
             <p class="label label-base leftRightMarkers_marker-right">Højre</p>
           </div>
-          <div class="btn btn-small btn-base" id="btnExpandImage">
-            <div class="btn_inner btn_inner-wideScreens">Forstør billede</div>
-            <div class="btn_inner btn_inner-narrowScreens">Forstør</div>
+          <div id="btnExpandImage" class="btn btn-control btn-control-dark">
+            <div class="btn-control_inner btn-control_inner-dark" style="padding-left: 0;">
+              <img id="iconExpand" src="assets/ic_enlargeimage_2.svg" alt="Ikon: Forstør billede" height="14">
+              <img id="iconShrink" class="display-none" src="assets/ic_shrinkimage_2.svg" alt="Ikon: Formindsk billede" height="14">
+            </div>
           </div>
         </div>
       </div>
