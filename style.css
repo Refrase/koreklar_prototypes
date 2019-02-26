@@ -11531,9 +11531,9 @@ select::-ms-expand {
   }
 }
 
-@media (max-width: 840px) and (max-width: 600px) {
+@media (max-width: 840px) and (max-width: 456px) {
   .image-coursesAndTests-smallScreenFriendly.bottomRight {
-    bottom: calc( 170px + 16px);
+    bottom: calc( 154px + 16px);
   }
 }
 
@@ -11560,9 +11560,9 @@ select::-ms-expand {
   }
 }
 
-@media (max-width: 840px) and (max-width: 600px) {
+@media (max-width: 840px) and (max-width: 456px) {
   .image-coursesAndTests-smallScreenFriendly.bottomLeft {
-    bottom: calc( 170px + 16px);
+    bottom: calc( 154px + 16px);
   }
 }
 

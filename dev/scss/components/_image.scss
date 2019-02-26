@@ -41,14 +41,14 @@
       @include breakpoint( 'belowDesktop' ) {
         &.bottomRight {
           right: $scale; left: auto; top: auto; bottom: calc( 138px + #{$scale} );
-          @include breakpoint( 'custom', '600px' ) { bottom: calc( 170px + #{$scale} ); }
+          @include breakpoint( 'custom', '456px' ) { bottom: calc( 154px + #{$scale} ); }
           img { right: 0; left: auto; bottom: 0; top: auto; transform-origin: bottom right; }
           .btn { right: $scale-1-2; left: auto; bottom: $scale-1-2; top: auto; }
         }
 
         &.bottomLeft {
           right: auto; left: $scale; top: auto; bottom: calc( 138px + #{$scale} );
-          @include breakpoint( 'custom', '600px' ) { bottom: calc( 170px + #{$scale} ); }
+          @include breakpoint( 'custom', '456px' ) { bottom: calc( 154px + #{$scale} ); }
           img { right: auto; left: 0; bottom: 0; top: auto; transform-origin: bottom left; }
           .btn { right: auto; left: $scale-1-2; bottom: $scale-1-2; top: auto; }
         }
