@@ -18,6 +18,7 @@
   }
 
   &-mobile {
+    background-color: $color-base !important;
     display: none;
     @include breakpoint( 'belowDesktop' ) {
       display: flex;
@@ -26,16 +27,21 @@
       background-color: white;
       margin-bottom: 1px;
       top: 0;
-      & > * {
-        width: 50%;
+      & .label {
+        padding-top: 10px;
+        padding-bottom: 0.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
         text-align: center;
         margin-left: 0;
         margin-right: 0;
+        background-color: transparent !important;
         border-top-width: 0 !important;
-        border-left-width: 0 !important;
-        &:last-child {
-          border-right-width: 0 !important;
-        }
+        &:first-child { border-left-width: 0 !important; }
+        &:last-child { border-right-width: 0 !important; }
+      }
+      & .btn {
+        margin-top: 4px;
       }
     }
   }

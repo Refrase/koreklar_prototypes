@@ -12,6 +12,9 @@
 
     <div id="leftRightMarkersMobile" class="leftRightMarkers-mobile">
       <p class="label label-base leftRightMarkers_marker-left">Venstre</p>
+      <div class="btn btn-small btn-light" id="btnExpandImageMobile">
+        <div class="btn_inner btn_inner-wideScreens">Fuld størrelse</div>
+      </div>
       <p class="label label-base leftRightMarkers_marker-right">Højre</p>
     </div>
 
@@ -154,6 +157,70 @@
       </div>
     </div>
 
+    <div class="dialog dialog-hidden" id="dialogExpandedImageMobile">
+      
+      <img src="./images/rat.jpg" alt="Bilrat" id="expandedImageMobile">
+
+      <div class="statements statements-expandedImage statements-expandedImage-mobile">
+        <div class="statement">
+          <ul class="answers">
+            <li>
+              <input type="radio" name="statement1expandedImage-answer" id="statement1expandedImage-ja" value="Ja">
+              <label for="statement1expandedImage-ja">Ja</label>
+              <div class="check"></div>
+            </li>
+            <li>
+              <input type="radio" name="statement1expandedImage-answer" id="statement1expandedImage-nej" value="Nej">
+              <label for="statement1expandedImage-nej">Nej</label>
+              <div class="check"></div>
+            </li>
+          </ul>
+        </div>
+        <div class="statement">
+          <ul class="answers">
+            <li>
+              <input type="radio" name="statement2expandedImage-answer" id="statement2expandedImage-ja" value="Ja">
+              <label for="statement2expandedImage-ja">Ja</label>
+              <div class="check"></div>
+            </li>
+            <li>
+              <input type="radio" name="statement2expandedImage-answer" id="statement2expandedImage-nej" value="Nej">
+              <label for="statement2expandedImage-nej">Nej</label>
+              <div class="check"></div>
+            </li>
+          </ul>
+        </div>
+        <div class="statement">
+          <ul class="answers">
+            <li>
+              <input type="radio" name="statement3expandedImage-answer" id="statement3expandedImage-ja" value="Ja">
+              <label for="statement3expandedImage-ja">Ja</label>
+              <div class="check"></div>
+            </li>
+            <li>
+              <input type="radio" name="statement3expandedImage-answer" id="statement3expandedImage-nej" value="Nej">
+              <label for="statement3expandedImage-nej">Nej</label>
+              <div class="check"></div>
+            </li>
+          </ul>
+        </div>
+        <div class="statement">
+          <ul class="answers">
+            <li>
+              <input type="radio" name="statement4expandedImage-answer" id="statement4expandedImage-ja" value="Ja">
+              <label for="statement4expandedImage-ja">Ja</label>
+              <div class="check"></div>
+            </li>
+            <li>
+              <input type="radio" name="statement4expandedImage-answer" id="statement4expandedImage-nej" value="Nej">
+              <label for="statement4expandedImage-nej">Nej</label>
+              <div class="check"></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
     <div class="dialog dialog-hidden" id="dialogExpandedImageDesktop">
       <div id="expandedImageDesktopWrap">
         <img src="./images/rat.jpg" alt="Bilrat">

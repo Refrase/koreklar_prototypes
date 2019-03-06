@@ -601,12 +601,23 @@ var floatingTestImage = document.getElementById('floatingTestImage');
 var btnExpandImage = document.getElementById('btnExpandImage');
 var btnExpand = document.getElementById('btnExpand');
 var btnShrink = document.getElementById('btnShrink');
+var btnExpandImageMobile = document.getElementById('btnExpandImageMobile');
+var expandedImageMobile = document.getElementById('expandedImageMobile');
+var dialogExpandedImageMobile = document.getElementById('dialogExpandedImageMobile');
 var btnExpandImageDesktop = document.getElementById('btnExpandImageDesktop');
 var expandedImageDesktopWrap = document.getElementById('expandedImageDesktopWrap');
 var dialogExpandedImageDesktop = document.getElementById('dialogExpandedImageDesktop');
 
 var testImageWidth = floatingTestImage ? floatingTestImage.width / 2 : null; // Not expanded by default, therefore it is half width due to the initial CSS transform scale3d(0.5, 0.5, 0.5) to preserve high quality on expansion
 var testImageHeight = floatingTestImage ? floatingTestImage.height / 2 : null;
+
+btnExpandImageMobile ? btnExpandImageMobile.addEventListener('click', function (e) {
+  toggle(dialogExpandedImageMobile, 'dialog-hidden');
+}) : null;
+
+expandedImageMobile ? expandedImageMobile.addEventListener('click', function (e) {
+  toggle(dialogExpandedImageMobile, 'dialog-hidden');
+}) : null;
 
 btnExpandImageDesktop ? btnExpandImageDesktop.addEventListener('click', function (e) {
   toggle(dialogExpandedImageDesktop, 'dialog-hidden');

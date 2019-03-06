@@ -91,3 +91,14 @@ $controlBarAndMargin: $scale-2-1 + 138px;
     }
   }
 }
+
+#dialogExpandedImageMobile {
+  @include breakpoint( 'aboveTablet' ) { display: none; }
+  z-index: $zindex-dialogExpandedImageDesktop;
+  img { 
+    position: absolute;
+    width: 100%;
+    left: 0; 
+    top: 0;
+  }
+}

@@ -531,12 +531,23 @@ const floatingTestImage = document.getElementById( 'floatingTestImage' );
 const btnExpandImage = document.getElementById( 'btnExpandImage' );
 const btnExpand = document.getElementById( 'btnExpand' );
 const btnShrink = document.getElementById( 'btnShrink' );
+const btnExpandImageMobile = document.getElementById( 'btnExpandImageMobile' );
+const expandedImageMobile = document.getElementById( 'expandedImageMobile' );
+const dialogExpandedImageMobile = document.getElementById( 'dialogExpandedImageMobile' );
 const btnExpandImageDesktop = document.getElementById( 'btnExpandImageDesktop' );
 const expandedImageDesktopWrap = document.getElementById( 'expandedImageDesktopWrap' );
 const dialogExpandedImageDesktop = document.getElementById( 'dialogExpandedImageDesktop' );
 
 let testImageWidth = floatingTestImage ? floatingTestImage.width / 2 : null; // Not expanded by default, therefore it is half width due to the initial CSS transform scale3d(0.5, 0.5, 0.5) to preserve high quality on expansion
 let testImageHeight = floatingTestImage ? floatingTestImage.height / 2 : null;
+
+btnExpandImageMobile ? btnExpandImageMobile.addEventListener( 'click', (e) => {
+  toggle( dialogExpandedImageMobile, 'dialog-hidden' );
+}) : null;
+
+expandedImageMobile ? expandedImageMobile.addEventListener( 'click', (e) => {
+  toggle( dialogExpandedImageMobile, 'dialog-hidden' );
+}) : null;
 
 btnExpandImageDesktop ? btnExpandImageDesktop.addEventListener( 'click', (e) => {
   toggle( dialogExpandedImageDesktop, 'dialog-hidden' );
