@@ -4,9 +4,7 @@
   padding-top: $scale + $scale-1-2;
   background-color: rgba( $color-base, 0.98 );
   border: 1px solid $color-base-darker-1;
-  opacity: 0;
   z-index: $zindex-box;
-  animation: fadeIn 0.25s ease-out forwards;
 
   &-noFade { animation-duration: 0s; }
 

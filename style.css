@@ -11019,10 +11019,7 @@ table.light {
   padding-top: 24px;
   background-color: rgba(69, 74, 115, 0.98);
   border: 1px solid #3d4266;
-  opacity: 0;
   z-index: 1004;
-  -webkit-animation: fadeIn 0.25s ease-out forwards;
-          animation: fadeIn 0.25s ease-out forwards;
 }
 
 .box-noFade {
